@@ -1,0 +1,104 @@
+{
+	"navbar": {
+		"band": "De Bende",
+		"members": "Leden",
+		"when": "Wanneer?",
+		"book_now": "BOEK NU!",
+		"open_menu": "Menu openen",
+		"close_menu": "Menu sluiten"
+	},
+	"title": "Pretband Help Ons Bloaz'n Brummen | Dweilorkest & Feestband",
+	"hero": {
+		"click_me": "KLIK HIER!",
+		"tagline": "DE LEUKSTE UITVINDING SINDS HET GESNEDEN BROOD!",
+		"description_1": "Wij zijn ",
+		"not": "GEEN",
+		"description_2": " gewoon orkest. Wij zijn ",
+		"vibe": "PRETTIG-GESTOORD",
+		"description_3": ", een ",
+		"party": "FEEST",
+		"description_4": " en een bak ",
+		"noise": "HERRIE",
+		"book_now": "NU BOEKEN!",
+		"check_chaos": "Check de chaos"
+	},
+	"about": {
+		"title_1": "WIE ZIJN DEZE",
+		"title_2": "VRIJE GEESTEN?",
+		"description": "Pretband is een prettig-gestoorde groep muzikanten uit Brummen, een schitterend dorpje tussen Amsterdam en Berlijn. Wij overleven elk podium, terras of festivalterrein.",
+		"feat_1_title": "OVERAL PRET",
+		"feat_1_desc": "Van dweildagen tot festivals, binnen- of buitengebied!",
+		"feat_2_title": "DESKUNDIG",
+		"feat_2_desc": "Ons team van deskundigen staat klaar om de boel af te breken!",
+		"yeah": "YEAH!"
+	},
+	"members": {
+		"title": "HET TEAM VAN DESKUNDIGEN",
+		"categories": {
+			"piccolo": "Piccolo/Fluiten",
+			"trumpets": "Trompetten",
+			"clarinets": "Es- / Bes-klarinet",
+			"low_brass": "Trombone/ Baritons / Bassen / Hoorn",
+			"saxophones": "Alt- / Tenor-/Bariton-saxofoon",
+			"percussion": "Slagwerk"
+		}
+	},
+	"agenda": {
+		"bg_text": "FEEST FEEST FEEST",
+		"title_1": "ONZE",
+		"title_2": "AGENDA",
+		"badge": "Check waar we de boel afbreken!"
+	},
+	"contact": {
+		"title_1": "DURF JE HET",
+		"title_2": "AAN?",
+		"description": "Heb je nog vragen of wil je ons boeken? Stuur gerust een berichtje! Ons team van deskundigen staat voor je klaar.",
+		"button": "JA, IK WIL PRET!",
+		"form": {
+			"name_label": "Naam",
+			"email_label": "E-mail",
+			"message_label": "Bericht",
+			"name_placeholder": "Jouw naam",
+			"email_placeholder": "jij@voorbeeld.nl",
+			"message_placeholder": "Vertel ons wat je van plan bent (datum, locatie, sfeer)...",
+			"sending": "VERZENDEN...",
+			"success": "Bericht verzonden. We nemen snel contact met je op!",
+			"error_generic": "Er ging iets mis. Probeer het opnieuw.",
+			"recaptcha_error": "Spamcontrole mislukt. Probeer het opnieuw.",
+			"or_email": "Of mail ons",
+			"recaptcha_notice": "Deze site wordt beschermd door reCAPTCHA en het Google",
+			"recaptcha_privacy": "Privacybeleid",
+			"recaptcha_and": "en de",
+			"recaptcha_terms": "Servicevoorwaarden zijn van toepassing"
+		}
+	},
+	"privacy": {
+		"analytics": {
+			"title": "ANALYTICS",
+			"body": "Mogen we lichte analytics gebruiken om bezoeken en succesvolle contact-verzendingen te tellen? Geen advertenties.",
+			"accept": "TOESTAAN",
+			"decline": "NEE, DANKJE",
+			"status_on": "Analytics staat aan",
+			"status_off": "Analytics staat uit",
+			"enable": "AANZETTEN",
+			"disable": "UITZETTEN",
+			"close": "SLUITEN",
+			"manage": "Privacy-instellingen",
+			"note": "Je kunt dit later wijzigen. Als je na inschakelen weer uitschakelt, herladen we de pagina om tracking volledig te stoppen."
+		}
+	},
+	"footer": {
+		"tagline": "Blaaswerk • Chaos • Pure Pret",
+		"follow": "Volg",
+		"instagram": "Instagram",
+		"tiktok": "TikTok",
+		"affiliation": "Pretband is onderdeel van",
+		"copyright": "© 2026 PRETBAND | GEEN RECHTEN ONTLEEND AAN DE CHAOS",
+		"back_to_top": "Terug naar boven"
+	},
+	"errors": {
+		"boundary_title": "Oeps! Er ging iets mis.",
+		"boundary_body": "Geen zorgen, we zijn op de hoogte. Probeer de pagina te verversen.",
+		"boundary_button": "PAGINA VERNIEUWEN"
+	}
+}

@@ -1,0 +1,104 @@
+{
+	"navbar": {
+		"band": "The Gang",
+		"members": "Members",
+		"when": "When?",
+		"book_now": "BOOK NOW!",
+		"open_menu": "Open menu",
+		"close_menu": "Close menu"
+	},
+	"title": "Pretband Help Ons Bloaz'n (Brummen) | Party Brass Band",
+	"hero": {
+		"click_me": "CLICK ME!",
+		"tagline": "THE BEST INVENTION SINCE SLICED BREAD!",
+		"description_1": "We are ",
+		"not": "NOT",
+		"description_2": " a normal orchestra. We are ",
+		"vibe": "PLEASANTLY INSANE",
+		"description_3": ", a ",
+		"party": "PARTY",
+		"description_4": " and a lot of ",
+		"noise": "NOISE",
+		"book_now": "BOOK NOW!",
+		"check_chaos": "Check the chaos"
+	},
+	"about": {
+		"title_1": "WHO ARE",
+		"title_2": "THESE CRAZIES?",
+		"description": "Pretband is a pleasantly-insane group of musicians from Brummen, a beautiful village between Amsterdam and Berlin. We survive every stage, terrace or festival ground.",
+		"feat_1_title": "FUN EVERYWHERE",
+		"feat_1_desc": "From street festivals to events, anywhere and everywhere!",
+		"feat_2_title": "EXPERT TEAM",
+		"feat_2_desc": "Our team of experts is ready to bring the house down!",
+		"yeah": "YEAH!"
+	},
+	"members": {
+		"title": "THE TEAM OF EXPERTS",
+		"categories": {
+			"piccolo": "Piccolo/Flutes",
+			"trumpets": "Trumpets",
+			"clarinets": "Eb / Bb Clarinet",
+			"low_brass": "Trombone/ Baritones / Basses / Horn",
+			"saxophones": "Alto / Tenor / Baritone Saxophone",
+			"percussion": "Percussion"
+		}
+	},
+	"agenda": {
+		"bg_text": "PARTY PARTY PARTY",
+		"title_1": "OUR",
+		"title_2": "AGENDA",
+		"badge": "Check where we're tearing things down!"
+	},
+	"contact": {
+		"title_1": "DO YOU DARE",
+		"title_2": "TO DO IT?",
+		"description": "Do you have any questions or want to book us? Feel free to send a message! Our team of experts is ready for you.",
+		"button": "YES, I WANT FUN!",
+		"form": {
+			"name_label": "Name",
+			"email_label": "Email",
+			"message_label": "Message",
+			"name_placeholder": "Your name",
+			"email_placeholder": "you@example.com",
+			"message_placeholder": "Tell us what you're planning (date, location, vibe)...",
+			"sending": "SENDING...",
+			"success": "Message sent. We'll get back to you soon!",
+			"error_generic": "Something went wrong. Please try again.",
+			"recaptcha_error": "Spam check failed. Please try again.",
+			"or_email": "Or email us",
+			"recaptcha_notice": "This site is protected by reCAPTCHA and the Google",
+			"recaptcha_privacy": "Privacy Policy",
+			"recaptcha_and": "and",
+			"recaptcha_terms": "Terms of Service apply"
+		}
+	},
+	"privacy": {
+		"analytics": {
+			"title": "ANALYTICS",
+			"body": "Can we use lightweight analytics to count visits and successful contact submissions? No ads.",
+			"accept": "ALLOW",
+			"decline": "NO THANKS",
+			"status_on": "Analytics is enabled",
+			"status_off": "Analytics is disabled",
+			"enable": "ENABLE",
+			"disable": "DISABLE",
+			"close": "CLOSE",
+			"manage": "Privacy settings",
+			"note": "You can change this later. If you disable after enabling, the page will reload to fully stop tracking."
+		}
+	},
+	"footer": {
+		"tagline": "Brass • Chaos • Pure Fun",
+		"follow": "Follow",
+		"instagram": "Instagram",
+		"tiktok": "TikTok",
+		"affiliation": "Pretband is part of",
+		"copyright": "© 2026 PRETBAND | NO RIGHTS DERIVED FROM THE CHAOS",
+		"back_to_top": "Back to top"
+	},
+	"errors": {
+		"boundary_title": "Oops! Something went wrong.",
+		"boundary_body": "Don't worry, we're aware. Try refreshing the page.",
+		"boundary_button": "REFRESH PAGE"
+	}
+}
