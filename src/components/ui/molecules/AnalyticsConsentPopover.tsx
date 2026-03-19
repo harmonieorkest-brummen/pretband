@@ -27,9 +27,9 @@ export function AnalyticsConsentPopover({
 	const isGranted = consent === "granted";
 
 	return (
-		<div 
+		<div
 			className="pointer-events-none fixed inset-x-0 bottom-0 z-130 p-4 md:p-8"
-			style={{ contain: 'layout' }}
+			style={{ contain: "layout" }}
 		>
 			<div className="pointer-events-auto mx-auto max-w-xl md:mr-0 md:ml-auto">
 				<div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-pret-dark/85 shadow-[0_30px_120px_rgba(0,0,0,0.6)] backdrop-blur-xl">

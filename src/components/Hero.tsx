@@ -95,7 +95,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 
 					<p className="relative z-10 p-8 font-black font-display text-white text-xl uppercase leading-tight tracking-tight md:p-12 md:text-3xl lg:text-4xl">
 						{t("hero.description_1")}
-						<span className="px-2 text-white italic underline decoration-pret-yellow decoration-2 underline-offset-4">
+						<span className="px-2 text-white italic underline decoration-2 decoration-pret-yellow underline-offset-4">
 							{t("hero.not")}
 						</span>
 						{t("hero.description_2")}
@@ -103,7 +103,9 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 							{t("hero.vibe")}
 						</span>
 						{t("hero.description_3")}
-						<span className="px-2 text-white underline decoration-2 decoration-pret-yellow underline-offset-4">{t("hero.party")}</span>
+						<span className="px-2 text-white underline decoration-2 decoration-pret-yellow underline-offset-4">
+							{t("hero.party")}
+						</span>
 						{t("hero.description_4")}
 						<span className="mt-4 block animate-lamp-flicker text-5xl text-pret-yellow italic md:text-7xl lg:text-8xl">
 							{t("hero.noise")}!

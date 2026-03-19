@@ -1,5 +1,5 @@
 import confetti from "canvas-confetti";
-import { Suspense, lazy, useEffect, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useBasinAhoy } from "./analytics/useBasinAhoy";
 import { useGtm } from "./analytics/useGtm";
@@ -12,14 +12,26 @@ import { publicEnv } from "./config/publicEnv";
 import { useAnalyticsConsent } from "./privacy/useAnalyticsConsent";
 
 // Lazy load components that are not in the initial viewport
-const About = lazy(() => import("./components/About").then((m) => ({ default: m.About })));
-const Agenda = lazy(() => import("./components/Agenda").then((m) => ({ default: m.Agenda })));
-const Contact = lazy(() => import("./components/Contact").then((m) => ({ default: m.Contact })));
-const Members = lazy(() => import("./components/Members").then((m) => ({ default: m.Members })));
-const Footer = lazy(() => import("./components/Footer").then((m) => ({ default: m.Footer })));
+const About = lazy(() =>
+	import("./components/About").then((m) => ({ default: m.About })),
+);
+const Agenda = lazy(() =>
+	import("./components/Agenda").then((m) => ({ default: m.Agenda })),
+);
+const Contact = lazy(() =>
+	import("./components/Contact").then((m) => ({ default: m.Contact })),
+);
+const Members = lazy(() =>
+	import("./components/Members").then((m) => ({ default: m.Members })),
+);
+const Footer = lazy(() =>
+	import("./components/Footer").then((m) => ({ default: m.Footer })),
+);
 
 function SectionLoader({ height = "h-40" }: { height?: string }) {
-	return <div className={`${height} w-full animate-pulse bg-white/5 rounded-3xl`} />;
+	return (
+		<div className={`${height} w-full animate-pulse rounded-3xl bg-white/5`} />
+	);
 }
 
 function App() {
@@ -137,8 +149,6 @@ function App() {
 				<Suspense fallback={null}>
 					<Footer onOpenPrivacy={open} />
 				</Suspense>
-
-
 			</div>
 		</>
 	);

@@ -1,6 +1,11 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import { defineConfig, loadEnv, type HtmlTagDescriptor, type Plugin } from "vite";
+import {
+	defineConfig,
+	type HtmlTagDescriptor,
+	loadEnv,
+	type Plugin,
+} from "vite";
 
 function securityMetaPlugin(command: "build" | "serve"): Plugin | null {
 	if (command !== "build") return null;
