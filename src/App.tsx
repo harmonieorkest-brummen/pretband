@@ -1,20 +1,26 @@
 import confetti from "canvas-confetti";
-import { useEffect, useRef } from "react";
+import { Suspense, lazy, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useBasinAhoy } from "./analytics/useBasinAhoy";
 import { useGtm } from "./analytics/useGtm";
-import { About } from "./components/About";
-import { Agenda } from "./components/Agenda";
-import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
-import { Members } from "./components/Members";
 import { Navbar } from "./components/Navbar";
 import { BackgroundLayer } from "./components/ui/BackgroundLayer";
 import { AnalyticsConsentPopover } from "./components/ui/molecules/AnalyticsConsentPopover";
 import { ErrorBoundary } from "./components/ui/molecules/ErrorBoundary";
 import { publicEnv } from "./config/publicEnv";
 import { useAnalyticsConsent } from "./privacy/useAnalyticsConsent";
+
+// Lazy load components that are not in the initial viewport
+const About = lazy(() => import("./components/About").then((m) => ({ default: m.About })));
+const Agenda = lazy(() => import("./components/Agenda").then((m) => ({ default: m.Agenda })));
+const Contact = lazy(() => import("./components/Contact").then((m) => ({ default: m.Contact })));
+const Members = lazy(() => import("./components/Members").then((m) => ({ default: m.Members })));
+const Footer = lazy(() => import("./components/Footer").then((m) => ({ default: m.Footer })));
+
+function SectionLoader() {
+	return <div className="h-40 w-full animate-pulse bg-white/5 rounded-3xl" />;
+}
 
 function App() {
 	const { t, i18n } = useTranslation();
@@ -93,19 +99,29 @@ function App() {
 
 			<Navbar />
 
-			<main className="relative z-10">
+			<main id="main-content">
 				<Hero onLaunchConfetti={launchConfetti} />
-				<About />
-				<Members />
-				<ErrorBoundary>
-					<Agenda />
-				</ErrorBoundary>
-				<ErrorBoundary>
-					<Contact />
-				</ErrorBoundary>
+				<Suspense fallback={<SectionLoader />}>
+					<About />
+				</Suspense>
+				<Suspense fallback={<SectionLoader />}>
+					<Members />
+				</Suspense>
+				<Suspense fallback={<SectionLoader />}>
+					<ErrorBoundary>
+						<Agenda />
+					</ErrorBoundary>
+				</Suspense>
+				<Suspense fallback={<SectionLoader />}>
+					<ErrorBoundary>
+						<Contact />
+					</ErrorBoundary>
+				</Suspense>
 			</main>
 
-			<Footer onOpenPrivacy={open} />
+			<Suspense fallback={null}>
+				<Footer onOpenPrivacy={open} />
+			</Suspense>
 
 			<AnalyticsConsentPopover
 				isOpen={isOpen}

@@ -13,18 +13,16 @@ function securityMetaPlugin(command: "build" | "serve"): Plugin | null {
 		"default-src 'self'",
 		"base-uri 'none'",
 		"object-src 'none'",
-		// reCAPTCHA v3 uses iframes under google.com
+		"script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com",
+		"style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+		"img-src 'self' data: https://www.gstatic.com https://www.google-analytics.com https://www.google.com https://images.unsplash.com",
+		"font-src 'self' https://fonts.gstatic.com data:",
+		"connect-src 'self' https://usebasin.com https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.gstatic.com",
 		"frame-src https://www.google.com https://www.google.com/recaptcha/",
-		"script-src 'self' https://www.google.com https://www.gstatic.com",
-		// reCAPTCHA injects styles; keep this permissive to avoid breakage.
-		"style-src 'self' 'unsafe-inline'",
-		"img-src 'self' data: https://www.gstatic.com https://www.google.com https://images.unsplash.com",
-		"font-src 'self' data:",
-		"connect-src 'self' https://usebasin.com https://www.google.com https://www.gstatic.com",
+		"worker-src 'self' blob:",
 		"form-action 'self' https://usebasin.com",
 		"upgrade-insecure-requests",
 		// Best effort in meta CSP; enforce with headers if you ever add a reverse proxy.
-		"frame-ancestors 'none'",
 	].join("; ");
 
 	return {
@@ -208,6 +206,15 @@ export default defineConfig(({ command, mode }) => {
 			tailwindcss(),
 		].filter(Boolean) as Plugin[],
 		base: "./",
-		build: { outDir: "dist" },
+		build: {
+			outDir: "dist",
+			rollupOptions: {
+				output: {
+					manualChunks: {
+						vendor: ["react", "react-dom", "react-i18next", "i18next"],
+					},
+				},
+			},
+		},
 	};
 });
