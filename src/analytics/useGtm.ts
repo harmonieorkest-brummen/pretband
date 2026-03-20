@@ -17,20 +17,33 @@ function initGtag(tagId: string) {
 	window.gtag("config", tagId);
 }
 
+function initGtm() {
+	window.dataLayer = window.dataLayer || [];
+	window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+}
+
 export function useGtm(tagId: string, enabled: boolean) {
 	const { state, setState } = useGtmContext();
 
 	const load = useCallback(() => {
-		if (state.status !== "idle") return;
+		if (state.status !== "idle" || !tagId) return;
 
 		setState({ status: "loading", tagId });
 
-		// Initialize dataLayer and gtag function
-		initGtag(tagId);
+		const isGtm = tagId.startsWith("GTM-");
+		const isGa4 = tagId.startsWith("G-");
+
+		if (isGtm) {
+			initGtm();
+		} else if (isGa4) {
+			initGtag(tagId);
+		}
 
 		// Load script
 		const script = document.createElement("script");
-		script.src = `https://www.googletagmanager.com/gtag/js?id=${tagId}`;
+		script.src = isGtm
+			? `https://www.googletagmanager.com/gtm.js?id=${tagId}`
+			: `https://www.googletagmanager.com/gtag/js?id=${tagId}`;
 		script.async = true;
 		script.onload = () => {
 			setState({ status: "ready", tagId });
