@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import logo from "../assets/images/logo.png";
 import { Button } from "./ui/atoms/Button";
 
 export function Navbar() {
@@ -25,7 +26,7 @@ export function Navbar() {
 					aria-label={t("navbar.band")}
 				>
 					<img
-						src="./logo.png"
+						src={logo}
 						alt="Logo"
 						width="48"
 						height="48"

@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import pretbandImg from "../assets/images/pretband.png";
 import { Decoration } from "./ui/atoms/Decoration";
 import { Heading } from "./ui/atoms/Heading";
 import { FeatureCard } from "./ui/molecules/FeatureCard";
@@ -28,7 +29,7 @@ export function About() {
 				<div className="group relative">
 					<div className="aspect-square w-full -rotate-6 overflow-hidden rounded-[4rem] border-8 border-pret-yellow bg-pret-dark shadow-2xl transition-transform duration-500 group-hover:rotate-0">
 						<img
-							src="pretband.png"
+							src={pretbandImg}
 							alt="The Band"
 							className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
 						/>

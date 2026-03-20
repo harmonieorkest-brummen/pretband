@@ -1,12 +1,9 @@
 import { Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import logo from "../assets/images/logo.png";
 import { publicEnv } from "../config/publicEnv";
 
-interface FooterProps {
-	onOpenPrivacy?: () => void;
-}
-
-export function Footer({ onOpenPrivacy }: FooterProps) {
+export function Footer({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 	const { t } = useTranslation();
 
 	const instagramUrl = publicEnv.instagramUrl;
@@ -21,7 +18,7 @@ export function Footer({ onOpenPrivacy }: FooterProps) {
 					aria-label={t("footer.back_to_top")}
 				>
 					<img
-						src="./logo.png"
+						src={logo}
 						alt="Pretband Logo"
 						width="64"
 						height="64"
