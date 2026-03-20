@@ -5,6 +5,11 @@ declare global {
 	interface Window {
 		dataLayer: unknown[];
 		gtag: (...args: unknown[]) => void;
+		Cookiebot?: {
+			renew: () => void;
+			show: () => void;
+			hide: () => void;
+		};
 	}
 }
 

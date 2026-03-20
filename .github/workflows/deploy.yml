@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'app/**'
+      - "app/**"
 
 permissions:
   contents: write
@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 25
-          cache: 'npm'
+          cache: "npm"
           cache-dependency-path: app/package-lock.json
 
       - name: Install dependencies 🔧
@@ -36,12 +36,13 @@ jobs:
         run: npm run build
         working-directory: app
         env:
-          VITE_GTM_TAG_ID: ${{ vars.VITE_GTM_TAG_ID || secrets.VITE_GTM_TAG_ID }}
+          VITE_GTM_TAG_ID: ${{ secrets.VITE_GTM_TAG_ID }}
           VITE_INSTAGRAM_URL: ${{ secrets.VITE_INSTAGRAM_URL }}
           VITE_TIKTOK_URL: ${{ secrets.VITE_TIKTOK_URL }}
           VITE_SITE_URL: ${{ vars.VITE_SITE_URL || 'https://hobrummen.github.io/pretband' }}
           VITE_BASIN_FORM_ID: ${{ secrets.VITE_BASIN_FORM_ID }}
           VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
+          VITE_COOKIEBOT_ID: ${{ secrets.VITE_COOKIEBOT_ID }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4

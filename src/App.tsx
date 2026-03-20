@@ -3,13 +3,12 @@ import { lazy, Suspense, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useBasinAhoy } from "./analytics/useBasinAhoy";
 import { useGtm } from "./analytics/useGtm";
+import { Cookiebot } from "./components/Cookiebot";
 import { Hero } from "./components/Hero";
 import { Navbar } from "./components/Navbar";
 import { BackgroundLayer } from "./components/ui/BackgroundLayer";
-import { AnalyticsConsentPopover } from "./components/ui/molecules/AnalyticsConsentPopover";
 import { ErrorBoundary } from "./components/ui/molecules/ErrorBoundary";
 import { publicEnv } from "./config/publicEnv";
-import { useAnalyticsConsent } from "./privacy/useAnalyticsConsent";
 
 // Lazy load components that are not in the initial viewport
 const About = lazy(() =>
@@ -39,10 +38,12 @@ function App() {
 
 	const basinFormId = publicEnv.basinFormId;
 	const gtmTagId = publicEnv.gtmTagId;
-	const { consent, isOpen, open, close, grant, deny } = useAnalyticsConsent();
-	const reloadTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const cookiebotId = publicEnv.cookiebotId;
 
-	useGtm(gtmTagId || "", consent === "granted");
+	// In auto-blocking mode, we can just let the tags load; Cookiebot will block them
+	// until the user has consented.
+	useGtm(gtmTagId || "", true);
+	useBasinAhoy(basinFormId || "", true);
 
 	useEffect(() => {
 		return () => {
@@ -50,7 +51,7 @@ function App() {
 		};
 	}, []);
 
-	useBasinAhoy(basinFormId || "", consent === "granted");
+	const reloadTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
 	useEffect(() => {
 		document.title = t("title");
@@ -98,20 +99,7 @@ function App() {
 	return (
 		<>
 			<BackgroundLayer />
-			<AnalyticsConsentPopover
-				isOpen={isOpen}
-				consent={consent}
-				onAccept={grant}
-				onDecline={deny}
-				onManageClose={close}
-				onRevoke={() => {
-					// Once analytics is loaded, fully disabling is best-effort client-side.
-					// A reload ensures no more requests are sent from the in-memory tracker.
-					deny();
-					if (reloadTimerRef.current) clearTimeout(reloadTimerRef.current);
-					reloadTimerRef.current = setTimeout(() => location.reload(), 1);
-				}}
-			/>
+			{cookiebotId && <Cookiebot cbid={cookiebotId} />}
 			<div className="relative min-h-screen bg-pret-dark font-body text-white selection:bg-pret-yellow selection:text-pret-dark">
 				{/* Party Backdrop */}
 				<div
@@ -147,7 +135,9 @@ function App() {
 				</main>
 
 				<Suspense fallback={null}>
-					<Footer onOpenPrivacy={open} />
+					<Footer
+						onOpenPrivacy={() => window.Cookiebot?.renew()}
+					/>
 				</Suspense>
 			</div>
 		</>

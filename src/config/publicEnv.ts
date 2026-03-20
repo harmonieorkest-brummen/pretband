@@ -8,4 +8,5 @@ export const publicEnv = {
 	instagramUrl: envString(import.meta.env.VITE_INSTAGRAM_URL),
 	tiktokUrl: envString(import.meta.env.VITE_TIKTOK_URL),
 	gtmTagId: envString(import.meta.env.VITE_GTM_TAG_ID),
+	cookiebotId: envString(import.meta.env.VITE_COOKIEBOT_ID),
 };
