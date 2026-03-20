@@ -13,7 +13,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 	const { t } = useTranslation();
 
 	return (
-		<section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-32 pb-20">
+		<section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-48 pb-20">
 			<div className="pointer-events-none absolute inset-0 overflow-hidden">
 				<Decoration
 					type="star"
