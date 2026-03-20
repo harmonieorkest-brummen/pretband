@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import logo from "../assets/images/logo.png";
+import navbarLogo from "../assets/images/logo.png";
 import { Button } from "./ui/atoms/Button";
 
 export function Navbar() {
@@ -21,12 +21,12 @@ export function Navbar() {
 			{/* Navigation */}
 			<nav className="fixed top-6 left-1/2 z-50 flex w-[95%] -translate-x-1/2 items-center justify-between rounded-2xl border border-white/20 bg-pret-dark/80 px-6 py-3 shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-all md:w-auto">
 				<a
-					href={location.origin}
+					href="./"
 					className="group mr-12 flex items-center space-x-3 rounded-full focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
 					aria-label={t("navbar.band")}
 				>
 					<img
-						src={logo}
+						src={navbarLogo}
 						alt="Logo"
 						width="48"
 						height="48"
@@ -121,28 +121,28 @@ export function Navbar() {
 					</svg>
 				</button>
 				<a
-					href={`${location.origin}#wie`}
+					href="./#wie"
 					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
 					onClick={toggleMobileMenu}
 				>
 					{t("navbar.band")}
 				</a>
 				<a
-					href={`${location.origin}#leden`}
+					href="./#leden"
 					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
 					onClick={toggleMobileMenu}
 				>
 					{t("navbar.members")}
 				</a>
 				<a
-					href={`${location.origin}#agenda`}
+					href="./#agenda"
 					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
 					onClick={toggleMobileMenu}
 				>
 					{t("navbar.when")}
 				</a>
 				<a
-					href={`${location.origin}#contact`}
+					href="./#contact"
 					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
 					onClick={toggleMobileMenu}
 				>
