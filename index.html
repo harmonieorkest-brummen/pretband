@@ -5,7 +5,7 @@
     <!-- Google Consent Mode (must be before gtag/gtm and cookiebot) -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(...rest){dataLayer.push(rest);}
       gtag('consent', 'default', {
         'ad_storage': 'denied',
         'ad_user_data': 'denied',
@@ -20,8 +20,8 @@
     <!-- Google Tag Manager -->
     <script data-cookieconsent="ignore">((w,d,s,l,i)=>{w[l]=w[l]||[];w[l].push({'gtm.start':
     Date.now(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!=='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    j=d.createElement(s),dl=l!=='dataLayer'?`&l=${l}`:'';j.async=true;j.src=
+    `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','%VITE_GTM_TAG_ID%');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
