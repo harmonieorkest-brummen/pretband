@@ -4,6 +4,7 @@ import logo from "../assets/images/logo.png";
 import { Badge } from "./ui/atoms/Badge";
 import { Button } from "./ui/atoms/Button";
 import { Decoration } from "./ui/atoms/Decoration";
+import { useEasterEggs } from "../context/EasterEggContext";
 
 interface HeroProps {
 	onLaunchConfetti: () => void;
@@ -11,6 +12,12 @@ interface HeroProps {
 
 export function Hero({ onLaunchConfetti }: HeroProps) {
 	const { t } = useTranslation();
+	const { findEgg } = useEasterEggs();
+
+	const handleLogoClick = () => {
+		onLaunchConfetti();
+		findEgg("confetti-rain");
+	};
 
 	return (
 		<section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-48 pb-20">
@@ -51,12 +58,12 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 					<button
 						type="button"
 						className="group relative z-20 cursor-pointer rounded-full transition-transform hover:scale-105 focus-visible:outline-hidden focus-visible:ring-4 focus-visible:ring-pret-yellow active:scale-95"
-						onClick={onLaunchConfetti}
+						onClick={handleLogoClick}
 						tabIndex={0}
 						onKeyDown={(e) => {
 							if (e.key === "Enter" || e.key === " ") {
 								e.preventDefault();
-								onLaunchConfetti();
+								handleLogoClick();
 							}
 						}}
 					>

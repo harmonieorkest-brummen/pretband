@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { publicEnv } from "../config/publicEnv";
+import { useEasterEggs } from "../context/EasterEggContext";
 import { useRecaptchaV3 } from "../security/useRecaptchaV3";
 import { Badge } from "./ui/atoms/Badge";
 import { Button } from "./ui/atoms/Button";
@@ -11,6 +12,7 @@ import { Textarea } from "./ui/atoms/Textarea";
 
 export function Contact() {
 	const { t } = useTranslation();
+	const { findEgg } = useEasterEggs();
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 	const [statusMessage, setStatusMessage] = useState<string>("");
@@ -145,7 +147,13 @@ export function Contact() {
 					className="mb-10 text-7xl leading-[0.8] drop-shadow-2xl md:text-9xl"
 				>
 					{t("contact.title_1")} <br />
-					<span className="text-pret-red">{t("contact.title_2")}</span>
+					<button
+						type="button"
+						className="focus-visible:outline-hidden text-pret-red transition-transform hover:scale-110 active:animate-bounce inline-block"
+						onClick={() => findEgg("bouncing-pret")}
+					>
+						{t("contact.title_2")}
+					</button>
 				</Heading>
 				<p className="mx-auto mb-16 max-w-2xl font-body text-3xl text-white/80 leading-tight">
 					{t("contact.description")}

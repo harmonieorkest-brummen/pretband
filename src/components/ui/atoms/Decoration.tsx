@@ -7,7 +7,10 @@ import {
 	Stars,
 	Triangle,
 	Zap,
+	Music,
 } from "lucide-react";
+import { useEasterEggs } from "../../../context/EasterEggContext";
+import { useState } from "react";
 
 const STAR_PATH = "M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z";
 
@@ -21,7 +24,8 @@ export type DecorationType =
 	| "zap"
 	| "heart"
 	| "cherry"
-	| "stars";
+	| "stars"
+	| "trumpet";
 
 interface DecorationProps {
 	type: DecorationType;
@@ -37,6 +41,9 @@ interface DecorationProps {
 	size?: number;
 	className?: string;
 	opacity?: number;
+	isEasterEgg?: boolean;
+	eggId?: "doot" | "rainbow-star" | "bouncing-pret" | "confetti-rain";
+	onFound?: () => void;
 }
 
 export function Decoration({
@@ -46,6 +53,9 @@ export function Decoration({
 	size = 100,
 	className = "",
 	opacity = 0.2,
+	isEasterEgg = false,
+	eggId,
+	onFound,
 }: DecorationProps) {
 	const colors = {
 		red: "text-pret-red",
@@ -64,7 +74,7 @@ export function Decoration({
 		none: "",
 	};
 
-	const combinedClasses = `${colors[color]} ${animations[animation]} pointer-events-none transition-all will-change-transform ${className}`;
+	const combinedClasses = `${colors[color]} ${animations[animation]} transition-all will-change-transform ${className}`;
 	const style = { opacity };
 
 	const renderIcon = () => {
@@ -120,13 +130,41 @@ export function Decoration({
 				return <Cherry size={size} strokeWidth={2.5} />;
 			case "stars":
 				return <Stars size={size} strokeWidth={2.5} className="fill-current" />;
+			case "trumpet":
+				return <Music size={size} strokeWidth={2.5} />;
 			default:
 				return null;
 		}
 	};
 
+	const { findEgg, foundEggs } = useEasterEggs();
+	const [isClicked, setIsClicked] = useState(false);
+
+	const isAlreadyFound = eggId && foundEggs.includes(eggId);
+
+	const handleClick = () => {
+		if (isEasterEgg && eggId) {
+			setIsClicked(true);
+			findEgg(eggId);
+			onFound?.();
+			setTimeout(() => setIsClicked(false), 1000);
+		}
+	};
+
+	const eggClasses = isEasterEgg
+		? `cursor-pointer pointer-events-auto hover:scale-125 hover:opacity-100 ${
+				isClicked ? "animate-bounce scale-150 opacity-100" : ""
+			} ${isAlreadyFound ? "opacity-60 grayscale-[0.5]" : ""}`
+		: "pointer-events-none";
+
 	return (
-		<div className={combinedClasses} style={style} aria-hidden="true">
+		<div
+			className={`${combinedClasses} ${eggClasses}`}
+			style={style}
+			aria-hidden={!isEasterEgg}
+			onClick={handleClick}
+			data-testid="decoration"
+		>
 			{renderIcon()}
 		</div>
 	);

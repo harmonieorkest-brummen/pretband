@@ -24,6 +24,15 @@ export function About() {
 					className="absolute top-1/2 right-[10%] opacity-5"
 					size={200}
 				/>
+				<Decoration
+					type="star"
+					color="yellow"
+					animation="spin"
+					className="absolute top-10 left-[20%]"
+					size={40}
+					isEasterEgg
+					eggId="rainbow-star"
+				/>
 			</div>
 			<div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2">
 				<div className="group relative">

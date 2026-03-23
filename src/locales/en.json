@@ -28,12 +28,12 @@
 		"description": "Pretband is a pleasantly-insane group of musicians from Brummen, a beautiful village between Amsterdam and Berlin. We survive every stage, terrace or festival ground.",
 		"feat_1_title": "FUN EVERYWHERE",
 		"feat_1_desc": "From street festivals to events, anywhere and everywhere!",
-		"feat_2_title": "EXPERT TEAM",
-		"feat_2_desc": "Our team of experts is ready to bring the house down!",
+		"feat_2_title": "VIBE MAKERS",
+		"feat_2_desc": "Our team of vibe makers is ready to bring the house down!",
 		"yeah": "YEAH!"
 	},
 	"members": {
-		"title": "THE TEAM OF EXPERTS",
+		"title": "THE TEAM OF VIBE MAKERS",
 		"categories": {
 			"piccolo": "Piccolo/Flutes",
 			"trumpets": "Trumpets",
@@ -42,6 +42,11 @@
 			"saxophones": "Alto / Tenor / Baritone Saxophone",
 			"percussion": "Percussion"
 		}
+	},
+	"highlights": {
+		"title": "CHECK THE CHAOS",
+		"description": "Relive our most legendary performances. From street festivals to events, we bring the fun everywhere!",
+		"watch_video": "Watch the video on YouTube"
 	},
 	"agenda": {
 		"bg_text": "PARTY PARTY PARTY",
@@ -52,7 +57,7 @@
 	"contact": {
 		"title_1": "DO YOU DARE",
 		"title_2": "TO DO IT?",
-		"description": "Do you have any questions or want to book us? Feel free to send a message! Our team of experts is ready for you.",
+		"description": "Do you have any questions or want to book us? Feel free to send a message! Our team of vibe makers is ready for you.",
 		"button": "YES, I WANT FUN!",
 		"form": {
 			"name_label": "Name",

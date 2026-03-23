@@ -2,6 +2,7 @@ import { Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/images/logo.png";
 import { publicEnv } from "../config/publicEnv";
+import { Decoration } from "./ui/atoms/Decoration";
 
 export function Footer({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 	const { t } = useTranslation();
@@ -91,6 +92,15 @@ export function Footer({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 				</button>
 			)}
 			<p className="mt-6 font-body text-white/50">{t("footer.copyright")}</p>
+
+			<Decoration
+				type="trumpet"
+				color="yellow"
+				size={30}
+				className="absolute bottom-4 right-4 opacity-10"
+				isEasterEgg
+				eggId="doot"
+			/>
 		</footer>
 	);
 }

@@ -28,12 +28,12 @@
 		"description": "Pretband is een prettig-gestoorde groep muzikanten uit Brummen, een schitterend dorpje tussen Amsterdam en Berlijn. Wij overleven elk podium, terras of festivalterrein.",
 		"feat_1_title": "OVERAL PRET",
 		"feat_1_desc": "Van dweildagen tot festivals, binnen- of buitengebied!",
-		"feat_2_title": "DESKUNDIG",
-		"feat_2_desc": "Ons team van deskundigen staat klaar om de boel af te breken!",
+		"feat_2_title": "SFEERMAKERS",
+		"feat_2_desc": "Ons team van sfeermakers staat klaar om de boel af te breken!",
 		"yeah": "YEAH!"
 	},
 	"members": {
-		"title": "HET TEAM VAN DESKUNDIGEN",
+		"title": "HET TEAM VAN SFEERMAKERS",
 		"categories": {
 			"piccolo": "Piccolo/Fluiten",
 			"trumpets": "Trompetten",
@@ -42,6 +42,11 @@
 			"saxophones": "Alt- / Tenor-/Bariton-saxofoon",
 			"percussion": "Slagwerk"
 		}
+	},
+	"highlights": {
+		"title": "CHECK DE CHAOS",
+		"description": "Herbeleef onze meest legendarische optredens. Van dweildagen tot festivals, we brengen de pret overal!",
+		"watch_video": "Bekijk de video op YouTube"
 	},
 	"agenda": {
 		"bg_text": "FEEST FEEST FEEST",
@@ -52,7 +57,7 @@
 	"contact": {
 		"title_1": "DURF JE HET",
 		"title_2": "AAN?",
-		"description": "Heb je nog vragen of wil je ons boeken? Stuur gerust een berichtje! Ons team van deskundigen staat voor je klaar.",
+		"description": "Heb je nog vragen of wil je ons boeken? Stuur gerust een berichtje! Ons team van sfeermakers staat voor je klaar.",
 		"button": "JA, IK WIL PRET!",
 		"form": {
 			"name_label": "Naam",
