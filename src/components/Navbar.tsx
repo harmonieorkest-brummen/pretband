@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import navbarLogo from "../assets/images/logo.png";
 import { Button } from "./ui/atoms/Button";
+import { FEATURE_FLAGS } from "../config/featureFlags";
 
 export function Navbar() {
 	const { t, i18n } = useTranslation();
@@ -54,27 +55,35 @@ export function Navbar() {
 					/>
 				</a>
 				<div className="hidden items-center space-x-10 md:flex">
-					<a
-						href="#wie"
-						className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-red focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
-					>
-						{t("navbar.band")}
-					</a>
-					<a
-						href="#leden"
-						className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
-					>
-						{t("navbar.members")}
-					</a>
-					<a
-						href="#agenda"
-						className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-red focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
-					>
-						{t("navbar.when")}
-					</a>
-					<Button className="book-now" href="#contact" variant="secondary" size="md">
-						{t("navbar.book_now")}
-					</Button>
+					{FEATURE_FLAGS.ABOUT && (
+						<a
+							href="#wie"
+							className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-red focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
+						>
+							{t("navbar.band")}
+						</a>
+					)}
+					{FEATURE_FLAGS.MEMBERS && (
+						<a
+							href="#leden"
+							className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
+						>
+							{t("navbar.members")}
+						</a>
+					)}
+					{FEATURE_FLAGS.AGENDA && (
+						<a
+							href="#agenda"
+							className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-red focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
+						>
+							{t("navbar.when")}
+						</a>
+					)}
+					{FEATURE_FLAGS.CONTACT && (
+						<Button className="book-now" href="#contact" variant="secondary" size="md">
+							{t("navbar.book_now")}
+						</Button>
+					)}
 					<Button
 						variant="outline"
 						size="sm"
@@ -141,46 +150,54 @@ export function Navbar() {
 						/>
 					</svg>
 				</button>
-				<button
-					type="button"
-					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
-					onClick={() => {
-						toggleMobileMenu();
-						window.location.href = "./#wie";
-					}}
-				>
-					{t("navbar.band")}
-				</button>
-				<button
-					type="button"
-					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
-					onClick={() => {
-						toggleMobileMenu();
-						window.location.href = "./#leden";
-					}}
-				>
-					{t("navbar.members")}
-				</button>
-				<button
-					type="button"
-					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
-					onClick={() => {
-						toggleMobileMenu();
-						window.location.href = "./#agenda";
-					}}
-				>
-					{t("navbar.when")}
-				</button>
-				<button
-					type="button"
-					className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow book-now"
-					onClick={() => {
-						toggleMobileMenu();
-						window.location.href = "./#contact";
-					}}
-				>
-					{t("navbar.book_now")}
-				</button>
+				{FEATURE_FLAGS.ABOUT && (
+					<button
+						type="button"
+						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
+						onClick={() => {
+							toggleMobileMenu();
+							window.location.href = "./#wie";
+						}}
+					>
+						{t("navbar.band")}
+					</button>
+				)}
+				{FEATURE_FLAGS.MEMBERS && (
+					<button
+						type="button"
+						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
+						onClick={() => {
+							toggleMobileMenu();
+							window.location.href = "./#leden";
+						}}
+					>
+						{t("navbar.members")}
+					</button>
+				)}
+				{FEATURE_FLAGS.AGENDA && (
+					<button
+						type="button"
+						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
+						onClick={() => {
+							toggleMobileMenu();
+							window.location.href = "./#agenda";
+						}}
+					>
+						{t("navbar.when")}
+					</button>
+				)}
+				{FEATURE_FLAGS.CONTACT && (
+					<button
+						type="button"
+						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow book-now"
+						onClick={() => {
+							toggleMobileMenu();
+							window.location.href = "./#contact";
+						}}
+					>
+						{t("navbar.book_now")}
+					</button>
+				)}
 				<Button
 					variant="outline"
 					size="lg"

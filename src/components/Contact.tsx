@@ -122,7 +122,7 @@ export function Contact() {
 	}
 
 	return (
-		<section id="contact" ref={sectionRef} className="relative z-20 py-40">
+		<section id="contact" ref={sectionRef} className="relative py-40">
 			<div className="pointer-events-none absolute inset-0">
 				<Decoration
 					type="zap"

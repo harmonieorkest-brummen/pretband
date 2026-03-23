@@ -1,0 +1,15 @@
+export const galleryImages = [
+	"https://pretband-party-planner.lovable.app/assets/photo11-CMouye6J.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo5-CFkxF6v1.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo7-DIKcw7zQ.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo16-D7KZR6IC.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo8-CDeuLlQJ.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo1-C530nYqF.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo12-BgsrEpN7.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo9-D5ZRKzO9.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo10-CGe8kP1j.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo13-eaVNtL_2.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo15-CdoxHZSQ.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo14-C2CkINdI.jpeg",
+	"https://pretband-party-planner.lovable.app/assets/photo6-BoIvrSMV.jpeg",
+];

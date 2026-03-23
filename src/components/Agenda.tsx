@@ -12,7 +12,7 @@ export function Agenda() {
 	const events = siteData.agenda.events;
 
 	return (
-		<section id="agenda" className="relative z-10 py-40">
+		<section id="agenda" className="relative py-40">
 			{/* Background Text */}
 			<div className="pointer-events-none absolute inset-0 flex select-none items-center justify-center overflow-hidden opacity-5">
 				<span className="animate-tilt whitespace-nowrap font-black font-display text-[30rem] uppercase">

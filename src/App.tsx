@@ -1,5 +1,5 @@
 import confetti from "canvas-confetti";
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useBasinAhoy } from "./analytics/useBasinAhoy";
 import { Hero } from "./components/Hero";
@@ -10,6 +10,7 @@ import { publicEnv } from "./config/publicEnv";
 import { EasterEggProvider, useEasterEggs } from "./context/EasterEggContext";
 import { Heading } from "./components/ui/atoms/Heading";
 import { Button } from "./components/ui/atoms/Button";
+import { FEATURE_FLAGS } from "./config/featureFlags";
 
 declare global {
 	interface Window {
@@ -40,6 +41,9 @@ const Highlights = lazy(() =>
 );
 const Footer = lazy(() =>
 	import("./components/Footer").then((m) => ({ default: m.Footer })),
+);
+const Gallery = lazy(() =>
+	import("./components/Gallery").then((m) => ({ default: m.Gallery })),
 );
 
 function SectionLoader({ height = "h-40" }: { height?: string }) {
@@ -119,14 +123,6 @@ function App() {
 	useBasinAhoy(basinFormId || "", hasConsent);
 
 	useEffect(() => {
-		return () => {
-			if (reloadTimerRef.current) clearTimeout(reloadTimerRef.current);
-		};
-	}, []);
-
-	const reloadTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-	useEffect(() => {
 		document.title = t("title");
 		document.documentElement.lang = i18n.language;
 	}, [t, i18n.language]);
@@ -189,25 +185,38 @@ function App() {
 
 				<main id="main-content">
 					<Hero onLaunchConfetti={launchConfetti} />
-					<Suspense fallback={<SectionLoader height="h-[400px]" />}>
-						<About />
-					</Suspense>
-					<Suspense fallback={<SectionLoader height="h-[600px]" />}>
-						<Members />
-					</Suspense>
-					<Suspense fallback={<SectionLoader height="h-[600px]" />}>
-						<Highlights />
-					</Suspense>
+					{FEATURE_FLAGS.ABOUT && (
+						<Suspense fallback={<SectionLoader height="h-[400px]" />}>
+							<About />
+						</Suspense>
+					)}
+					{FEATURE_FLAGS.MEMBERS && (
+						<Suspense fallback={<SectionLoader height="h-[600px]" />}>
+							<Members />
+						</Suspense>
+					)}
+					{FEATURE_FLAGS.HIGHLIGHTS && (
+						<Suspense fallback={<SectionLoader height="h-[600px]" />}>
+							<Highlights />
+						</Suspense>
+					)}
+					{FEATURE_FLAGS.GALLERY && (
+						<Suspense fallback={<SectionLoader height="h-[600px]" />}>
+							<Gallery />
+						</Suspense>
+					)}
 					<Suspense fallback={<SectionLoader height="h-[400px]" />}>
 						<ErrorBoundary>
-							<Agenda />
+							{FEATURE_FLAGS.AGENDA && <Agenda />}
 						</ErrorBoundary>
 					</Suspense>
-					<Suspense fallback={<SectionLoader height="h-[500px]" />}>
-						<ErrorBoundary>
-							<Contact />
-						</ErrorBoundary>
-					</Suspense>
+					{FEATURE_FLAGS.CONTACT && (
+						<Suspense fallback={<SectionLoader height="h-[500px]" />}>
+							<ErrorBoundary>
+								<Contact />
+							</ErrorBoundary>
+						</Suspense>
+					)}
 				</main>
 
 				<Suspense fallback={null}>

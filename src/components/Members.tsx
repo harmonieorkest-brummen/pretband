@@ -9,7 +9,7 @@ export function Members() {
 	const sections = siteData.members.sections;
 
 	return (
-		<section id="leden" className="relative z-10 py-32">
+		<section id="leden" className="relative py-32">
 			<div className="pointer-events-none absolute inset-0">
 				<Decoration
 					type="party-popper"

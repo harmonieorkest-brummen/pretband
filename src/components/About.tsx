@@ -8,7 +8,7 @@ export function About() {
 	const { t } = useTranslation();
 
 	return (
-		<section id="wie" className="relative z-20 py-40">
+		<section id="wie" className="relative py-40">
 			<div className="pointer-events-none absolute inset-0">
 				<Decoration
 					type="star"
