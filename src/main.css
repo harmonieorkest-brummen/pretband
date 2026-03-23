@@ -1,7 +1,18 @@
 @import "tailwindcss";
 
 html, body {
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
+  background-color: #2A2324;
+  color: white;
+  min-height: 100vh;
+  /* Support for modern mobile browsers with the notch/bottom bar */
+  min-height: 100dvh;
+}
+
+:root {
+  --color-pret-dark: #2A2324;
 }
 
 @config "../tailwind.config.js";

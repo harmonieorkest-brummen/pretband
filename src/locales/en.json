@@ -35,11 +35,11 @@
 	"members": {
 		"title": "THE TEAM OF VIBE MAKERS",
 		"categories": {
-			"piccolo": "Piccolo/Flutes",
+			"piccolo": "Piccolos / Flutes",
 			"trumpets": "Trumpets",
-			"clarinets": "Eb / Bb Clarinet",
-			"low_brass": "Trombone/ Baritones / Basses / Horn",
-			"saxophones": "Alto / Tenor / Baritone Saxophone",
+			"clarinets": "Eb / Bb Clarinets",
+			"low_brass": "Trombones / Baritones / Basses / Horns",
+			"saxophones": "Alto / Tenor / Baritone Saxophones",
 			"percussion": "Percussion"
 		}
 	},

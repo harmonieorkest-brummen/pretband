@@ -35,11 +35,11 @@
 	"members": {
 		"title": "HET TEAM VAN SFEERMAKERS",
 		"categories": {
-			"piccolo": "Piccolo/Fluiten",
+			"piccolo": "Piccolo's / Fluiten",
 			"trumpets": "Trompetten",
-			"clarinets": "Es- / Bes-klarinet",
-			"low_brass": "Trombone/ Baritons / Bassen / Hoorn",
-			"saxophones": "Alt- / Tenor-/Bariton-saxofoon",
+			"clarinets": "Es- / Bes-klarinetten",
+			"low_brass": "Trombones / Baritons / Bassen / Hoorns",
+			"saxophones": "Alt- / Tenor- / Bariton-saxofoons",
 			"percussion": "Slagwerk"
 		}
 	},

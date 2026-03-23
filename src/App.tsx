@@ -169,7 +169,7 @@ function App() {
 		<EasterEggProvider>
 			<AchievementOverlay />
 			<BackgroundLayer />
-			<div className="relative min-h-screen font-body text-white selection:bg-pret-yellow selection:text-pret-dark">
+			<div className="relative min-h-screen bg-pret-dark font-body text-white selection:bg-pret-yellow selection:text-pret-dark">
 				{/* Party Backdrop */}
 				<div
 					className="pointer-events-none fixed inset-0 z-100 bg-noise"

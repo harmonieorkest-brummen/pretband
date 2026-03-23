@@ -98,7 +98,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 				</div>
 
 				{/* Narrative - Wrapped in a Red Block */}
-				<div className="relative mx-auto mb-16 max-w-4xl rotate-1 transform">
+				<div className="relative mx-auto mb-16 max-w-4xl rotate-1 transform leading-2 md:leading-none">
 					<div className="absolute -inset-4 -rotate-2 rounded-5xl bg-[#D42A29] shadow-2xl"></div>
 					<div className="absolute -inset-4 rotate-1 rounded-5xl border-4 border-pret-yellow opacity-50"></div>
 
@@ -108,7 +108,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 							{t("hero.not")}
 						</span>
 						{t("hero.description_2")}
-						<span className="px-2 text-white underline decoration-2 decoration-pret-yellow decoration-wavy underline-offset-8">
+						<span className="px-2 text-white underline decoration-2 decoration-pret-yellow decoration-wavy underline-offset-4 md:underline-offset-8">
 							{t("hero.vibe")}
 						</span>
 						{t("hero.description_3")}
