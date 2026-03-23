@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import navbarLogo from "../assets/images/logo.png";
 import { Button } from "./ui/atoms/Button";
@@ -6,6 +6,10 @@ import { Button } from "./ui/atoms/Button";
 export function Navbar() {
 	const { t, i18n } = useTranslation();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+	const menuTriggerRef = useRef<HTMLButtonElement>(null);
+	const closeButtonRef = useRef<HTMLButtonElement>(null);
+	const isFirstRender = useRef(true);
 
 	const toggleMobileMenu = (): void => {
 		setIsMenuOpen(!isMenuOpen);
@@ -15,6 +19,22 @@ export function Navbar() {
 		const nextLng = i18n.language === "nl" ? "en" : "nl";
 		i18n.changeLanguage(nextLng);
 	};
+
+	// Focus management for accessibility
+	useEffect(() => {
+		if (isFirstRender.current) {
+			isFirstRender.current = false;
+			return;
+		}
+
+		if (isMenuOpen) {
+			// Focus the close button when menu opens
+			closeButtonRef.current?.focus();
+		} else {
+			// Focus the trigger button when menu closes
+			menuTriggerRef.current?.focus();
+		}
+	}, [isMenuOpen]);
 
 	return (
 		<>
@@ -65,6 +85,7 @@ export function Navbar() {
 					</Button>
 				</div>
 				<button
+					ref={menuTriggerRef}
 					type="button"
 					className="rounded-lg p-2 text-white transition-colors hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow md:hidden"
 					onClick={toggleMobileMenu}
@@ -95,10 +116,10 @@ export function Navbar() {
 			<div
 				id="mobile-menu"
 				className={`fixed inset-0 z-60 flex flex-col items-center justify-center space-y-8 bg-pret-red/95 backdrop-blur-xl transition-transform duration-500 ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
-				aria-hidden={!isMenuOpen}
 				inert={!isMenuOpen}
 			>
 				<button
+					ref={closeButtonRef}
 					type="button"
 					className="absolute top-8 right-8 rounded-full p-2 text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
 					onClick={toggleMobileMenu}

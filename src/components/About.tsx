@@ -49,14 +49,14 @@ export function About() {
 				<div className="text-white">
 					<Heading
 						level={2}
-						className="mb-10 text-7xl leading-[0.8] drop-shadow-xl md:text-9xl"
+						className="mb-10 text-6xl leading-[0.8] drop-shadow-xl md:text-9xl"
 					>
 						{t("about.title_1")} <br />
 						<span className="animate-lamp-flicker text-pret-yellow italic">
 							{t("about.title_2")}
 						</span>
 					</Heading>
-					<p className="mb-8 font-body text-3xl leading-relaxed">
+					<p className="mb-8 font-body text-md md:text-3xl leading-relaxed">
 						{t("about.description")}
 					</p>
 					<div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">

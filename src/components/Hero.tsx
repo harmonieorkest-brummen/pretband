@@ -102,7 +102,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 					<div className="absolute -inset-4 -rotate-2 rounded-5xl bg-[#D42A29] shadow-2xl"></div>
 					<div className="absolute -inset-4 rotate-1 rounded-5xl border-4 border-pret-yellow opacity-50"></div>
 
-					<p className="relative z-10 p-8 font-black font-display text-white text-xl uppercase leading-tight tracking-tight md:p-12 md:text-3xl lg:text-4xl">
+					<p className="relative z-10 p-6 font-black font-display text-white text-xl uppercase leading-tight tracking-tight md:p-12 md:text-3xl lg:text-4xl">
 						{t("hero.description_1")}
 						<span className="px-2 text-white italic underline decoration-2 decoration-pret-yellow underline-offset-4">
 							{t("hero.not")}
@@ -116,7 +116,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 							{t("hero.party")}
 						</span>
 						{t("hero.description_4")}
-						<span className="mt-4 block animate-lamp-flicker text-5xl text-pret-yellow italic md:text-7xl lg:text-8xl">
+						<span className="mt-4 block animate-lamp-flicker text-4xl text-pret-yellow italic md:text-7xl lg:text-8xl">
 							{t("hero.noise")}!
 						</span>
 					</p>

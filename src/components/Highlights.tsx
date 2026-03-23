@@ -23,7 +23,7 @@ export function Highlights() {
 					size={150}
 				/>
 			</div>
-			
+
 			<div className="mx-auto max-w-7xl px-6">
 				<div className="text-center mb-16">
 					<Heading
@@ -33,7 +33,7 @@ export function Highlights() {
 					>
 						{t("highlights.title")}
 					</Heading>
-					<p className="mx-auto max-w-2xl font-body text-2xl text-white/70">
+					<p className="mx-auto max-w-2xl font-body text-md md:text-2xl text-white/70">
 						{t("highlights.description")}
 					</p>
 				</div>
@@ -49,7 +49,7 @@ export function Highlights() {
 							className="h-full w-full border-0"
 						></iframe>
 					</div>
-					
+
 					{/* Decorative background glow */}
 					<div className="absolute -inset-4 z-0 bg-pret-yellow/20 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 				</div>

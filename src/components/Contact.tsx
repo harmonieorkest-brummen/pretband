@@ -144,7 +144,7 @@ export function Contact() {
 					level={2}
 					variant="white"
 					glow
-					className="mb-10 text-7xl leading-[0.8] drop-shadow-2xl md:text-9xl"
+					className="mb-10 text-6xl leading-[0.8] drop-shadow-2xl md:text-9xl"
 				>
 					{t("contact.title_1")} <br />
 					<button
@@ -155,7 +155,7 @@ export function Contact() {
 						{t("contact.title_2")}
 					</button>
 				</Heading>
-				<p className="mx-auto mb-16 max-w-2xl font-body text-3xl text-white/80 leading-tight">
+				<p className="mx-auto mb-16 max-w-2xl font-body text-md md:text-3xl text-white/80 leading-tight">
 					{t("contact.description")}
 				</p>
 
@@ -239,9 +239,8 @@ export function Contact() {
 						{status !== "idle" && (
 							<output
 								aria-live="polite"
-								className={`mt-8 text-center font-body text-xl ${
-									status === "success" ? "text-pret-yellow" : "text-pret-red"
-								}`}
+								className={`mt-8 text-center font-body text-xl ${status === "success" ? "text-pret-yellow" : "text-pret-red"
+									}`}
 							>
 								{statusMessage}
 							</output>

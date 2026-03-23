@@ -26,7 +26,7 @@ export function FeatureCard({
 			<Heading
 				level={3}
 				variant={variant === "glass" ? "yellow" : "red"}
-				className="mb-4 block text-5xl"
+				className="mb-4 block text-3xl break-words hyphens-auto md:text-5xl"
 			>
 				{title}
 			</Heading>
