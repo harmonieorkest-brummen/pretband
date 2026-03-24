@@ -3,10 +3,10 @@ function envString(v: unknown): string | undefined {
 }
 
 function envBoolean(v: unknown, defaultValue = true): boolean {
-    if (typeof v === 'string') {
-        if (v === 'true' || v === '1') return true;
-        if (v === 'false' || v === '0') return false;
-    }
+	if (typeof v === "string") {
+		if (v === "true" || v === "1") return true;
+		if (v === "false" || v === "0") return false;
+	}
 	return defaultValue;
 }
 
@@ -17,10 +17,10 @@ export const publicEnv = {
 	tiktokUrl: envString(import.meta.env.VITE_TIKTOK_URL),
 	gtmTagId: envString(import.meta.env.VITE_GTM_TAG_ID),
 	cookiebotId: envString(import.meta.env.VITE_COOKIEBOT_ID),
-    showGallery: envBoolean(import.meta.env.VITE_SHOW_GALLERY, true),
-    showAbout: envBoolean(import.meta.env.VITE_SHOW_ABOUT, true),
-    showAgenda: envBoolean(import.meta.env.VITE_SHOW_AGENDA, true),
-    showMembers: envBoolean(import.meta.env.VITE_SHOW_MEMBERS, true),
-    showHighlights: envBoolean(import.meta.env.VITE_SHOW_HIGHLIGHTS, true),
-    showContact: envBoolean(import.meta.env.VITE_SHOW_CONTACT, true),
+	showGallery: envBoolean(import.meta.env.VITE_SHOW_GALLERY, true),
+	showAbout: envBoolean(import.meta.env.VITE_SHOW_ABOUT, true),
+	showAgenda: envBoolean(import.meta.env.VITE_SHOW_AGENDA, true),
+	showMembers: envBoolean(import.meta.env.VITE_SHOW_MEMBERS, true),
+	showHighlights: envBoolean(import.meta.env.VITE_SHOW_HIGHLIGHTS, true),
+	showContact: envBoolean(import.meta.env.VITE_SHOW_CONTACT, true),
 };

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import navbarLogo from "../assets/images/logo.png";
-import { Button } from "./ui/atoms/Button";
 import { FEATURE_FLAGS } from "../config/featureFlags";
+import { Button } from "./ui/atoms/Button";
 
 export function Navbar() {
 	const { t, i18n } = useTranslation();
@@ -80,7 +80,12 @@ export function Navbar() {
 						</a>
 					)}
 					{FEATURE_FLAGS.CONTACT && (
-						<Button className="book-now" href="#contact" variant="secondary" size="md">
+						<Button
+							className="book-now"
+							href="#contact"
+							variant="secondary"
+							size="md"
+						>
 							{t("navbar.book_now")}
 						</Button>
 					)}
@@ -189,7 +194,7 @@ export function Navbar() {
 				{FEATURE_FLAGS.CONTACT && (
 					<button
 						type="button"
-						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow book-now"
+						className="book-now font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
 						onClick={() => {
 							toggleMobileMenu();
 							window.location.href = "./#contact";

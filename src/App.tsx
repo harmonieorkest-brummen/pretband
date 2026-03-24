@@ -1,16 +1,16 @@
 import confetti from "canvas-confetti";
-import { Suspense, lazy, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useBasinAhoy } from "./analytics/useBasinAhoy";
 import { Hero } from "./components/Hero";
 import { Navbar } from "./components/Navbar";
+import { Button } from "./components/ui/atoms/Button";
+import { Heading } from "./components/ui/atoms/Heading";
 import { BackgroundLayer } from "./components/ui/BackgroundLayer";
 import { ErrorBoundary } from "./components/ui/molecules/ErrorBoundary";
+import { FEATURE_FLAGS } from "./config/featureFlags";
 import { publicEnv } from "./config/publicEnv";
 import { EasterEggProvider, useEasterEggs } from "./context/EasterEggContext";
-import { Heading } from "./components/ui/atoms/Heading";
-import { Button } from "./components/ui/atoms/Button";
-import { FEATURE_FLAGS } from "./config/featureFlags";
 
 declare global {
 	interface Window {
@@ -73,20 +73,33 @@ function AchievementOverlay() {
 	if (!show) return null;
 
 	return (
-		<div className="fixed inset-0 z-500 flex items-center justify-center bg-pret-dark/95 p-6 backdrop-blur-xl animate-fade-in">
+		<div className="fixed inset-0 z-500 flex animate-fade-in items-center justify-center bg-pret-dark/95 p-6 backdrop-blur-xl">
 			<div className="max-w-2xl text-center">
-				<Heading level={1} variant="yellow" className="mb-8 animate-bounce text-7xl md:text-9xl">
+				<Heading
+					level={1}
+					variant="yellow"
+					className="mb-8 animate-bounce text-7xl md:text-9xl"
+				>
 					LEGEND!
 				</Heading>
-				<p className="mb-12 font-body text-2xl leading-relaxed text-white md:text-4xl">
-					You found all the hidden secrets. You are now an honorary member of the chaos!
+				<p className="mb-12 font-body text-2xl text-white leading-relaxed md:text-4xl">
+					You found all the hidden secrets. You are now an honorary member of
+					the chaos!
 				</p>
-				<Button onClick={() => setShow(false)} variant="primary" size="xl" className="shadow-[0_20px_0_#9d2423]">
+				<Button
+					onClick={() => setShow(false)}
+					variant="primary"
+					size="xl"
+					className="shadow-[0_20px_0_#9d2423]"
+				>
 					CONTINUE THE PARTY
 				</Button>
-				<button 
+				<button
 					type="button"
-					onClick={() => { resetEggs(); setShow(false); }}
+					onClick={() => {
+						resetEggs();
+						setShow(false);
+					}}
 					className="mt-12 block w-full text-center font-body text-white/30 underline transition-colors hover:text-white"
 				>
 					Reset and find them again?
@@ -110,7 +123,7 @@ function App() {
 
 		window.addEventListener("CookiebotOnAccept", updateConsent);
 		window.addEventListener("CookiebotOnDecline", updateConsent);
-		
+
 		// Initial check in case it's already loaded
 		updateConsent();
 
@@ -206,9 +219,7 @@ function App() {
 						</Suspense>
 					)}
 					<Suspense fallback={<SectionLoader height="h-[400px]" />}>
-						<ErrorBoundary>
-							{FEATURE_FLAGS.AGENDA && <Agenda />}
-						</ErrorBoundary>
+						<ErrorBoundary>{FEATURE_FLAGS.AGENDA && <Agenda />}</ErrorBoundary>
 					</Suspense>
 					{FEATURE_FLAGS.CONTACT && (
 						<Suspense fallback={<SectionLoader height="h-[500px]" />}>
@@ -220,9 +231,7 @@ function App() {
 				</main>
 
 				<Suspense fallback={null}>
-					<Footer
-						onOpenPrivacy={() => window.Cookiebot?.renew()}
-					/>
+					<Footer onOpenPrivacy={() => window.Cookiebot?.renew()} />
 				</Suspense>
 			</div>
 		</EasterEggProvider>

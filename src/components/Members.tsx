@@ -30,7 +30,7 @@ export function Members() {
 				<Heading
 					level={2}
 					variant="yellow"
-					className="mb-20 text-center text-6xl md:text-8xl break-words hyphens-auto"
+					className="mb-20 hyphens-auto break-words text-center text-6xl md:text-8xl"
 				>
 					{t("members.title")}
 				</Heading>

@@ -1,10 +1,10 @@
 import { ArrowBigDownDash } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/images/logo.png";
+import { useEasterEggs } from "../context/EasterEggContext";
 import { Badge } from "./ui/atoms/Badge";
 import { Button } from "./ui/atoms/Button";
 import { Decoration } from "./ui/atoms/Decoration";
-import { useEasterEggs } from "../context/EasterEggContext";
 
 interface HeroProps {
 	onLaunchConfetti: () => void;
@@ -124,7 +124,12 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 
 				{/* Action Area */}
 				<div className="flex flex-col items-center justify-center gap-10 md:flex-row">
-					<Button href="#contact" variant="primary" size="xl" className="group book-now">
+					<Button
+						href="#contact"
+						variant="primary"
+						size="xl"
+						className="group book-now"
+					>
 						<span className="inline-block transition-transform group-hover:scale-110">
 							{t("hero.book_now")}
 						</span>

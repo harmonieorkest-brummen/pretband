@@ -60,13 +60,16 @@ export function EventCard({
 					</p>
 				</div>
 				<div className="text-center md:text-right">
-					{time && time.trim() !== "" && time.toUpperCase() !== "TBA" && time.toUpperCase() !== "N.T.B." && (
-						<span
-							className={`block font-display text-2xl text-white uppercase transition-colors ${textHoverColors[variant]}`}
-						>
-							{time}
-						</span>
-					)}
+					{time &&
+						time.trim() !== "" &&
+						time.toUpperCase() !== "TBA" &&
+						time.toUpperCase() !== "N.T.B." && (
+							<span
+								className={`block font-display text-2xl text-white uppercase transition-colors ${textHoverColors[variant]}`}
+							>
+								{time}
+							</span>
+						)}
 					<span className="text-white text-xl uppercase opacity-60 group-hover:opacity-100">
 						{status}
 					</span>

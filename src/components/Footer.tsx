@@ -97,7 +97,7 @@ export function Footer({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 				type="trumpet"
 				color="yellow"
 				size={30}
-				className="absolute bottom-4 right-4 opacity-10"
+				className="absolute right-4 bottom-4 opacity-10"
 				isEasterEgg
 				eggId="doot"
 			/>

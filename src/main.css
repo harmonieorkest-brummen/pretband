@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  background-color: #2A2324;
-  color: white;
-  min-height: 100vh;
-  /* Support for modern mobile browsers with the notch/bottom bar */
-  min-height: 100dvh;
+html,
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	background-color: #2a2324;
+	color: white;
+	/* Support for modern mobile browsers with the notch/bottom bar */
+	min-height: 100dvh;
 }
 
 :root {
-  --color-pret-dark: #2A2324;
+	--color-pret-dark: #2a2324;
 }
 
 @config "../tailwind.config.js";
@@ -42,13 +42,24 @@ html, body {
 }
 
 @keyframes shake {
-	0%, 100% { transform: translateX(0); }
-	20%, 60% { transform: translateX(-10px); }
-	40%, 80% { transform: translateX(10px); }
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	20%,
+	60% {
+		transform: translateX(-10px);
+	}
+
+	40%,
+	80% {
+		transform: translateX(10px);
+	}
 }
 
 .animate-shake {
-	animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+	animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

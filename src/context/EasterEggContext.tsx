@@ -9,9 +9,13 @@ interface EasterEggContextType {
 	resetEggs: () => void;
 }
 
-const EasterEggContext = createContext<EasterEggContextType | undefined>(undefined);
+const EasterEggContext = createContext<EasterEggContextType | undefined>(
+	undefined,
+);
 
-export const EasterEggProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const EasterEggProvider: React.FC<{ children: React.ReactNode }> = ({
+	children,
+}) => {
 	const [foundEggs, setFoundEggs] = useState<EasterEggId[]>([]);
 
 	// Persist to localStorage
@@ -43,7 +47,9 @@ export const EasterEggProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 	const isAllFound = foundEggs.length === 4;
 
 	return (
-		<EasterEggContext.Provider value={{ foundEggs, findEgg, isAllFound, resetEggs }}>
+		<EasterEggContext.Provider
+			value={{ foundEggs, findEgg, isAllFound, resetEggs }}
+		>
 			{children}
 		</EasterEggContext.Provider>
 	);

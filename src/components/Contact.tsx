@@ -162,18 +162,23 @@ export function Contact() {
 					{t("contact.title_1")} <br />
 					<button
 						type="button"
-						className="focus-visible:outline-hidden text-pret-red transition-transform hover:scale-110 active:animate-bounce inline-block"
+						className="inline-block text-pret-red transition-transform hover:scale-110 focus-visible:outline-hidden active:animate-bounce"
 						onClick={() => findEgg("bouncing-pret")}
 					>
 						{t("contact.title_2")}
 					</button>
 				</Heading>
-				<p className="mx-auto mb-16 max-w-2xl font-body text-md md:text-3xl text-white/80 leading-tight">
+				<p className="mx-auto mb-16 max-w-2xl font-body text-md text-white/80 leading-tight md:text-3xl">
 					{t("contact.description")}
 				</p>
 
-				<div className={`mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-8 text-left shadow-[0_0_60px_rgba(0,0,0,0.35)] backdrop-blur-xs md:p-10 ${isShaking ? "animate-shake border-pret-red shadow-[0_0_80px_rgba(229,52,51,0.3)]" : ""
-					}`}>
+				<div
+					className={`mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-8 text-left shadow-[0_0_60px_rgba(0,0,0,0.35)] backdrop-blur-xs md:p-10 ${
+						isShaking
+							? "animate-shake border-pret-red shadow-[0_0_80px_rgba(229,52,51,0.3)]"
+							: ""
+					}`}
+				>
 					<form
 						method="POST"
 						action={basinAction}
@@ -253,8 +258,9 @@ export function Contact() {
 						{status !== "idle" && (
 							<output
 								aria-live="polite"
-								className={`mt-8 text-center font-body text-xl ${status === "success" ? "text-pret-yellow" : "text-pret-red"
-									}`}
+								className={`mt-8 text-center font-body text-xl ${
+									status === "success" ? "text-pret-yellow" : "text-pret-red"
+								}`}
 							>
 								{statusMessage}
 							</output>

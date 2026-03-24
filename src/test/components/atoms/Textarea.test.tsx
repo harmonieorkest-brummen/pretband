@@ -1,17 +1,22 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { Textarea } from "@/components/ui/atoms/Textarea";
 
 describe("Textarea Component", () => {
 	it("renders correctly with placeholder", () => {
 		render(<Textarea placeholder="Enter your message" />);
-		expect(screen.getByPlaceholderText("Enter your message")).toBeInTheDocument();
+		expect(
+			screen.getByPlaceholderText("Enter your message"),
+		).toBeInTheDocument();
 	});
 
 	it("renders label when provided", () => {
 		render(<Textarea label="Message" id="message-input" />);
 		expect(screen.getByLabelText("Message")).toBeInTheDocument();
-		expect(screen.getByLabelText("Message")).toHaveAttribute("id", "message-input");
+		expect(screen.getByLabelText("Message")).toHaveAttribute(
+			"id",
+			"message-input",
+		);
 	});
 
 	it("calls onChange when value changes", () => {

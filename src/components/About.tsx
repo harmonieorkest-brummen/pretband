@@ -56,7 +56,7 @@ export function About() {
 							{t("about.title_2")}
 						</span>
 					</Heading>
-					<p className="mb-8 font-body text-md md:text-3xl leading-relaxed">
+					<p className="mb-8 font-body text-md leading-relaxed md:text-3xl">
 						{t("about.description")}
 					</p>
 					<div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">

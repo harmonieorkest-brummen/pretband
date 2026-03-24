@@ -1,5 +1,5 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { Input } from "@/components/ui/atoms/Input";
 
 describe("Input Component", () => {
@@ -29,6 +29,9 @@ describe("Input Component", () => {
 
 	it("renders as different types", () => {
 		render(<Input type="email" placeholder="Email" />);
-		expect(screen.getByPlaceholderText("Email")).toHaveAttribute("type", "email");
+		expect(screen.getByPlaceholderText("Email")).toHaveAttribute(
+			"type",
+			"email",
+		);
 	});
 });

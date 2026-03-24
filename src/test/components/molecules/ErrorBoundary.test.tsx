@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { ErrorBoundary } from "@/components/ui/molecules/ErrorBoundary";
 
 // Mock i18next
@@ -35,7 +35,9 @@ describe("ErrorBoundary Component", () => {
 
 		expect(screen.getByText("errors.boundary_title")).toBeInTheDocument();
 		expect(screen.getByText("errors.boundary_body")).toBeInTheDocument();
-		expect(screen.getByRole("button")).toHaveTextContent("errors.boundary_button");
+		expect(screen.getByRole("button")).toHaveTextContent(
+			"errors.boundary_button",
+		);
 
 		consoleSpy.mockRestore();
 	});
@@ -44,7 +46,9 @@ describe("ErrorBoundary Component", () => {
 		vi.spyOn(console, "error").mockImplementation(() => {});
 
 		render(
-			<ErrorBoundary fallback={<div data-testid="custom-fallback">Custom Fallback</div>}>
+			<ErrorBoundary
+				fallback={<div data-testid="custom-fallback">Custom Fallback</div>}
+			>
 				<ThrowError />
 			</ErrorBoundary>,
 		);

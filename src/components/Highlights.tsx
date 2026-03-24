@@ -6,7 +6,7 @@ export function Highlights() {
 	const { t } = useTranslation();
 
 	return (
-		<section id="highlights" className="relative z-10 py-32 overflow-hidden">
+		<section id="highlights" className="relative z-10 overflow-hidden py-32">
 			<div className="pointer-events-none absolute inset-0">
 				<Decoration
 					type="party-popper"
@@ -19,13 +19,13 @@ export function Highlights() {
 					type="star"
 					color="yellow"
 					animation="float"
-					className="absolute bottom-40 right-[5%] opacity-10"
+					className="absolute right-[5%] bottom-40 opacity-10"
 					size={150}
 				/>
 			</div>
 
 			<div className="mx-auto max-w-7xl px-6">
-				<div className="text-center mb-16">
+				<div className="mb-16 text-center">
 					<Heading
 						level={2}
 						variant="yellow"
@@ -33,12 +33,12 @@ export function Highlights() {
 					>
 						{t("highlights.title")}
 					</Heading>
-					<p className="mx-auto max-w-2xl font-body text-md md:text-2xl text-white/70">
+					<p className="mx-auto max-w-2xl font-body text-md text-white/70 md:text-2xl">
 						{t("highlights.description")}
 					</p>
 				</div>
 
-				<div className="relative group">
+				<div className="group relative">
 					{/* Video Wrapper with decorative border */}
 					<div className="relative z-10 aspect-video w-full overflow-hidden rounded-[2rem] border-4 border-white/10 bg-pret-dark shadow-2xl transition-transform duration-500 group-hover:scale-[1.01] md:rounded-[4rem] md:border-8">
 						<iframe
@@ -51,7 +51,7 @@ export function Highlights() {
 					</div>
 
 					{/* Decorative background glow */}
-					<div className="absolute -inset-4 z-0 bg-pret-yellow/20 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+					<div className="absolute -inset-4 z-0 bg-pret-yellow/20 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 				</div>
 			</div>
 		</section>

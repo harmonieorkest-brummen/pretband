@@ -2,15 +2,15 @@ import {
 	Cherry,
 	Hamburger,
 	Heart,
+	Music,
 	PartyPopper,
 	Plus,
 	Stars,
 	Triangle,
 	Zap,
-	Music,
 } from "lucide-react";
-import { useEasterEggs } from "../../../context/EasterEggContext";
 import { useState } from "react";
+import { useEasterEggs } from "../../../context/EasterEggContext";
 
 const STAR_PATH = "M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z";
 
