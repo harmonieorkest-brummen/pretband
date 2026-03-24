@@ -57,7 +57,7 @@ export function seoPlugin(
 
 	const title = "Pretband Help Ons Bloaz'n | Brummen";
 	const description =
-		"De Pretband van Brummen: dweilorkest vol chaos, feest en pure pret. Boek ons voor festivals, evenementen en straatfeesten.";
+		"De Pretband van Brummen: dé pretband (dweilorkest) voor chaos, feest en pure pret. Boek ons voor festivals, evenementen en straatfeesten.";
 
 	const jsonLd = {
 		"@context": "https://schema.org",
