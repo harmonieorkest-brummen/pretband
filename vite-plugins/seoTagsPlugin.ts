@@ -45,7 +45,10 @@ export function seoTagsPlugin(
 				{
 					tag: "meta",
 					injectTo: "head",
-					attrs: { property: "og:site_name", content: "Pretband Help Ons Bloaz'n" },
+					attrs: {
+						property: "og:site_name",
+						content: "Pretband Help Ons Bloaz'n",
+					},
 				},
 				{
 					tag: "meta",

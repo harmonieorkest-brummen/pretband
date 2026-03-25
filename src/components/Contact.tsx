@@ -173,10 +173,11 @@ export function Contact() {
 				</p>
 
 				<div
-					className={`mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-8 text-left shadow-[0_0_60px_rgba(0,0,0,0.35)] backdrop-blur-xs md:p-10 ${isShaking
-						? "animate-shake border-pret-red shadow-[0_0_80px_rgba(229,52,51,0.3)]"
-						: ""
-						}`}
+					className={`mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-8 text-left shadow-[0_0_60px_rgba(0,0,0,0.35)] backdrop-blur-xs md:p-10 ${
+						isShaking
+							? "animate-shake border-pret-red shadow-[0_0_80px_rgba(229,52,51,0.3)]"
+							: ""
+					}`}
 				>
 					<form
 						method="POST"
@@ -257,8 +258,9 @@ export function Contact() {
 						{status !== "idle" && (
 							<output
 								aria-live="polite"
-								className={`mt-8 text-center font-body text-xl ${status === "success" ? "text-pret-yellow" : "text-pret-red"
-									}`}
+								className={`mt-8 text-center font-body text-xl ${
+									status === "success" ? "text-pret-yellow" : "text-pret-red"
+								}`}
 							>
 								{statusMessage}
 							</output>
