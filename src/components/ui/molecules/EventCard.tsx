@@ -4,8 +4,8 @@ interface EventCardProps {
 	date: string;
 	title: string;
 	location: string;
-	time: string;
 	status: string;
+	calendarUrl?: string;
 	variant?: "yellow" | "red";
 	className?: string;
 }
@@ -14,8 +14,8 @@ export function EventCard({
 	date,
 	title,
 	location,
-	time,
 	status,
+	calendarUrl,
 	variant = "yellow",
 	className = "",
 }: EventCardProps) {
@@ -60,19 +60,20 @@ export function EventCard({
 					</p>
 				</div>
 				<div className="text-center md:text-right">
-					{time &&
-						time.trim() !== "" &&
-						time.toUpperCase() !== "TBA" &&
-						time.toUpperCase() !== "N.T.B." && (
-							<span
-								className={`block font-display text-2xl text-white uppercase transition-colors ${textHoverColors[variant]}`}
-							>
-								{time}
-							</span>
-						)}
-					<span className="text-white text-xl uppercase opacity-60 group-hover:opacity-100">
-						{status}
-					</span>
+					{calendarUrl ? (
+						<a
+							href={calendarUrl}
+							download={`${title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.ics`}
+							className="text-white text-xl uppercase opacity-60 transition-opacity hover:opacity-100 focus:opacity-100 group-hover:opacity-100 block"
+							title="Download iCal event"
+						>
+							{status}
+						</a>
+					) : (
+						<span className="text-white text-xl uppercase opacity-60 group-hover:opacity-100">
+							{status}
+						</span>
+					)}
 				</div>
 			</div>
 		</div>

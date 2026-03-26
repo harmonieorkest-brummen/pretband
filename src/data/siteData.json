@@ -44,58 +44,50 @@
 			{
 				"id": "koningsdag_brummen",
 				"variant": "yellow",
-				"date": { "en": "APR 27", "nl": "27 APR" },
-				"title": { "en": "KONINGSDAG BRUMMEN", "nl": "KONINGSDAG BRUMMEN" },
-				"location": { "en": "BRUMMEN", "nl": "BRUMMEN" },
-				"time": { "en": "TBA", "nl": "N.T.B." },
+				"date": "2026-04-27",
+				"title": "KONINGSDAG BRUMMEN",
+				"location": "BRUMMEN",
 				"status": { "en": "SAVE THE DATE!", "nl": "ZET 'M IN JE AGENDA!" }
 			},
 			{
 				"id": "vaasaqua_vaassen",
 				"variant": "red",
-				"date": { "en": "MAY 14", "nl": "14 MEI" },
-				"title": { "en": "VAASAQUA VAASSEN", "nl": "VAASAQUA VAASSEN" },
-				"location": { "en": "VAASSEN", "nl": "VAASSEN" },
-				"time": { "en": "TBA", "nl": "N.T.B." },
+				"date": "2026-05-14",
+				"title": "VAASAQUA VAASSEN",
+				"location": "VAASSEN",
 				"status": { "en": "SAVE THE DATE!", "nl": "ZET 'M IN JE AGENDA!" }
 			},
 			{
 				"id": "avond4daagse_eerbeek",
 				"variant": "yellow",
-				"date": { "en": "JUN 04", "nl": "04 JUN" },
-				"title": {
-					"en": "AVOND 4DAAGSE EERBEEK",
-					"nl": "AVOND 4DAAGSE EERBEEK"
-				},
-				"location": { "en": "EERBEEK", "nl": "EERBEEK" },
+				"date": "2026-06-04",
+				"title": "AVOND 4DAAGSE EERBEEK",
+				"location": "EERBEEK",
 				"time": { "en": "TBA", "nl": "N.T.B." },
 				"status": { "en": "SAVE THE DATE!", "nl": "ZET 'M IN JE AGENDA!" }
 			},
 			{
 				"id": "bemmelse_dweildag",
 				"variant": "red",
-				"date": { "en": "JUN 14", "nl": "14 JUN" },
-				"title": { "en": "BEMMELSE DWEILDAG", "nl": "BEMMELSE DWEILDAG" },
-				"location": { "en": "BEMMEL", "nl": "BEMMEL" },
-				"time": { "en": "TBA", "nl": "N.T.B." },
+				"date": "2026-06-14",
+				"title": "BEMMELSE DWEILDAG",
+				"location": "BEMMEL",
 				"status": { "en": "SAVE THE DATE!", "nl": "ZET 'M IN JE AGENDA!" }
 			},
 			{
 				"id": "kermis_brummen",
 				"variant": "yellow",
-				"date": { "en": "AUG 24", "nl": "24 AUG" },
-				"title": { "en": "KERMIS BRUMMEN", "nl": "KERMIS BRUMMEN" },
-				"location": { "en": "BRUMMEN", "nl": "BRUMMEN" },
-				"time": { "en": "TBA", "nl": "N.T.B." },
+				"date": "2026-08-24",
+				"title": "KERMIS BRUMMEN",
+				"location": "BRUMMEN",
 				"status": { "en": "SAVE THE DATE!", "nl": "ZET 'M IN JE AGENDA!" }
 			},
 			{
 				"id": "dweildag_zutphen",
 				"variant": "red",
-				"date": { "en": "SEP 12", "nl": "12 SEP" },
-				"title": { "en": "DWEILDAG ZUTPHEN", "nl": "DWEILDAG ZUTPHEN" },
-				"location": { "en": "ZUTPHEN", "nl": "ZUTPHEN" },
-				"time": { "en": "TBA", "nl": "N.T.B." },
+				"date": "2026-09-12",
+				"title": "DWEILDAG ZUTPHEN",
+				"location": "ZUTPHEN",
 				"status": { "en": "SAVE THE DATE!", "nl": "ZET 'M IN JE AGENDA!" }
 			}
 		]

@@ -15,9 +15,9 @@ export interface LocalizedString {
 export interface AgendaEvent {
 	id: string;
 	variant: "yellow" | "red";
-	date: LocalizedString;
-	title: LocalizedString;
-	location: LocalizedString;
+	date: string;
+	title: string;
+	location: string;
 	time: LocalizedString;
 	status: LocalizedString;
 }
