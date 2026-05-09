@@ -1,21 +1,21 @@
-import { Suspense, lazy, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useData } from "@/context/DataContext";
 import { useToast } from "@/context/ToastContext";
+import en from "@/locales/en.json";
+import nl from "@/locales/nl.json";
 import { LandingScreen } from "@/pages/admin/views/LandingScreen";
 import { LoginScreen } from "@/pages/admin/views/LoginScreen";
-
-const AgendaEditor = lazy(() => import("@/pages/admin/views/AgendaEditor").then(m => ({ default: m.AgendaEditor })));
-const MembersEditor = lazy(() => import("@/pages/admin/views/MembersEditor").then(m => ({ default: m.MembersEditor })));
-const TranslationsEditor = lazy(() => import("@/pages/admin/views/TranslationsEditor").then(m => ({ default: m.TranslationsEditor })));
 import {
 	persistData,
 	saveAgenda,
 	saveMembers,
 	saveTranslations,
 } from "@/utils/adminData";
-import en from "@/locales/en.json";
-import nl from "@/locales/nl.json";
+
+const AgendaEditor = lazy(() => import("@/pages/admin/views/AgendaEditor").then(m => ({ default: m.AgendaEditor })));
+const MembersEditor = lazy(() => import("@/pages/admin/views/MembersEditor").then(m => ({ default: m.MembersEditor })));
+const TranslationsEditor = lazy(() => import("@/pages/admin/views/TranslationsEditor").then(m => ({ default: m.TranslationsEditor })));
 
 export default function AdminPanel() {
 	const { t } = useTranslation();
