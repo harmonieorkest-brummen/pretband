@@ -36,6 +36,9 @@ describe("securityMetaPlugin", () => {
 		);
 		expect(cspTag).toBeDefined();
 		expect(cspTag?.attrs.content).toContain("default-src");
+		expect(cspTag?.attrs.content).toContain(
+			"https://region1.analytics.google.com",
+		);
 
 		const referrerTag = tags.find(
 			(t) => t.tag === "meta" && t.attrs?.name === "referrer",
