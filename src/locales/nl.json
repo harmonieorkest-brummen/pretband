@@ -139,6 +139,8 @@
 			"new_event_placeholder": "NIEUW EVENEMENT",
 			"delete_button": "Verwijderen",
 			"empty": "Geen evenementen.",
+			"not_live_badge": "Niet live",
+			"missing_date_warning": "Dit evenement heeft nog geen datum en wordt daarom niet getoond op de live site.",
 			"deletion_notice": "Evenementen worden 30 dagen na de evenementdatum automatisch verwijderd.",
 			"days_until_deletion_one": "Verwijdering over 1 dag",
 			"days_until_deletion_other": "Verwijdering over {{count}} dagen"

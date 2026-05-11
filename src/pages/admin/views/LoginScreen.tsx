@@ -15,7 +15,8 @@ export function LoginScreen({
 	const [shake, setShake] = useState(false);
 	const [loading, setLoading] = useState(false);
 
-	const attempt = async () => {
+	const attempt = async (event?: React.FormEvent<HTMLFormElement>) => {
+		event?.preventDefault();
 		if (!val) return;
 		setLoading(true);
 		setErr(false);
@@ -52,16 +53,21 @@ export function LoginScreen({
 					{t("admin.login.subtitle")}
 				</p>
 
-				<div className={`${shake ? "animate-wiggle" : ""}`}>
+				<form
+					onSubmit={attempt}
+					autoComplete="on"
+					className={`${shake ? "animate-wiggle" : ""}`}
+				>
 					<Input
 						id="login-password"
+						name="password"
 						label={t("admin.login.password_label")}
 						type="password"
 						value={val}
 						onChange={(e) => setVal(e.target.value)}
-						onKeyDown={(e) => e.key === "Enter" && attempt()}
 						placeholder="..."
 						disabled={loading}
+						autoComplete="current-password"
 						className={`text-center text-2xl tracking-[6px] ${err ? "border-pret-red text-pret-red" : ""}`}
 					/>
 					<div
@@ -69,17 +75,17 @@ export function LoginScreen({
 					>
 						{t("admin.login.password_error")}
 					</div>
-				</div>
 
-				<Button
-					onClick={attempt}
-					disabled={loading}
-					variant="primary"
-					className="w-full mt-6"
-					size="lg"
-				>
-					{loading ? t("admin.loading") : t("admin.login.login_button")}
-				</Button>
+					<Button
+						type="submit"
+						disabled={loading}
+						variant="primary"
+						className="w-full mt-6"
+						size="lg"
+					>
+						{loading ? t("admin.loading") : t("admin.login.login_button")}
+					</Button>
+				</form>
 			</div>
 		</div>
 	);

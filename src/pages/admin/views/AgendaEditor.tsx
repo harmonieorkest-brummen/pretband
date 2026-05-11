@@ -1,4 +1,4 @@
-import { ChevronDownCircle, ChevronUpCircle } from "lucide-react";
+import { AlertTriangle, ChevronDownCircle, ChevronUpCircle } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/atoms/Button";
@@ -101,6 +101,7 @@ export function AgendaEditor({
 				{events.map((ev: AgendaEvent, idx: number) => {
 					const open = expanded === idx;
 					const daysLeft = getDaysUntilDeletion(ev.date);
+					const isMissingDate = ev.date.trim() === "";
 
 					return (
 						<div key={ev.id} className="animate-fade-in">
@@ -119,6 +120,12 @@ export function AgendaEditor({
 									{ev.title}
 								</span>
 								<div className="flex items-center gap-4 ml-auto">
+									{isMissingDate && (
+										<span className="inline-flex items-center gap-1 rounded-full border border-pret-red/30 bg-pret-red/15 px-2 py-1 text-[10px] font-bold text-pret-red uppercase tracking-widest">
+											<AlertTriangle className="h-3 w-3" aria-hidden="true" />
+											{t("admin.agenda.not_live_badge")}
+										</span>
+									)}
 									{daysLeft !== null && new Date(ev.date) < new Date() && (
 										<span
 											className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-widest ${daysLeft <= 7 ? "bg-pret-red/20 text-pret-red border border-pret-red/30" : "bg-pret-yellow/10 text-pret-yellow border border-pret-yellow/20"}`}
@@ -139,6 +146,18 @@ export function AgendaEditor({
 
 							{open && (
 								<div className="bg-black/80 border border-pret-yellow border-t-0 rounded-b-2xl p-6 md:p-8 animate-fade-in">
+									{isMissingDate && (
+										<div className="mb-6 flex gap-3 rounded-2xl border border-pret-red/30 bg-pret-red/10 p-4 text-pret-red">
+											<AlertTriangle
+												className="mt-0.5 h-5 w-5 shrink-0"
+												aria-hidden="true"
+											/>
+											<p className="text-sm font-medium leading-relaxed">
+												{t("admin.agenda.missing_date_warning")}
+											</p>
+										</div>
+									)}
+
 									<div className="mb-6">
 										<Input
 											id={`id-${idx}`}

@@ -139,6 +139,8 @@
 			"new_event_placeholder": "NEW EVENT",
 			"delete_button": "Delete",
 			"empty": "No events.",
+			"not_live_badge": "Not live",
+			"missing_date_warning": "This event has no date yet, so it is not shown on the live site.",
 			"deletion_notice": "Events are automatically deleted 30 days after the event date.",
 			"days_until_deletion_one": "Deletion in 1 day",
 			"days_until_deletion_other": "Deletion in {{count}} days"
