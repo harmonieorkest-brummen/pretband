@@ -32,6 +32,25 @@ describe("Navbar Component", () => {
 		expect(membersLinks.length).toBeGreaterThan(0);
 	});
 
+	it("uses HashRouter-safe section hrefs", () => {
+		render(<Navbar />);
+
+		expect(screen.getAllByText("navbar.band")[0].closest("a")).toHaveAttribute(
+			"href",
+			"#/#wie",
+		);
+		expect(
+			screen.getAllByText("navbar.members")[0].closest("a"),
+		).toHaveAttribute("href", "#/#leden");
+		expect(screen.getAllByText("navbar.when")[0].closest("a")).toHaveAttribute(
+			"href",
+			"#/#agenda",
+		);
+		expect(
+			screen.getAllByText("navbar.book_now")[0].closest("a"),
+		).toHaveAttribute("href", "#/#contact");
+	});
+
 	it("toggles mobile menu when menu button is clicked", () => {
 		render(<Navbar />);
 

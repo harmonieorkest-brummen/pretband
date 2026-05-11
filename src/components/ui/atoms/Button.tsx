@@ -6,7 +6,7 @@ interface ButtonProps {
 	size?: "sm" | "md" | "lg" | "xl";
 	href?: string;
 	className?: string;
-	onClick?: () => void;
+	onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>;
 	type?: "button" | "submit" | "reset";
 	disabled?: boolean;
 }

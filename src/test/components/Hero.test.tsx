@@ -25,6 +25,20 @@ describe("Hero Component", () => {
 		expect(screen.getByText("hero.book_now")).toBeInTheDocument();
 	});
 
+	it("uses HashRouter-safe section hrefs", () => {
+		const handleLaunchConfetti = vi.fn();
+		render(<Hero onLaunchConfetti={handleLaunchConfetti} />);
+
+		expect(screen.getByText("hero.book_now").closest("a")).toHaveAttribute(
+			"href",
+			"#/#contact",
+		);
+		expect(screen.getByText("hero.check_chaos").closest("a")).toHaveAttribute(
+			"href",
+			"#/#agenda",
+		);
+	});
+
 	it("calls onLaunchConfetti when logo is clicked", () => {
 		const handleLaunchConfetti = vi.fn();
 		render(<Hero onLaunchConfetti={handleLaunchConfetti} />);

@@ -3,6 +3,7 @@ import { Trans, useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/atoms/Badge";
 import { Button } from "@/components/ui/atoms/Button";
 import { Decoration } from "@/components/ui/atoms/Decoration";
+import { navigateToSection, sectionHref } from "@/utils/sectionNavigation";
 import logo from "../../assets/images/logo.png";
 import { useEasterEggs } from "../../context/EasterEggContext";
 
@@ -18,6 +19,13 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 		onLaunchConfetti();
 		findEgg("confetti-rain");
 	};
+
+	const handleSectionClick =
+		(sectionId: string): React.MouseEventHandler<HTMLAnchorElement> =>
+		(event) => {
+			event.preventDefault();
+			navigateToSection(sectionId);
+		};
 
 	return (
 		<section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-48 pb-20">
@@ -126,7 +134,8 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 				{/* Action Area */}
 				<div className="flex flex-col items-center justify-center gap-10 md:flex-row">
 					<Button
-						href="#contact"
+						href={sectionHref("contact")}
+						onClick={handleSectionClick("contact")}
 						variant="primary"
 						size="xl"
 						className="group book-now"
@@ -136,7 +145,8 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 						</span>
 					</Button>
 					<Button
-						href="#agenda"
+						href={sectionHref("agenda")}
+						onClick={handleSectionClick("agenda")}
 						variant="ghost"
 						size="lg"
 						className="hover:text-pret-yellow"

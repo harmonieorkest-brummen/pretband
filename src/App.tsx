@@ -14,6 +14,7 @@ import { publicEnv } from "./config/publicEnv";
 import { DataProvider } from "./context/DataContext";
 import { EasterEggProvider, useEasterEggs } from "./context/EasterEggContext";
 import { ToastProvider } from "./context/ToastContext";
+import { getSectionIdFromHash, scrollToSection } from "./utils/sectionNavigation";
 
 declare global {
 	interface Window {
@@ -161,6 +162,22 @@ function PublicSite() {
 			// If cross-origin framed, we can't read top; at least avoid running sensitive UI in-frame.
 			document.body.innerHTML = "";
 		}
+	}, []);
+
+	useEffect(() => {
+		const scrollFromHash = () => {
+			const sectionId = getSectionIdFromHash();
+			if (sectionId) {
+				scrollToSection(sectionId, { behavior: "auto", attempts: 20 });
+			}
+		};
+
+		scrollFromHash();
+		window.addEventListener("hashchange", scrollFromHash);
+
+		return () => {
+			window.removeEventListener("hashchange", scrollFromHash);
+		};
 	}, []);
 
 	const launchConfetti = useCallback((): void => {

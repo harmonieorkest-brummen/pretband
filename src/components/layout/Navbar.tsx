@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/atoms/Button";
+import { navigateToSection, sectionHref } from "@/utils/sectionNavigation";
 import navbarLogo from "../../assets/images/logo.png";
 import { FEATURE_FLAGS } from "../../config/featureFlags";
 
@@ -20,6 +21,21 @@ export function Navbar() {
 		const nextLng = i18n.language === "nl" ? "en" : "nl";
 		i18n.changeLanguage(nextLng);
 	};
+
+	const handleSectionClick =
+		(sectionId: string): React.MouseEventHandler<HTMLAnchorElement> =>
+		(event) => {
+			event.preventDefault();
+			navigateToSection(sectionId);
+		};
+
+	const handleMobileSectionClick =
+		(sectionId: string): React.MouseEventHandler<HTMLAnchorElement> =>
+		(event) => {
+			event.preventDefault();
+			setIsMenuOpen(false);
+			navigateToSection(sectionId);
+		};
 
 	// Focus management for accessibility
 	useEffect(() => {
@@ -57,7 +73,8 @@ export function Navbar() {
 				<div className="hidden items-center space-x-10 md:flex">
 					{FEATURE_FLAGS.ABOUT && (
 						<a
-							href="#wie"
+							href={sectionHref("wie")}
+							onClick={handleSectionClick("wie")}
 							className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-red focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
 						>
 							{t("navbar.band")}
@@ -65,7 +82,8 @@ export function Navbar() {
 					)}
 					{FEATURE_FLAGS.MEMBERS && (
 						<a
-							href="#leden"
+							href={sectionHref("leden")}
+							onClick={handleSectionClick("leden")}
 							className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
 						>
 							{t("navbar.members")}
@@ -73,7 +91,8 @@ export function Navbar() {
 					)}
 					{FEATURE_FLAGS.AGENDA && (
 						<a
-							href="#agenda"
+							href={sectionHref("agenda")}
+							onClick={handleSectionClick("agenda")}
 							className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-red focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
 						>
 							{t("navbar.when")}
@@ -82,7 +101,8 @@ export function Navbar() {
 					{FEATURE_FLAGS.CONTACT && (
 						<Button
 							className="book-now"
-							href="#contact"
+							href={sectionHref("contact")}
+							onClick={handleSectionClick("contact")}
 							variant="secondary"
 							size="md"
 						>
@@ -156,52 +176,40 @@ export function Navbar() {
 					</svg>
 				</button>
 				{FEATURE_FLAGS.ABOUT && (
-					<button
-						type="button"
+					<a
+						href={sectionHref("wie")}
 						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
-						onClick={() => {
-							toggleMobileMenu();
-							window.location.href = "./#wie";
-						}}
+						onClick={handleMobileSectionClick("wie")}
 					>
 						{t("navbar.band")}
-					</button>
+					</a>
 				)}
 				{FEATURE_FLAGS.MEMBERS && (
-					<button
-						type="button"
+					<a
+						href={sectionHref("leden")}
 						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
-						onClick={() => {
-							toggleMobileMenu();
-							window.location.href = "./#leden";
-						}}
+						onClick={handleMobileSectionClick("leden")}
 					>
 						{t("navbar.members")}
-					</button>
+					</a>
 				)}
 				{FEATURE_FLAGS.AGENDA && (
-					<button
-						type="button"
+					<a
+						href={sectionHref("agenda")}
 						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
-						onClick={() => {
-							toggleMobileMenu();
-							window.location.href = "./#agenda";
-						}}
+						onClick={handleMobileSectionClick("agenda")}
 					>
 						{t("navbar.when")}
-					</button>
+					</a>
 				)}
 				{FEATURE_FLAGS.CONTACT && (
-					<button
-						type="button"
+					<a
+						href={sectionHref("contact")}
 						className="book-now font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
-						onClick={() => {
-							toggleMobileMenu();
-							window.location.href = "./#contact";
-						}}
+						onClick={handleMobileSectionClick("contact")}
 					>
 						{t("navbar.book_now")}
-					</button>
+					</a>
 				)}
 				<Button
 					variant="outline"
