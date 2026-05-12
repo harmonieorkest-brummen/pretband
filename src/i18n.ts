@@ -17,9 +17,6 @@ const options: InitOptions & { showSupportNotice: false } = {
 	},
 };
 
-i18n
-	.use(LanguageDetector)
-	.use(initReactI18next)
-	.init(options);
+i18n.use(LanguageDetector).use(initReactI18next).init(options);
 
 export default i18n;

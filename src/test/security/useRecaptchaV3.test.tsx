@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { SecurityProvider } from "@/security/SecurityContext";
 import { useRecaptchaV3 } from "@/security/useRecaptchaV3";
 

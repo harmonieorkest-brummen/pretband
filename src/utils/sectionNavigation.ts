@@ -2,7 +2,9 @@ export function sectionHref(sectionId: string): string {
 	return `#/#${encodeURIComponent(sectionId)}`;
 }
 
-export function getSectionIdFromHash(hash = window.location.hash): string | null {
+export function getSectionIdFromHash(
+	hash = window.location.hash,
+): string | null {
 	const match = hash.match(/^#\/#([^/?&]+)/);
 	return match ? decodeURIComponent(match[1]) : null;
 }

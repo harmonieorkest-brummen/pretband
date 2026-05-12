@@ -70,7 +70,7 @@ export function MembersEditor({
 	);
 
 	return (
-		<div className="py-20 px-6 max-w-6xl mx-auto min-h-screen">
+		<div className="mx-auto min-h-screen max-w-6xl px-6 py-20">
 			<AdminTopBar
 				title={t("admin.members.title")}
 				stat={t("admin.members.stat", {
@@ -90,9 +90,9 @@ export function MembersEditor({
 					return (
 						<div
 							key={sec.key}
-							className="bg-black/40 border border-white/10 rounded-[2rem] p-8 md:p-10 animate-fade-in"
+							className="animate-fade-in rounded-[2rem] border border-white/10 bg-black/40 p-8 md:p-10"
 						>
-							<div className="flex flex-col md:flex-row md:items-center gap-6 mb-8">
+							<div className="mb-8 flex flex-col gap-6 md:flex-row md:items-center">
 								<div className="flex-1">
 									<Input
 										id={`section-key-${si}`}
@@ -106,7 +106,7 @@ export function MembersEditor({
 									<Heading level={3} variant="yellow" className="text-3xl">
 										{sec.key.replace(/_/g, " ")}
 									</Heading>
-									<div className="text-white/60 text-xs tracking-widest uppercase mt-2">
+									<div className="mt-2 text-white/60 text-xs uppercase tracking-widest">
 										{t("admin.members.section_stat", {
 											count: sec.names.length,
 										})}
@@ -114,9 +114,9 @@ export function MembersEditor({
 								</div>
 							</div>
 
-							<div className="flex flex-wrap gap-3 mb-8 min-h-[40px] items-center">
+							<div className="mb-8 flex min-h-[40px] flex-wrap items-center gap-3">
 								{sec.names.length === 0 && (
-									<span className="text-white/40 italic text-sm">
+									<span className="text-sm text-white/40 italic">
 										{t("admin.members.no_members")}
 									</span>
 								)}
@@ -127,13 +127,13 @@ export function MembersEditor({
 											key={name}
 											variant="dark"
 											size="sm"
-											className="group border border-white/15 px-3 pr-2 flex items-center gap-2"
+											className="group flex items-center gap-2 border border-white/15 px-3 pr-2"
 										>
 											<span className="font-body">{name}</span>
 											<button
 												type="button"
 												onClick={() => removeName(si, ni)}
-												className="text-pret-red/30 hover:text-pret-red text-lg transition-colors leading-none"
+												className="text-lg text-pret-red/30 leading-none transition-colors hover:text-pret-red"
 												aria-label={t("admin.members.remove_aria", { name })}
 											>
 												<X />
@@ -142,8 +142,8 @@ export function MembersEditor({
 									))}
 							</div>
 
-							<div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-								<div className="flex flex-1 w-full">
+							<div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+								<div className="flex w-full flex-1">
 									<Input
 										id={`add-name-${si}`}
 										value={newNames[si] || ""}
@@ -157,7 +157,7 @@ export function MembersEditor({
 									<Button
 										variant="outline"
 										onClick={() => addName(si)}
-										className="rounded-l-none px-4 h-auto flex items-center justify-center"
+										className="flex h-auto items-center justify-center rounded-l-none px-4"
 									>
 										<Plus />
 									</Button>

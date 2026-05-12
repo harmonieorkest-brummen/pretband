@@ -14,7 +14,10 @@ import { publicEnv } from "./config/publicEnv";
 import { DataProvider } from "./context/DataContext";
 import { EasterEggProvider, useEasterEggs } from "./context/EasterEggContext";
 import { ToastProvider } from "./context/ToastContext";
-import { getSectionIdFromHash, scrollToSection } from "./utils/sectionNavigation";
+import {
+	getSectionIdFromHash,
+	scrollToSection,
+} from "./utils/sectionNavigation";
 
 declare global {
 	interface Window {

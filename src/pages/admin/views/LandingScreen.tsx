@@ -21,13 +21,13 @@ export function LandingScreen({
 	);
 
 	return (
-		<div className="py-20 px-6 max-w-6xl mx-auto min-h-screen">
-			<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 animate-fade-in gap-6">
+		<div className="mx-auto min-h-screen max-w-6xl px-6 py-20">
+			<div className="mb-16 flex animate-fade-in flex-col items-start justify-between gap-6 md:flex-row md:items-center">
 				<div>
 					<Heading level={2} variant="yellow" className="text-5xl md:text-6xl">
 						{t("admin.landing.title")}
 					</Heading>
-					<p className="text-white/60 text-xs tracking-[2.5px] uppercase mt-2">
+					<p className="mt-2 text-white/60 text-xs uppercase tracking-[2.5px]">
 						{t("admin.landing.subtitle")}
 					</p>
 				</div>
@@ -38,7 +38,7 @@ export function LandingScreen({
 				</div>
 			</div>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 				{[
 					{
 						key: "agenda",
@@ -64,9 +64,16 @@ export function LandingScreen({
 						icon: "🌐",
 						title: t("admin.landing.translations_title", "VERTALINGEN"),
 						stat: t("admin.translations.stat", {
-							count: Object.values(en).reduce((a, v) => a + (typeof v === "object" ? Object.keys(v).length : 1), 0)
+							count: Object.values(en).reduce(
+								(a, v) =>
+									a + (typeof v === "object" ? Object.keys(v).length : 1),
+								0,
+							),
 						}),
-						desc: t("admin.landing.translations_desc", "Beheer de teksten van de website in alle talen."),
+						desc: t(
+							"admin.landing.translations_desc",
+							"Beheer de teksten van de website in alle talen.",
+						),
 					},
 				].map((c) => (
 					<button
@@ -75,20 +82,20 @@ export function LandingScreen({
 						onClick={() => onSelect(c.key)}
 						onKeyDown={(e) => e.key === "Enter" && onSelect(c.key)}
 						tabIndex={0}
-						className="group block relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-10 transition-all duration-300 hover:bg-white/10 hover:border-pret-yellow hover:-translate-y-2 cursor-pointer animate-fade-in"
+						className="group relative block animate-fade-in cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-10 transition-all duration-300 hover:-translate-y-2 hover:border-pret-yellow hover:bg-white/10"
 					>
-						<div className="text-5xl mb-6">{c.icon}</div>
+						<div className="mb-6 text-5xl">{c.icon}</div>
 						<Heading
 							level={3}
-							className="text-4xl mb-3 group-hover:text-pret-yellow transition-colors"
+							className="mb-3 text-4xl transition-colors group-hover:text-pret-yellow"
 						>
 							{c.title}
 						</Heading>
-						<div className="text-pret-red text-sm font-bold tracking-[1.5px] uppercase mb-4">
+						<div className="mb-4 font-bold text-pret-red text-sm uppercase tracking-[1.5px]">
 							{c.stat}
 						</div>
-						<p className="text-white/60 text-lg leading-relaxed">{c.desc}</p>
-						<div className="mt-8 text-pret-yellow text-sm font-bold font-display uppercase tracking-widest group-hover:translate-x-2 transition-transform">
+						<p className="text-lg text-white/60 leading-relaxed">{c.desc}</p>
+						<div className="mt-8 font-bold font-display text-pret-yellow text-sm uppercase tracking-widest transition-transform group-hover:translate-x-2">
 							{t("admin.landing.edit_button")}
 						</div>
 					</button>

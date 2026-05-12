@@ -6,7 +6,11 @@ type TagDescriptor = { tag: string; attrs: Record<string, string> };
 
 function callTransformIndexHtml(plugin: Plugin) {
 	const hook = plugin.transformIndexHtml;
-	const fn = typeof hook === "function" ? hook : (hook as any).handler;
+	const fn =
+		typeof hook === "function"
+			? hook
+			: (hook as unknown as { handler: (html: string) => TagDescriptor[] })
+					.handler;
 	return (fn as (html: string) => TagDescriptor[])(
 		"<html><head></head><body></body></html>",
 	);

@@ -30,7 +30,7 @@ export const AdminTopBar = ({
 	const { t } = useTranslation();
 
 	return (
-		<div className="flex items-center gap-6 mb-12 animate-fade-in">
+		<div className="mb-12 flex animate-fade-in items-center gap-6">
 			<Button
 				className="inline-flex items-center gap-2"
 				variant="ghost"
@@ -43,7 +43,7 @@ export const AdminTopBar = ({
 				<Heading level={2} variant="yellow" className="text-5xl md:text-6xl">
 					{title}
 				</Heading>
-				<div className="text-white/60 text-xs tracking-[2px] uppercase mt-2">
+				<div className="mt-2 text-white/60 text-xs uppercase tracking-[2px]">
 					{stat}
 				</div>
 			</div>

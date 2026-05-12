@@ -13,9 +13,21 @@ import {
 	saveTranslations,
 } from "@/utils/adminData";
 
-const AgendaEditor = lazy(() => import("@/pages/admin/views/AgendaEditor").then(m => ({ default: m.AgendaEditor })));
-const MembersEditor = lazy(() => import("@/pages/admin/views/MembersEditor").then(m => ({ default: m.MembersEditor })));
-const TranslationsEditor = lazy(() => import("@/pages/admin/views/TranslationsEditor").then(m => ({ default: m.TranslationsEditor })));
+const AgendaEditor = lazy(() =>
+	import("@/pages/admin/views/AgendaEditor").then((m) => ({
+		default: m.AgendaEditor,
+	})),
+);
+const MembersEditor = lazy(() =>
+	import("@/pages/admin/views/MembersEditor").then((m) => ({
+		default: m.MembersEditor,
+	})),
+);
+const TranslationsEditor = lazy(() =>
+	import("@/pages/admin/views/TranslationsEditor").then((m) => ({
+		default: m.TranslationsEditor,
+	})),
+);
 
 export default function AdminPanel() {
 	const { t } = useTranslation();
@@ -77,7 +89,10 @@ export default function AdminPanel() {
 		setSyncing(true);
 		try {
 			await saveTranslations(token, { nl: nextNL, en: nextEN });
-			showToast(t("admin.toasts.translations_success", "Vertalingen opgeslagen!"), "success");
+			showToast(
+				t("admin.toasts.translations_success", "Vertalingen opgeslagen!"),
+				"success",
+			);
 		} catch (err) {
 			console.error(err);
 			showToast(t("admin.toasts.save_error"), "error");
@@ -101,9 +116,9 @@ export default function AdminPanel() {
 
 	if (loading || !data)
 		return (
-			<div className="flex items-center justify-center min-h-screen">
-				<div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-pret-yellow" />
-				<div className="ml-4 text-white/60 font-display tracking-widest uppercase">
+			<div className="flex min-h-screen items-center justify-center">
+				<div className="h-12 w-12 animate-spin rounded-full border-pret-yellow border-t-2 border-b-2" />
+				<div className="ml-4 font-display text-white/60 uppercase tracking-widest">
 					{t("admin.loading")}
 				</div>
 			</div>
@@ -113,8 +128,8 @@ export default function AdminPanel() {
 		return (
 			<Suspense
 				fallback={
-					<div className="flex items-center justify-center min-h-screen">
-						<div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-pret-yellow" />
+					<div className="flex min-h-screen items-center justify-center">
+						<div className="h-8 w-8 animate-spin rounded-full border-pret-yellow border-t-2 border-b-2" />
 					</div>
 				}
 			>

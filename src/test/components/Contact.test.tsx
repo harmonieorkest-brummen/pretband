@@ -6,7 +6,7 @@ vi.mock("react-i18next", () => ({
 	useTranslation: () => ({
 		t: (key: string) => key,
 	}),
-	Trans: ({ i18nKey }: any) => <span>{i18nKey}</span>,
+	Trans: ({ i18nKey }: { i18nKey: string }) => <span>{i18nKey}</span>,
 }));
 
 vi.mock("@/config/publicEnv", () => ({
@@ -32,7 +32,7 @@ window.IntersectionObserver = class {
 	observe() {}
 	unobserve() {}
 	disconnect() {}
-} as any;
+} as unknown as typeof IntersectionObserver;
 
 describe("Contact Component", () => {
 	it("renders the contact form", () => {

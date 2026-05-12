@@ -64,7 +64,7 @@ export function EventCard({
 						<a
 							href={calendarUrl}
 							download={`${title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.ics`}
-							className="text-white text-xl uppercase opacity-60 transition-opacity hover:opacity-100 focus:opacity-100 group-hover:opacity-100 block"
+							className="block text-white text-xl uppercase opacity-60 transition-opacity hover:opacity-100 focus:opacity-100 group-hover:opacity-100"
 							title="Download iCal event"
 						>
 							{actionText}

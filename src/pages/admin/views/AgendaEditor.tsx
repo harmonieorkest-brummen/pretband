@@ -1,4 +1,8 @@
-import { AlertTriangle, ChevronDownCircle, ChevronUpCircle } from "lucide-react";
+import {
+	AlertTriangle,
+	ChevronDownCircle,
+	ChevronUpCircle,
+} from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/atoms/Button";
@@ -78,7 +82,7 @@ export function AgendaEditor({
 	};
 
 	return (
-		<div className="py-20 px-6 max-w-6xl mx-auto min-h-screen">
+		<div className="mx-auto min-h-screen max-w-6xl px-6 py-20">
 			<AdminTopBar
 				title={t("admin.agenda.title")}
 				stat={t("admin.agenda.stat", { count: events.length })}
@@ -90,9 +94,9 @@ export function AgendaEditor({
 				addItemLabel={t("admin.agenda.new_button")}
 			/>
 
-			<div className="mb-8 p-4 bg-pret-yellow/10 border border-pret-yellow/20 rounded-2xl flex items-center gap-4 animate-fade-in">
+			<div className="mb-8 flex animate-fade-in items-center gap-4 rounded-2xl border border-pret-yellow/20 bg-pret-yellow/10 p-4">
 				<span className="text-2xl">ℹ️</span>
-				<p className="text-pret-yellow/80 text-sm font-medium leading-relaxed">
+				<p className="font-medium text-pret-yellow/80 text-sm leading-relaxed">
 					{t("admin.agenda.deletion_notice")}
 				</p>
 			</div>
@@ -111,31 +115,31 @@ export function AgendaEditor({
 								onKeyDown={(e) =>
 									e.key === "Enter" && setExpanded(open ? null : idx)
 								}
-								className={`w-full relative overflow-hidden border bg-black/40 p-5 flex items-center gap-4 cursor-pointer transition-colors hover:bg-black/60 ${open ? "border-pret-yellow rounded-t-2xl" : "border-white/10 rounded-2xl"}`}
+								className={`relative flex w-full cursor-pointer items-center gap-4 overflow-hidden border bg-black/40 p-5 transition-colors hover:bg-black/60 ${open ? "rounded-t-2xl border-pret-yellow" : "rounded-2xl border-white/10"}`}
 							>
-								<span className="text-white/60 text-sm min-w-[60px]">
+								<span className="min-w-[60px] text-sm text-white/60">
 									{ev.date || "—"}
 								</span>
-								<span className="text-white font-semibold flex-1 truncate text-left">
+								<span className="flex-1 truncate text-left font-semibold text-white">
 									{ev.title}
 								</span>
-								<div className="flex items-center gap-4 ml-auto">
+								<div className="ml-auto flex items-center gap-4">
 									{isMissingDate && (
-										<span className="inline-flex items-center gap-1 rounded-full border border-pret-red/30 bg-pret-red/15 px-2 py-1 text-[10px] font-bold text-pret-red uppercase tracking-widest">
+										<span className="inline-flex items-center gap-1 rounded-full border border-pret-red/30 bg-pret-red/15 px-2 py-1 font-bold text-[10px] text-pret-red uppercase tracking-widest">
 											<AlertTriangle className="h-3 w-3" aria-hidden="true" />
 											{t("admin.agenda.not_live_badge")}
 										</span>
 									)}
 									{daysLeft !== null && new Date(ev.date) < new Date() && (
 										<span
-											className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-widest ${daysLeft <= 7 ? "bg-pret-red/20 text-pret-red border border-pret-red/30" : "bg-pret-yellow/10 text-pret-yellow border border-pret-yellow/20"}`}
+											className={`rounded-full px-2 py-1 font-bold text-[10px] uppercase tracking-widest ${daysLeft <= 7 ? "border border-pret-red/30 bg-pret-red/20 text-pret-red" : "border border-pret-yellow/20 bg-pret-yellow/10 text-pret-yellow"}`}
 										>
 											{t("admin.agenda.days_until_deletion", {
 												count: daysLeft,
 											})}
 										</span>
 									)}
-									<span className="text-white/60 text-sm hidden lg:block truncate max-w-[200px]">
+									<span className="hidden max-w-[200px] truncate text-sm text-white/60 lg:block">
 										{ev.location || "—"}
 									</span>
 									<span className="text-pret-yellow">
@@ -145,14 +149,14 @@ export function AgendaEditor({
 							</button>
 
 							{open && (
-								<div className="bg-black/80 border border-pret-yellow border-t-0 rounded-b-2xl p-6 md:p-8 animate-fade-in">
+								<div className="animate-fade-in rounded-b-2xl border border-pret-yellow border-t-0 bg-black/80 p-6 md:p-8">
 									{isMissingDate && (
 										<div className="mb-6 flex gap-3 rounded-2xl border border-pret-red/30 bg-pret-red/10 p-4 text-pret-red">
 											<AlertTriangle
 												className="mt-0.5 h-5 w-5 shrink-0"
 												aria-hidden="true"
 											/>
-											<p className="text-sm font-medium leading-relaxed">
+											<p className="font-medium text-sm leading-relaxed">
 												{t("admin.agenda.missing_date_warning")}
 											</p>
 										</div>
@@ -190,7 +194,7 @@ export function AgendaEditor({
 										</div>
 									))}
 
-									<div className="mt-8 pt-6 border-t border-white/10 flex justify-end">
+									<div className="mt-8 flex justify-end border-white/10 border-t pt-6">
 										<Button
 											variant="secondary"
 											size="sm"
@@ -206,7 +210,7 @@ export function AgendaEditor({
 				})}
 
 				{events.length === 0 && (
-					<div className="text-center text-white/40 py-20 font-display tracking-widest uppercase">
+					<div className="py-20 text-center font-display text-white/40 uppercase tracking-widest">
 						{t("admin.agenda.empty")}
 					</div>
 				)}
