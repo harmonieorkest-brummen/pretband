@@ -43,6 +43,15 @@ describe("securityMetaPlugin", () => {
 		expect(cspTag?.attrs.content).toContain(
 			"https://region1.analytics.google.com",
 		);
+		expect(cspTag?.attrs.content).toContain(
+			"https://pretband-party-planner.lovable.app",
+		);
+		expect(cspTag?.attrs.content).toContain(
+			"https://stats.g.doubleclick.net",
+		);
+		expect(cspTag?.attrs.content).toContain(
+			"https://www.youtube.com",
+		);
 
 		const referrerTag = tags.find(
 			(t) => t.tag === "meta" && t.attrs?.name === "referrer",
