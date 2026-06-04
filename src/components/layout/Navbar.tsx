@@ -10,11 +10,32 @@ export function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const menuTriggerRef = useRef<HTMLButtonElement>(null);
+	const mobileMenuRef = useRef<HTMLDivElement>(null);
 	const closeButtonRef = useRef<HTMLButtonElement>(null);
 	const isFirstRender = useRef(true);
 
+	const openMobileMenu = (): void => {
+		const mobileMenu = mobileMenuRef.current;
+		if (mobileMenu && "showPopover" in mobileMenu) {
+			mobileMenu.showPopover();
+		}
+		setIsMenuOpen(true);
+	};
+
+	const closeMobileMenu = (): void => {
+		const mobileMenu = mobileMenuRef.current;
+		if (mobileMenu?.matches(":popover-open")) {
+			mobileMenu.hidePopover();
+		}
+		setIsMenuOpen(false);
+	};
+
 	const toggleMobileMenu = (): void => {
-		setIsMenuOpen(!isMenuOpen);
+		if (isMenuOpen) {
+			closeMobileMenu();
+		} else {
+			openMobileMenu();
+		}
 	};
 
 	const toggleLanguage = () => {
@@ -33,9 +54,23 @@ export function Navbar() {
 		(sectionId: string): React.MouseEventHandler<HTMLAnchorElement> =>
 		(event) => {
 			event.preventDefault();
-			setIsMenuOpen(false);
+			closeMobileMenu();
 			navigateToSection(sectionId);
 		};
+
+	useEffect(() => {
+		const mobileMenu = mobileMenuRef.current;
+		if (!mobileMenu) return;
+
+		const handleToggle = () => {
+			setIsMenuOpen(mobileMenu.matches(":popover-open"));
+		};
+
+		mobileMenu.addEventListener("toggle", handleToggle);
+		return () => {
+			mobileMenu.removeEventListener("toggle", handleToggle);
+		};
+	}, []);
 
 	// Focus management for accessibility
 	useEffect(() => {
@@ -148,8 +183,10 @@ export function Navbar() {
 
 			{/* Mobile Menu (Chaos style) */}
 			<div
+				ref={mobileMenuRef}
 				id="mobile-menu"
-				className={`fixed inset-0 z-60 flex flex-col items-center justify-center space-y-8 bg-pret-red/95 backdrop-blur-xl transition-transform duration-500 ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+				popover="auto"
+				className={`fixed inset-0 z-60 m-0 h-auto max-h-none w-auto max-w-none border-0 p-0 flex-col items-center justify-center space-y-8 bg-pret-red/95 backdrop-blur-xl transition-transform duration-500 open:flex ${isMenuOpen ? "flex translate-x-0" : "translate-x-full"}`}
 				inert={!isMenuOpen}
 			>
 				<button
@@ -216,7 +253,7 @@ export function Navbar() {
 					size="lg"
 					onClick={() => {
 						toggleLanguage();
-						toggleMobileMenu();
+						closeMobileMenu();
 					}}
 					className="border-4 border-white text-white hover:bg-white hover:text-pret-red"
 				>

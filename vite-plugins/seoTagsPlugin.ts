@@ -8,7 +8,7 @@ export function seoTagsPlugin(
 
 	const url = siteUrl.replace(/\/+$/, "");
 	const canonical = url ? `${url}/` : "";
-	const ogImage = url ? `${url}/logo.png` : "./logo.png";
+	const ogImage = url ? `${url}/logo.png` : "/logo.png";
 
 	const title = "Pretband Help Ons Bloaz'n | Brummen";
 	const description =
@@ -40,7 +40,20 @@ export function seoTagsPlugin(
 				{
 					tag: "meta",
 					injectTo: "head",
-					attrs: { name: "theme-color", content: "#2A2324" },
+					attrs: {
+						name: "theme-color",
+						content: "#2A2324",
+						media: "(prefers-color-scheme: dark)",
+					},
+				},
+				{
+					tag: "meta",
+					injectTo: "head",
+					attrs: {
+						name: "theme-color",
+						content: "#E53433",
+						media: "(prefers-color-scheme: light)",
+					},
 				},
 				{
 					tag: "meta",
@@ -78,6 +91,16 @@ export function seoTagsPlugin(
 				{
 					tag: "meta",
 					injectTo: "head",
+					attrs: { property: "og:image:width", content: "640" },
+				},
+				{
+					tag: "meta",
+					injectTo: "head",
+					attrs: { property: "og:image:height", content: "640" },
+				},
+				{
+					tag: "meta",
+					injectTo: "head",
 					attrs: { name: "twitter:card", content: "summary" },
 				},
 				{
@@ -91,9 +114,9 @@ export function seoTagsPlugin(
 					attrs: { name: "twitter:description", content: description },
 				},
 				{
-					tag: "link",
+					tag: "meta",
 					injectTo: "head",
-					attrs: { rel: "icon", href: "./logo.png" },
+					attrs: { name: "twitter:image", content: ogImage },
 				},
 			];
 
