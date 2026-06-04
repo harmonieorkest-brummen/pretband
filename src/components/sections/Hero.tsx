@@ -110,7 +110,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 					<div className="absolute -inset-4 -rotate-2 rounded-5xl bg-[#D42A29] shadow-2xl"></div>
 					<div className="absolute -inset-4 rotate-1 rounded-5xl border-4 border-pret-yellow opacity-50"></div>
 
-					<p className="relative z-10 p-6 font-black font-display text-white text-xl uppercase leading-tight tracking-tight md:p-12 md:text-3xl lg:text-4xl">
+					<h1 className="relative z-10 p-6 font-black font-display text-white text-xl uppercase leading-tight tracking-tight md:p-12 md:text-3xl lg:text-4xl">
 						<Trans
 							i18nKey="hero.narrative"
 							components={{
@@ -128,7 +128,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 								),
 							}}
 						/>
-					</p>
+					</h1>
 				</div>
 
 				{/* Action Area */}

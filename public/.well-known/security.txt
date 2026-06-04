@@ -1,0 +1,3 @@
+Contact: mailto:info@pretband.nl
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: nl, en

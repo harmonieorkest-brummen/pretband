@@ -153,7 +153,19 @@ function PublicSite() {
 	useEffect(() => {
 		document.title = t("title");
 		document.documentElement.lang = i18n.language;
-	}, [t, i18n.language]);
+
+		const metaDesc = document.querySelector('meta[name="description"]');
+		if (metaDesc) metaDesc.setAttribute("content", t("description"));
+
+		const ogDesc = document.querySelector('meta[property="og:description"]');
+		if (ogDesc) ogDesc.setAttribute("content", t("description"));
+
+		const ogTitle = document.querySelector('meta[property="og:title"]');
+		if (ogTitle) ogTitle.setAttribute("content", t("title"));
+
+		const ogLocale = document.querySelector('meta[property="og:locale"]');
+		if (ogLocale) ogLocale.setAttribute("content", i18n.language === "nl" ? "nl_NL" : "en_US");
+	}, [i18n.language, t]);
 
 	useEffect(() => {
 		// Best-effort clickjacking defense for static hosting (headers are preferred).
@@ -213,6 +225,13 @@ function PublicSite() {
 		<>
 			<BackgroundLayer />
 			<div className="relative min-h-screen bg-pret-dark font-body text-white selection:bg-pret-yellow selection:text-pret-dark">
+				<a
+					href="#main-content"
+					className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[1000] focus:rounded-lg focus:bg-pret-yellow focus:px-4 focus:py-2 focus:font-display focus:text-pret-dark focus-visible:outline-hidden focus-visible:ring-4 focus-visible:ring-white"
+				>
+					{t("common.skip_to_main", { defaultValue: "Skip to main content" })}
+				</a>
+
 				{/* Party Backdrop */}
 				<div
 					className="pointer-events-none fixed inset-0 z-[100] bg-noise"
