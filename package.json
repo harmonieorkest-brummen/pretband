@@ -30,7 +30,7 @@
 		"vitest": "^4.1.8"
 	},
 	"dependencies": {
-		"@tailwindcss/vite": "^4.3.0",
+		"@tailwindcss/vite": "^4.3.1",
 		"@vitejs/plugin-react": "^6.0.2",
 		"ahoy.js": "^0.4.5",
 		"canvas-confetti": "^1.9.4",
