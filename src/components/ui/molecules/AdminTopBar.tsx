@@ -14,6 +14,7 @@ type AdminTopBarProps = {
 	addItem?: () => void;
 	addItemLabel?: string;
 	children?: React.ReactNode;
+	hideSaveButton?: boolean;
 };
 
 export const AdminTopBar = ({
@@ -26,6 +27,7 @@ export const AdminTopBar = ({
 	addItem,
 	addItemLabel,
 	children,
+	hideSaveButton,
 }: AdminTopBarProps) => {
 	const { t } = useTranslation();
 
@@ -50,18 +52,20 @@ export const AdminTopBar = ({
 			<SaveFlash visible={flash} />
 			<div className="flex gap-2">
 				{children}
-				<Button
-					className="inline-flex items-center gap-2"
-					variant="primary"
-					size="sm"
-					onClick={onSave}
-					disabled={isSyncing}
-				>
-					<Save />{" "}
-					{isSyncing
-						? t("admin.landing.saving")
-						: t("admin.members.save_cloud")}
-				</Button>
+				{!hideSaveButton && (
+					<Button
+						className="inline-flex items-center gap-2"
+						variant="primary"
+						size="sm"
+						onClick={onSave}
+						disabled={isSyncing}
+					>
+						<Save />{" "}
+						{isSyncing
+							? t("admin.landing.saving")
+							: t("admin.members.save_cloud")}
+					</Button>
+				)}
 				{addItem && (
 					<Button
 						className="inline-flex items-center gap-2"

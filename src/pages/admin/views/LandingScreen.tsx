@@ -75,6 +75,16 @@ export function LandingScreen({
 							"Beheer de teksten van de website in alle talen.",
 						),
 					},
+					{
+						key: "gallery",
+						icon: "🖼️",
+						title: t("admin.landing.gallery_title", "GALERIJ"),
+						stat: t("admin.landing.gallery_stat", "BEHEER AFBEELDINGEN"),
+						desc: t(
+							"admin.landing.gallery_desc",
+							"Upload en beheer afbeeldingen in de galerij.",
+						),
+					},
 				].map((c) => (
 					<button
 						type="button"

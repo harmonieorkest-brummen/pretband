@@ -135,17 +135,29 @@ export function seoTagsPlugin(
 				tags.push({
 					tag: "link",
 					injectTo: "head",
-					attrs: { rel: "alternate", hreflang: "nl", href: canonical || url || "https://pretband.nl/" },
+					attrs: {
+						rel: "alternate",
+						hreflang: "nl",
+						href: canonical || url || "https://pretband.nl/",
+					},
 				});
 				tags.push({
 					tag: "link",
 					injectTo: "head",
-					attrs: { rel: "alternate", hreflang: "en", href: canonical || url || "https://pretband.nl/" },
+					attrs: {
+						rel: "alternate",
+						hreflang: "en",
+						href: canonical || url || "https://pretband.nl/",
+					},
 				});
 				tags.push({
 					tag: "link",
 					injectTo: "head",
-					attrs: { rel: "alternate", hreflang: "x-default", href: canonical || url || "https://pretband.nl/" },
+					attrs: {
+						rel: "alternate",
+						hreflang: "x-default",
+						href: canonical || url || "https://pretband.nl/",
+					},
 				});
 			}
 

@@ -4,26 +4,29 @@ import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { Decoration } from "@/components/ui/atoms/Decoration";
 import { Heading } from "@/components/ui/atoms/Heading";
-import { galleryImages } from "../../data/galleryData";
+import { fetchGallery } from "@/utils/adminData";
 
 export function Gallery() {
 	const { t } = useTranslation();
+	const [images, setImages] = useState<string[]>([]);
 	const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+	useEffect(() => {
+		fetchGallery().then(setImages).catch(console.error);
+	}, []);
 
 	const openLightbox = (index: number) => setSelectedIndex(index);
 	const closeLightbox = useCallback(() => setSelectedIndex(null), []);
 
 	const showNext = useCallback(() => {
 		if (selectedIndex === null) return;
-		setSelectedIndex((selectedIndex + 1) % galleryImages.length);
-	}, [selectedIndex]);
+		setSelectedIndex((selectedIndex + 1) % images.length);
+	}, [selectedIndex, images.length]);
 
 	const showPrev = useCallback(() => {
 		if (selectedIndex === null) return;
-		setSelectedIndex(
-			(selectedIndex - 1 + galleryImages.length) % galleryImages.length,
-		);
-	}, [selectedIndex]);
+		setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
+	}, [selectedIndex, images.length]);
 
 	useEffect(() => {
 		const handleKeyDown = (e: KeyboardEvent) => {
@@ -81,7 +84,7 @@ export function Gallery() {
 				</div>
 
 				<div className="columns-1 gap-6 sm:columns-2 lg:columns-3 xl:columns-4">
-					{galleryImages.map((src, index) => (
+					{images.map((src, index) => (
 						<button
 							key={src}
 							type="button"
@@ -153,13 +156,13 @@ export function Gallery() {
 						<div className="relative z-510 flex max-h-screen flex-col items-center justify-center p-4 pt-32 md:p-8 md:pt-40">
 							<div className="relative cursor-default overflow-hidden rounded-3xl border-4 border-white/20 shadow-2xl">
 								<img
-									src={galleryImages[selectedIndex]}
+									src={images[selectedIndex]}
 									alt="Gallery full view"
 									className="h-auto max-h-[70vh] w-auto animate-scale-in object-contain md:max-h-[75vh]"
 								/>
 								<div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-center">
 									<p className="font-display text-white text-xl uppercase tracking-widest">
-										{selectedIndex + 1} / {galleryImages.length}
+										{selectedIndex + 1} / {images.length}
 									</p>
 								</div>
 							</div>

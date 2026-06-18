@@ -164,7 +164,11 @@ function PublicSite() {
 		if (ogTitle) ogTitle.setAttribute("content", t("title"));
 
 		const ogLocale = document.querySelector('meta[property="og:locale"]');
-		if (ogLocale) ogLocale.setAttribute("content", i18n.language === "nl" ? "nl_NL" : "en_US");
+		if (ogLocale)
+			ogLocale.setAttribute(
+				"content",
+				i18n.language === "nl" ? "nl_NL" : "en_US",
+			);
 	}, [i18n.language, t]);
 
 	useEffect(() => {

@@ -7,6 +7,7 @@ import nl from "@/locales/nl.json";
 import { LandingScreen } from "@/pages/admin/views/LandingScreen";
 import { LoginScreen } from "@/pages/admin/views/LoginScreen";
 import {
+	AuthError,
 	persistData,
 	saveAgenda,
 	saveMembers,
@@ -26,6 +27,11 @@ const MembersEditor = lazy(() =>
 const TranslationsEditor = lazy(() =>
 	import("@/pages/admin/views/TranslationsEditor").then((m) => ({
 		default: m.TranslationsEditor,
+	})),
+);
+const GalleryEditor = lazy(() =>
+	import("@/pages/admin/views/GalleryEditor").then((m) => ({
+		default: m.GalleryEditor,
 	})),
 );
 
@@ -60,7 +66,15 @@ export default function AdminPanel() {
 			showToast(t("admin.toasts.members_success"), "success");
 		} catch (err) {
 			console.error(err);
-			showToast(t("admin.toasts.save_error"), "error");
+			if (err instanceof AuthError) {
+				showToast(
+					t("admin.toasts.session_expired", "Sessie verlopen, log opnieuw in"),
+					"error",
+				);
+				handleLogout();
+			} else {
+				showToast(t("admin.toasts.save_error"), "error");
+			}
 		} finally {
 			setSyncing(false);
 		}
@@ -75,7 +89,15 @@ export default function AdminPanel() {
 			showToast(t("admin.toasts.agenda_success"), "success");
 		} catch (err) {
 			console.error(err);
-			showToast(t("admin.toasts.save_error"), "error");
+			if (err instanceof AuthError) {
+				showToast(
+					t("admin.toasts.session_expired", "Sessie verlopen, log opnieuw in"),
+					"error",
+				);
+				handleLogout();
+			} else {
+				showToast(t("admin.toasts.save_error"), "error");
+			}
 		} finally {
 			setSyncing(false);
 		}
@@ -95,7 +117,15 @@ export default function AdminPanel() {
 			);
 		} catch (err) {
 			console.error(err);
-			showToast(t("admin.toasts.save_error"), "error");
+			if (err instanceof AuthError) {
+				showToast(
+					t("admin.toasts.session_expired", "Sessie verlopen, log opnieuw in"),
+					"error",
+				);
+				handleLogout();
+			} else {
+				showToast(t("admin.toasts.save_error"), "error");
+			}
 		} finally {
 			setSyncing(false);
 		}
@@ -124,7 +154,12 @@ export default function AdminPanel() {
 			</div>
 		);
 
-	if (view === "agenda" || view === "members" || view === "translations") {
+	if (
+		view === "agenda" ||
+		view === "members" ||
+		view === "translations" ||
+		view === "gallery"
+	) {
 		return (
 			<Suspense
 				fallback={
@@ -158,6 +193,12 @@ export default function AdminPanel() {
 						onSave={handleSaveTranslations}
 						isSyncing={syncing}
 						onBack={() => setView("landing")}
+					/>
+				)}
+				{view === "gallery" && (
+					<GalleryEditor
+						onBack={() => setView("landing")}
+						onLogout={handleLogout}
 					/>
 				)}
 			</Suspense>

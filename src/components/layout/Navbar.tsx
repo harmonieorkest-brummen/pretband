@@ -186,7 +186,7 @@ export function Navbar() {
 				ref={mobileMenuRef}
 				id="mobile-menu"
 				popover="auto"
-				className={`fixed inset-0 z-60 m-0 h-auto max-h-none w-auto max-w-none border-0 p-0 flex-col items-center justify-center space-y-8 bg-pret-red/95 backdrop-blur-xl transition-transform duration-500 open:flex ${isMenuOpen ? "flex translate-x-0" : "translate-x-full"}`}
+				className={`fixed inset-0 z-60 m-0 h-auto max-h-none w-auto max-w-none flex-col items-center justify-center space-y-8 border-0 bg-pret-red/95 p-0 backdrop-blur-xl transition-transform duration-500 open:flex ${isMenuOpen ? "flex translate-x-0" : "translate-x-full"}`}
 				inert={!isMenuOpen}
 			>
 				<button
