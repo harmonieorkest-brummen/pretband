@@ -225,7 +225,7 @@ export function Contact() {
 							<input type="hidden" name="g-recaptcha-version" value="v3" />
 
 							{/* Honeypot: should stay empty */}
-							<div className="absolute left-[5000px]" aria-hidden="true">
+							<div className="absolute left-[5000px]" hidden aria-hidden="true">
 								<label htmlFor="contact__gotcha">Gotcha</label>
 								<input
 									id="contact__gotcha"
