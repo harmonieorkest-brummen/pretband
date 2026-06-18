@@ -1,24 +1,24 @@
 {
-  "name": "Pretband Help Ons Bloaz'n",
-  "short_name": "Pretband",
-  "description": "De Pretband van Brummen: dweilorkest voor feest, chaos en pure pret.",
-  "start_url": "/",
-  "scope": "/",
-  "display": "standalone",
-  "background_color": "#2A2324",
-  "theme_color": "#2A2324",
-  "icons": [
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ]
+	"name": "Pretband Help Ons Bloaz'n",
+	"short_name": "Pretband",
+	"description": "De Pretband van Brummen: dweilorkest voor feest, chaos en pure pret.",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"background_color": "#2A2324",
+	"theme_color": "#2A2324",
+	"icons": [
+		{
+			"src": "/icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	]
 }
