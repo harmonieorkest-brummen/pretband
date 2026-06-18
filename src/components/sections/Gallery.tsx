@@ -6,6 +6,20 @@ import { Decoration } from "@/components/ui/atoms/Decoration";
 import { Heading } from "@/components/ui/atoms/Heading";
 import { fetchGallery } from "@/utils/adminData";
 
+/** Derive a human-readable alt from a blob URL like
+ *  `.../gallery/1781793962429-pretband-hob-dweildag-2026.JPG`
+ *  → "Pretband hob dweildag 2026" */
+function altFromUrl(url: string): string {
+	const filename = url.split("/").pop() ?? "";
+	// Strip extension
+	const withoutExt = filename.replace(/\.[^.]+$/, "");
+	// Strip leading timestamp prefix (digits followed by a dash)
+	const withoutTimestamp = withoutExt.replace(/^\d+-/, "");
+	// Replace dashes and underscores with spaces, then title-case the first word
+	const words = withoutTimestamp.replace(/[-_]/g, " ").trim();
+	return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
 export function Gallery() {
 	const { t } = useTranslation();
 	const [images, setImages] = useState<string[]>([]);
@@ -99,7 +113,7 @@ export function Gallery() {
 						>
 							<img
 								src={src}
-								alt={`Pretband Gallery ${index + 1}`}
+								alt={altFromUrl(src)}
 								loading="lazy"
 								className="h-auto w-full object-cover"
 							/>
@@ -157,7 +171,7 @@ export function Gallery() {
 							<div className="relative cursor-default overflow-hidden rounded-3xl border-4 border-white/20 shadow-2xl">
 								<img
 									src={images[selectedIndex]}
-									alt="Gallery full view"
+									alt={altFromUrl(images[selectedIndex])}
 									className="h-auto max-h-[70vh] w-auto animate-scale-in object-contain md:max-h-[75vh]"
 								/>
 								<div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-center">

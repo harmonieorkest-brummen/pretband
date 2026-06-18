@@ -9,7 +9,12 @@ vi.mock("react-i18next", () => ({
 }));
 
 vi.mock("@/utils/adminData", () => ({
-	fetchGallery: vi.fn(() => Promise.resolve(["image1.jpg", "image2.jpg"])),
+	fetchGallery: vi.fn(() =>
+		Promise.resolve([
+			"https://blob.vercel-storage.com/gallery/1234-pretband-optreden.jpg",
+			"https://blob.vercel-storage.com/gallery/5678-concert-foto.png",
+		]),
+	),
 }));
 
 describe("Gallery Component", () => {
@@ -23,6 +28,9 @@ describe("Gallery Component", () => {
 			const images = screen.getAllByRole("img");
 			expect(images).toHaveLength(2);
 		});
+
+		expect(screen.getByAltText("Pretband optreden")).toBeInTheDocument();
+		expect(screen.getByAltText("Concert foto")).toBeInTheDocument();
 	});
 
 	it("opens the lightbox when an image is clicked", async () => {
@@ -36,7 +44,9 @@ describe("Gallery Component", () => {
 		const buttons = screen.getAllByRole("button");
 		fireEvent.click(buttons[0]);
 
-		expect(screen.getByAltText("Gallery full view")).toBeInTheDocument();
+		// Lightbox uses the same altFromUrl for the full-view image
+		const fullViewImages = screen.getAllByAltText("Pretband optreden");
+		expect(fullViewImages.length).toBe(2); // thumbnail + lightbox
 		expect(screen.getByText("1 / 2")).toBeInTheDocument();
 	});
 });
