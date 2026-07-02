@@ -2,7 +2,11 @@ import type { Plugin } from "vite";
 import { describe, expect, it } from "vitest";
 import { seoTagsPlugin } from "@/vite-plugins/seoTagsPlugin";
 
-type TagDescriptor = { tag: string; attrs?: Record<string, string> };
+type TagDescriptor = {
+	tag: string;
+	attrs?: Record<string, string>;
+	children?: string;
+};
 
 function callTransformIndexHtml(plugin: Plugin, html: string) {
 	const hook = plugin.transformIndexHtml;
@@ -55,6 +59,25 @@ describe("seoTagsPlugin", () => {
 		);
 		expect(canonical).toBeDefined();
 		expect(canonical?.attrs?.href).toBe("https://pretband.nl/");
+
+		const llmsLink = tags.find(
+			(t) =>
+				t.tag === "link" &&
+				t.attrs?.rel === "alternate" &&
+				t.attrs?.type === "text/plain",
+		);
+		expect(llmsLink?.attrs?.href).toBe("/llms.txt");
+
+		const jsonLdTag = tags.find(
+			(t) => t.tag === "script" && t.attrs?.type === "application/ld+json",
+		);
+		expect(jsonLdTag).toBeDefined();
+		const jsonLd = JSON.parse(jsonLdTag?.children ?? "{}");
+		expect(jsonLd["@type"]).toBe("Organization");
+		expect(jsonLd.name).toBe("Pretband Help Ons Bloaz'n");
+		expect(jsonLd.url).toBe("https://pretband.nl/");
+		expect(jsonLd.logo).toBe("https://pretband.nl/logo.png");
+		expect(jsonLd.description).toContain("pretband");
 	});
 
 	it("does not produce a canonical link when no siteUrl is provided", () => {

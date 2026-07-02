@@ -16,11 +16,12 @@ export function seoTagsPlugin(
 
 	const jsonLd = {
 		"@context": "https://schema.org",
-		"@type": "MusicGroup",
+		"@type": "Organization",
 		name: "Pretband Help Ons Bloaz'n",
-		url: canonical || undefined,
-		genre: ["Brass band", "Dweilorkest", "Feestband"],
-		areaServed: "NL",
+		url: canonical || "https://pretband.nl/",
+		logo: canonical ? `${canonical}logo.png` : "https://pretband.nl/logo.png",
+		description,
+		sameAs: ["https://github.com/imreboersma/pretband"],
 	};
 
 	return {
@@ -119,6 +120,17 @@ export function seoTagsPlugin(
 					attrs: { name: "twitter:image", content: ogImage },
 				},
 			];
+
+			tags.push({
+				tag: "link",
+				injectTo: "head",
+				attrs: {
+					rel: "alternate",
+					type: "text/plain",
+					title: "llms.txt",
+					href: "/llms.txt",
+				},
+			});
 
 			if (canonical) {
 				tags.push({
