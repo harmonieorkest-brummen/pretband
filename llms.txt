@@ -1,15 +1,28 @@
 # Pretband Help Ons Bloaz'n
 
-De Pretband van Brummen: dé pretband (dweilorkest) voor chaos, feest en pure pret.
-Pretband is a Dutch party brass band (dweilorkest) from Brummen known for bringing chaos, party vibes, and pure fun.
+Pretband is a lively brass band from Brummen, the Netherlands, known for festivals, street parties, and unforgettable performances.
 
-## Booking and Contact
-You can book the band for festivals, events, and street parties.
-- Email: info@pretband.nl
+## About
+
+- Pretband is a Dutch party brass band based in Brummen.
+- The band brings energy, humor, and musical fun to events of all sizes.
+- Pretband is part of the Harmonieorkest Brummen community.
+
+## Booking
+
+- Book the band for festivals, street parties, private celebrations, and corporate events.
+- Contact: info@pretband.nl
 - Website: https://pretband.nl
 
-## Affiliation
-Pretband is part of the Harmonieorkest Brummen (https://harmonieorkestbrummen.nl).
+## Links
 
-## Open Source
-The website is open source and can be found on GitHub: https://github.com/imreboersma/pretband
+- [Website](https://pretband.nl)
+- [Email](mailto:info@pretband.nl)
+- [GitHub](https://github.com/imreboersma/pretband)
+- [Harmonieorkest Brummen](https://harmonieorkestbrummen.nl)
+
+## Example
+
+```bash
+curl https://pretband.nl
+```
