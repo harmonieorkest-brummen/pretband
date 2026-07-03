@@ -44,7 +44,7 @@ export function Highlights() {
 						<iframe
 							src="https://www.youtube.com/embed/98VH-CuOSvI"
 							title={t("highlights.watch_video")}
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 							allowFullScreen
 							className="h-full w-full border-0"
 						></iframe>

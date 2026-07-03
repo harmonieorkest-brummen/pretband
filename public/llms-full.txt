@@ -1,11 +1,53 @@
-Pretband Help Ons Bloaz'n is a Dutch party brass band from Brummen, the Netherlands, known for lively performances at festivals, street parties, and celebrations.
+# Pretband Help Ons Bloaz'n
 
-The band is part of the Harmonieorkest Brummen community and is available for bookings across the Netherlands.
+Pretband Help Ons Bloaz'n is a Dutch party brass band from Brummen, the Netherlands. The band is known for lively, high-energy performances at festivals, street parties, private celebrations, and corporate events throughout the Netherlands.
 
-Contact details:
-- Email: info@pretband.nl
-- Website: https://pretband.nl
-- GitHub: https://github.com/imreboersma/pretband
-- Harmonieorkest Brummen: https://harmonieorkestbrummen.nl
+## About
 
-The website is intended to help visitors discover the band, learn about its style, and get in touch for bookings.
+Pretband is part of the Harmonieorkest Brummen community. The band's name plays on the Dutch expression "help ons blazen" ("help us blow/play"), reflecting its playful, crowd-pleasing character.
+
+Pretband specializes in:
+- **Walking acts** — mobile performances that move through crowds, parades, and festival grounds
+- **Stage sets** — energetic performances for stages at festivals and events
+- **Party repertoire** — upbeat covers and brass-band arrangements designed to get audiences moving and singing along
+- **Custom bookings** — sets tailored to the type and size of the event
+
+The band brings humor, showmanship, and musical energy to every performance, aiming to create an unforgettable experience for audiences of all ages.
+
+## What Pretband plays
+
+As a party brass band, Pretband typically performs upbeat, danceable arrangements — think popular hits, singalong classics, and festival anthems reworked for brass instrumentation, rather than traditional concert-band repertoire. (Specific setlists and instrumentation details can be added here once finalized.)
+
+## Booking
+
+Pretband is available to book for:
+- Festivals
+- Street parties and local events
+- Private celebrations (birthdays, weddings, anniversaries)
+- Corporate events and company parties
+
+To book the band or ask about availability, reach out via email.
+
+- **Contact:** info@pretband.nl
+- **Website:** https://pretband.nl
+
+## Community
+
+Pretband is affiliated with Harmonieorkest Brummen, a wind orchestra based in Brummen. Visit their site to learn more about the wider musical community Pretband is part of.
+
+## Links
+
+- [Website](https://pretband.nl)
+- [Email](mailto:info@pretband.nl)
+- [GitHub](https://github.com/imreboersma/pretband)
+- [Harmonieorkest Brummen](https://harmonieorkestbrummen.nl)
+
+## Concise version
+
+A shorter summary of this page is available at [llms.txt](https://pretband.nl/llms.txt), following the llms.txt convention for quick-reference AI/LLM consumption.
+
+## Example
+
+```bash
+curl https://pretband.nl
+```

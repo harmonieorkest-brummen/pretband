@@ -1,0 +1,13 @@
+{
+  "name": "Pretband Help Ons Bloaz'n",
+  "description": "Pretband is a lively brassband from Brummen, the Netherlands focused on festivals, street parties, and joyful performances.",
+  "contact": {
+    "email": "info@pretband.nl",
+    "website": "https://pretband.nl"
+  },
+  "links": [
+    { "title": "Homepage", "href": "https://pretband.nl/" },
+    { "title": "GitHub", "href": "https://github.com/imreboersma/pretband" },
+    { "title": "Harmonieorkest Brummen", "href": "https://harmonieorkestbrummen.nl" }
+  ]
+}
