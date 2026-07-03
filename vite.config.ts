@@ -29,6 +29,7 @@ export default defineConfig(({ command, mode }) => {
 		},
 		base: "./",
 		build: {
+			modulePreload: false,
 			outDir: "dist",
 			rollupOptions: {
 				output: {
