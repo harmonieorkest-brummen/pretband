@@ -5,7 +5,7 @@ Pretband is a lively brass band from Brummen, the Netherlands, known for festiva
 ## About
 
 - Pretband is a Dutch party brass band based in Brummen.
-- The band brings energy, humor, and musical fun to events of all sizes.
+- The band brings energy, humor, and musical fun to events of all sizes, from walking acts to full stage sets.
 - Pretband is part of the Harmonieorkest Brummen community.
 
 ## Booking
@@ -13,6 +13,10 @@ Pretband is a lively brass band from Brummen, the Netherlands, known for festiva
 - Book the band for festivals, street parties, private celebrations, and corporate events.
 - Contact: info@pretband.nl
 - Website: https://pretband.nl
+
+## More information
+
+For a fuller description of the band, its style, and its performance formats, see [llms-full.txt](https://pretband.nl/llms-full.txt).
 
 ## Links
 

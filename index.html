@@ -2,38 +2,44 @@
 <html lang="nl" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="color-scheme" content="dark light">
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <link rel="icon" href="./favicon.ico" sizes="any">
-    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-    <link rel="manifest" href="./site.webmanifest">
-    <link rel="alternate" type="text/plain" title="llms.txt" href="./llms.txt">
-    <link rel="preconnect" href="https://www.google.com" />
-    <!-- Cookiebot is handled by the GTM container to avoid duplicate loading. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="./llms.txt">
+  <link rel="alternate" type="text/markdown" title="llms.md" href="./llms.md">
+  <link rel="alternate" type="application/json" title="llms.json" href="./llms.json">
+  <link rel="alternate" type="text/plain" title="llms-full.txt" href="./llms-full.txt">
+  <link rel="alternate" type="text/markdown" title="index.md" href="./index.md">
+  <link rel="alternate" type="application/json" title="index.json" href="./index.json">
+  <link rel="preconnect" href="https://www.google.com" />
 
-    <!-- Google Consent Mode (Must follow Cookiebot and be before GTM) -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(...rest){dataLayer.push(rest);}
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied'
-      });
-    </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...rest) { dataLayer.push(rest); }
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
 
-    <!-- Google Tag Manager -->
-    <script data-cookieconsent="ignore">((w,d,s,l,i)=>{w[l]=w[l]||[];w[l].push({'gtm.start':
-    Date.now(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!=='dataLayer'?`&l=${l}`:'';j.async=true;j.src=
-    `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MHDMZPXZ');</script>
-    <!-- End Google Tag Manager -->
-    <title>Pretband Help Ons Bloaz'n | Brummen</title>
-  <script type="module" crossorigin src="./assets/index-CCRYL4YB.js"></script>
+  <!-- Google Tag Manager -->
+  <script data-cookieconsent="ignore">((w, d, s, l, i) => {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          Date.now(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l !== 'dataLayer' ? `&l=${l}` : ''; j.async = true; j.src =
+          `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MHDMZPXZ');</script>
+  <!-- End Google Tag Manager -->
+  <title>Pretband Help Ons Bloaz'n | Brummen</title>
+  <script type="module" crossorigin src="./assets/index-DZv680Qy.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-O-cvfX04.css">
   <meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; base-uri &#39;none&#39;; object-src &#39;none&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://consent.cookiebot.com https://consentcdn.cookiebot.com; style-src &#39;self&#39; &#39;unsafe-inline&#39; https://fonts.googleapis.com; img-src &#39;self&#39; data: https://www.gstatic.com https://www.google-analytics.com https://www.google.com https://www.googletagmanager.com https://images.unsplash.com https://pretband-party-planner.lovable.app https://consentcdn.cookiebot.com https://*.public.blob.vercel-storage.com; font-src &#39;self&#39; https://fonts.gstatic.com data:; connect-src &#39;self&#39; https://pretband-backend.vercel.app https://usebasin.com https://stats.g.doubleclick.net https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://region1.analytics.google.com https://www.googletagmanager.com https://tagassistant.google.com wss://tagassistant.google.com https://www.google.com https://www.gstatic.com https://consent.cookiebot.com https://consentcdn.cookiebot.com; frame-src https://www.google.com https://www.google.com/recaptcha/ https://www.googletagmanager.com https://tagassistant.google.com https://consent.cookiebot.com https://consentcdn.cookiebot.com https://www.youtube.com; worker-src &#39;self&#39; blob:; form-action &#39;self&#39; https://usebasin.com; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -64,19 +70,22 @@
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHDMZPXZ"
-    height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <noscript>
-        <div style="max-width: 48rem; margin: 2rem auto; padding: 1.5rem; font-family: Arial, sans-serif; line-height: 1.6;">
-            <h1>Pretband Help Ons Bloaz'n</h1>
-            <p>Pretband is a lively brass band from Brummen, the Netherlands, known for festivals, street parties, and joyful performances.</p>
-            <p>Book us for events, festivals, or private celebrations. Contact us at <a href="mailto:info@pretband.nl">info@pretband.nl</a>.</p>
-            <p>Learn more at <a href="https://pretband.nl">pretband.nl</a>.</p>
-        </div>
-    </noscript>
-    <div id="root"></div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHDMZPXZ" height="0" width="0"
+      style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <noscript>
+    <div
+      style="max-width: 48rem; margin: 2rem auto; padding: 1.5rem; font-family: Arial, sans-serif; line-height: 1.6;">
+      <h1>Pretband Help Ons Bloaz'n</h1>
+      <p>Pretband is a lively brass band from Brummen, the Netherlands, known for festivals, street parties, and joyful
+        performances.</p>
+      <p>Book us for events, festivals, or private celebrations. Contact us at <a
+          href="mailto:info@pretband.nl">info@pretband.nl</a>.</p>
+      <p>Learn more at <a href="https://pretband.nl">pretband.nl</a>.</p>
+    </div>
+  </noscript>
+  <div id="root"></div>
 </body>
 
 </html>
