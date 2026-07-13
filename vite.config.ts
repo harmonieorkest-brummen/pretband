@@ -51,6 +51,19 @@ export default defineConfig(({ command, mode }) => {
 			typecheck: {
 				tsconfig: "./tsconfig.test.json",
 			},
+			coverage: {
+				provider: "v8",
+				reporter: ["text-summary", "text"],
+				include: ["src/**"],
+				exclude: ["src/test/**", "**/*.d.ts", "src/main.tsx", "src/i18n.ts"],
+				// Enforced by `npm run test:coverage` (run in CI before build).
+				thresholds: {
+					statements: 80,
+					lines: 80,
+					functions: 80,
+					branches: 75,
+				},
+			},
 		},
 	};
 });
