@@ -124,6 +124,12 @@
 			"members_title": "MEMBERS",
 			"members_stat": "{{members}} members · {{sections}} sections",
 			"members_desc": "Add or remove members by instrument section.",
+			"gallery_title": "GALLERY",
+			"gallery_stat": "MANAGE IMAGES",
+			"gallery_desc": "Upload and manage gallery images.",
+			"redirects_title": "QR CODES",
+			"redirects_stat": "MANAGE QR LINKS",
+			"redirects_desc": "Create QR codes that can point to any page or link.",
 			"edit_button": "Edit →"
 		},
 		"agenda": {
@@ -164,7 +170,45 @@
 			"agenda_success": "Agenda saved to the cloud!",
 			"all_success": "Everything saved to the cloud!",
 			"translations_success": "Translations saved to the cloud!",
+			"redirects_success": "QR codes saved to the cloud!",
 			"save_error": "Save failed."
+		},
+		"redirects": {
+			"title": "QR CODES",
+			"stat_one": "{{count}} code",
+			"stat_other": "{{count}} codes",
+			"new_button": "New code",
+			"notice": "Each code encodes a fixed link ({{base}}/name). Change where it points anytime — the printed code never changes. Keep the name the same once a code is printed.",
+			"no_target": "No destination yet",
+			"scans_one": "{{count}} scan",
+			"scans_other": "{{count}} scans",
+			"fields": {
+				"slug": "Code name",
+				"label": "Label",
+				"label_placeholder": "Summer flyer 2026",
+				"url": "Redirect destination"
+			},
+			"quick_insert": "Quick insert",
+			"targets": {
+				"home": "Home",
+				"agenda": "Agenda",
+				"contact": "Contact",
+				"members": "Members",
+				"about": "About",
+				"highlights": "Highlights",
+				"gallery": "Gallery"
+			},
+			"encoded_url": "The QR points to",
+			"copy": "Copy link",
+			"copied": "Copied to clipboard",
+			"copy_error": "Could not copy",
+			"need_slug": "Enter a code name to generate the QR",
+			"delete_button": "Delete",
+			"empty": "No QR codes yet. Create one!",
+			"load_error": "Failed to load QR codes",
+			"invalid_slug": "Invalid name \"{{slug}}\": use only lowercase letters, numbers and dashes.",
+			"duplicate_slug": "Duplicate name \"{{slug}}\".",
+			"invalid_url": "\"{{slug}}\" needs a full destination URL starting with https://"
 		},
 		"translations": {
 			"title": "TRANSLATIONS",

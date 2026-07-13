@@ -34,6 +34,11 @@ const GalleryEditor = lazy(() =>
 		default: m.GalleryEditor,
 	})),
 );
+const RedirectsEditor = lazy(() =>
+	import("@/pages/admin/views/RedirectsEditor").then((m) => ({
+		default: m.RedirectsEditor,
+	})),
+);
 
 export default function AdminPanel() {
 	const { t } = useTranslation();
@@ -158,7 +163,8 @@ export default function AdminPanel() {
 		view === "agenda" ||
 		view === "members" ||
 		view === "translations" ||
-		view === "gallery"
+		view === "gallery" ||
+		view === "redirects"
 	) {
 		return (
 			<Suspense
@@ -197,6 +203,12 @@ export default function AdminPanel() {
 				)}
 				{view === "gallery" && (
 					<GalleryEditor
+						onBack={() => setView("landing")}
+						onLogout={handleLogout}
+					/>
+				)}
+				{view === "redirects" && (
+					<RedirectsEditor
 						onBack={() => setView("landing")}
 						onLogout={handleLogout}
 					/>

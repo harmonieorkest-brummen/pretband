@@ -124,6 +124,12 @@
 			"members_title": "LEDEN",
 			"members_stat": "{{members}} leden • {{sections}} secties",
 			"members_desc": "Voeg leden toe of verwijder ze per instrument-sectie.",
+			"gallery_title": "GALERIJ",
+			"gallery_stat": "BEHEER AFBEELDINGEN",
+			"gallery_desc": "Upload en beheer afbeeldingen in de galerij.",
+			"redirects_title": "QR CODES",
+			"redirects_stat": "BEHEER QR LINKS",
+			"redirects_desc": "Maak QR codes die je naar elke pagina of link kunt laten wijzen.",
 			"edit_button": "Bewerken"
 		},
 		"agenda": {
@@ -163,7 +169,45 @@
 			"agenda_success": "Agenda opgeslagen in de cloud!",
 			"all_success": "Alles opgeslagen in de cloud!",
 			"translations_success": "Vertalingen opgeslagen in de cloud!",
+			"redirects_success": "QR codes opgeslagen in de cloud!",
 			"save_error": "Opslaan mislukt."
+		},
+		"redirects": {
+			"title": "QR CODES",
+			"stat_one": "{{count}} code",
+			"stat_other": "{{count}} codes",
+			"new_button": "Nieuwe code",
+			"notice": "Elke code bevat een vaste link ({{base}}/naam). Verander waar hij naartoe wijst wanneer je wilt — de gedrukte code verandert nooit. Houd de naam gelijk zodra een code gedrukt is.",
+			"no_target": "Nog geen bestemming",
+			"scans_one": "{{count}} scan",
+			"scans_other": "{{count}} scans",
+			"fields": {
+				"slug": "Codenaam",
+				"label": "Label",
+				"label_placeholder": "Zomer flyer 2026",
+				"url": "Doorstuur-bestemming"
+			},
+			"quick_insert": "Snel invoegen",
+			"targets": {
+				"home": "Home",
+				"agenda": "Agenda",
+				"contact": "Contact",
+				"members": "Leden",
+				"about": "Wie",
+				"highlights": "Highlights",
+				"gallery": "Galerij"
+			},
+			"encoded_url": "De QR verwijst naar",
+			"copy": "Kopieer link",
+			"copied": "Gekopieerd naar klembord",
+			"copy_error": "Kopiëren mislukt",
+			"need_slug": "Voer een codenaam in om de QR te maken",
+			"delete_button": "Verwijderen",
+			"empty": "Nog geen QR codes. Maak er een!",
+			"load_error": "QR codes laden mislukt",
+			"invalid_slug": "Ongeldige naam \"{{slug}}\": gebruik alleen kleine letters, cijfers en streepjes.",
+			"duplicate_slug": "Dubbele naam \"{{slug}}\".",
+			"invalid_url": "\"{{slug}}\" heeft een volledige bestemmings-URL nodig die begint met https://"
 		},
 		"translations": {
 			"title": "VERTALINGEN",

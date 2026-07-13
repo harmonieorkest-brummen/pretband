@@ -85,6 +85,16 @@ export function LandingScreen({
 							"Upload en beheer afbeeldingen in de galerij.",
 						),
 					},
+					{
+						key: "redirects",
+						icon: "🔗",
+						title: t("admin.landing.redirects_title", "QR CODES"),
+						stat: t("admin.landing.redirects_stat", "BEHEER QR LINKS"),
+						desc: t(
+							"admin.landing.redirects_desc",
+							"Maak QR codes die je naar elke pagina of link kunt laten wijzen.",
+						),
+					},
 				].map((c) => (
 					<button
 						type="button"

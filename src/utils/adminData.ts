@@ -3,6 +3,7 @@ const MEMBERS_URL = `${BASE_API}/members`;
 const AGENDA_URL = `${BASE_API}/agenda`;
 const TRANSLATIONS_URL = `${BASE_API}/translations`;
 const GALLERY_URL = `${BASE_API}/gallery`;
+const REDIRECTS_URL = `${BASE_API}/redirects`;
 
 export function loadData(): SiteData | undefined {
 	try {
@@ -68,6 +69,37 @@ export async function saveAgenda(token: string, data: Agenda) {
 	});
 	if (res.status === 401) throw new AuthError();
 	if (!res.ok) throw new Error("Could not save agenda");
+	return res.json();
+}
+
+export async function fetchRedirects(token?: string) {
+	const headers: Record<string, string> = {};
+	if (token) headers.Authorization = `Bearer ${token}`;
+	const res = await fetch(REDIRECTS_URL, { headers });
+	if (res.status === 401) throw new AuthError();
+	if (!res.ok) throw new Error("Could not fetch redirects");
+	return res.json() as Promise<RedirectsData>;
+}
+
+export async function saveRedirects(token: string, data: RedirectsData) {
+	// Strip read-only scan counts before sending.
+	const payload: RedirectsData = {
+		redirects: data.redirects.map(({ slug, url, label }) => ({
+			slug,
+			url,
+			label,
+		})),
+	};
+	const res = await fetch(REDIRECTS_URL, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${token}`,
+		},
+		body: JSON.stringify(payload),
+	});
+	if (res.status === 401) throw new AuthError();
+	if (!res.ok) throw new Error("Could not save redirects");
 	return res.json();
 }
 

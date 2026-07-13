@@ -23,4 +23,9 @@ export const publicEnv = {
 	showMembers: envBoolean(import.meta.env.VITE_SHOW_MEMBERS, true),
 	showHighlights: envBoolean(import.meta.env.VITE_SHOW_HIGHLIGHTS, true),
 	showContact: envBoolean(import.meta.env.VITE_SHOW_CONTACT, true),
+	// Base URL the QR codes encode: `${qrBaseUrl}/<slug>` must resolve to the
+	// backend's /r/:slug redirect. Use a custom domain you control so printed
+	// codes survive ever moving hosts. Verify it 302s before printing anything.
+	qrBaseUrl:
+		envString(import.meta.env.VITE_QR_BASE_URL) || "https://go.pretband.nl/r",
 };

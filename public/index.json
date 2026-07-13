@@ -1,14 +1,14 @@
 {
-  "title": "Pretband Help Ons Bloaz'n | Party Brass Band",
-  "description": "De Pretband van Brummen: dé pretband (dweilorkest) voor chaos, feest en pure pret. Boek ons voor festivals, evenementen en straatfeesten.",
-  "url": "https://pretband.nl/",
-  "contact": {
-    "email": "info@pretband.nl",
-    "website": "https://pretband.nl"
-  },
-  "links": [
-    { "title": "Homepage", "href": "https://pretband.nl/" },
-    { "title": "llms.txt", "href": "https://pretband.nl/llms.txt" },
-    { "title": "GitHub", "href": "https://github.com/imreboersma/pretband" }
-  ]
+	"title": "Pretband Help Ons Bloaz'n | Party Brass Band",
+	"description": "De Pretband van Brummen: dé pretband (dweilorkest) voor chaos, feest en pure pret. Boek ons voor festivals, evenementen en straatfeesten.",
+	"url": "https://pretband.nl/",
+	"contact": {
+		"email": "info@pretband.nl",
+		"website": "https://pretband.nl"
+	},
+	"links": [
+		{ "title": "Homepage", "href": "https://pretband.nl/" },
+		{ "title": "llms.txt", "href": "https://pretband.nl/llms.txt" },
+		{ "title": "GitHub", "href": "https://github.com/imreboersma/pretband" }
+	]
 }
