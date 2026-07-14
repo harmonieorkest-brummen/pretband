@@ -41,6 +41,16 @@ export function LandingScreen({
 			<div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 				{[
 					{
+						key: "dashboard",
+						icon: "📊",
+						title: t("admin.landing.dashboard_title", "STATISTIEKEN"),
+						stat: t("admin.landing.dashboard_stat", "BEKIJK CIJFERS"),
+						desc: t(
+							"admin.landing.dashboard_desc",
+							"Bekijk QR-scans, confetti, contactberichten en verkeer.",
+						),
+					},
+					{
 						key: "agenda",
 						icon: "📅",
 						title: t("admin.landing.agenda_title"),

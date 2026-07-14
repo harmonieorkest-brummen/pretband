@@ -23,6 +23,13 @@ vi.mock("react-i18next", async (importOriginal) => {
 
 vi.mock("canvas-confetti", () => ({ default: vi.fn() }));
 
+// The confetti burst fires a fire-and-forget dashboard counter; stub it so no
+// real network request escapes the test.
+vi.mock("@/utils/adminData", async (importOriginal) => ({
+	...(await importOriginal<typeof import("@/utils/adminData")>()),
+	trackEvent: vi.fn(),
+}));
+
 window.IntersectionObserver = class {
 	observe() {}
 	unobserve() {}

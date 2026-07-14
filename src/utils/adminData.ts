@@ -4,6 +4,31 @@ const AGENDA_URL = `${BASE_API}/agenda`;
 const TRANSLATIONS_URL = `${BASE_API}/translations`;
 const GALLERY_URL = `${BASE_API}/gallery`;
 const REDIRECTS_URL = `${BASE_API}/redirects`;
+const STATS_URL = `${BASE_API}/stats`;
+const TRACK_URL = `${BASE_API}/track`;
+
+/** Aggregated admin dashboard stats returned by GET /api/stats. */
+export interface AdminStats {
+	qr: {
+		totalScans: number;
+		topCode: { slug: string; label: string; url: string; scans: number } | null;
+		codes: { slug: string; label: string; url: string; scans: number }[];
+	};
+	confetti: { bursts: number };
+	contact: { submissions: number };
+	security: { failedLogins24h: number; lastLogin: string | null };
+	traffic:
+		| { connected: false; reason: string }
+		| {
+				connected: true;
+				rangeDays: number;
+				activeUsers: number;
+				pageViews: number;
+		  };
+}
+
+/** Public site events the backend counts (kept in sync with the /track allowlist). */
+export type TrackableEvent = "confetti" | "contact_submit";
 
 export function loadData(): SiteData | undefined {
 	try {
@@ -167,4 +192,30 @@ export async function deleteGalleryImage(token: string, url: string) {
 	if (res.status === 401) throw new AuthError();
 	if (!res.ok) throw new Error("Could not delete image");
 	return res.json();
+}
+
+export async function fetchStats(token: string): Promise<AdminStats> {
+	const res = await fetch(STATS_URL, {
+		headers: { Authorization: `Bearer ${token}` },
+	});
+	if (res.status === 401) throw new AuthError();
+	if (!res.ok) throw new Error("Could not fetch stats");
+	return res.json() as Promise<AdminStats>;
+}
+
+/**
+ * Fire-and-forget bump of a public site counter (confetti bursts, contact
+ * submissions). Best-effort: never throws and never blocks the caller.
+ */
+export function trackEvent(event: TrackableEvent): void {
+	try {
+		void fetch(TRACK_URL, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ event }),
+			keepalive: true,
+		}).catch(() => {});
+	} catch {
+		// ignore — a vanity counter must never affect the page
+	}
 }

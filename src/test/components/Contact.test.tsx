@@ -28,6 +28,11 @@ vi.mock("@/security/useRecaptchaV3", () => ({
 	}),
 }));
 
+vi.mock("@/utils/adminData", async (importOriginal) => ({
+	...(await importOriginal<typeof import("@/utils/adminData")>()),
+	trackEvent: vi.fn(),
+}));
+
 window.IntersectionObserver = class {
 	observe() {}
 	unobserve() {}

@@ -6,6 +6,7 @@ import {
 	fetchGallery,
 	fetchMembers,
 	fetchRedirects,
+	fetchStats,
 	fetchTranslations,
 	loadData,
 	persistData,
@@ -13,6 +14,7 @@ import {
 	saveMembers,
 	saveRedirects,
 	saveTranslations,
+	trackEvent,
 	uploadGalleryImage,
 } from "@/utils/adminData";
 
@@ -22,6 +24,8 @@ const AGENDA_URL = `${BASE_API}/agenda`;
 const TRANSLATIONS_URL = `${BASE_API}/translations`;
 const GALLERY_URL = `${BASE_API}/gallery`;
 const REDIRECTS_URL = `${BASE_API}/redirects`;
+const STATS_URL = `${BASE_API}/stats`;
+const TRACK_URL = `${BASE_API}/track`;
 
 const STORAGE_KEY = "band_admin_v1";
 
@@ -421,5 +425,56 @@ describe("deleteGalleryImage", () => {
 		await expect(deleteGalleryImage("tok", "u")).rejects.toThrow(
 			"Could not delete image",
 		);
+	});
+});
+
+describe("fetchStats", () => {
+	const sampleStats = {
+		qr: { totalScans: 5, topCode: null, codes: [] },
+		confetti: { bursts: 3 },
+		contact: { submissions: 1 },
+		security: { failedLogins24h: 0, lastLogin: null },
+		traffic: { connected: false, reason: "not_configured" },
+	};
+
+	it("GETs the stats URL with the auth header and returns the payload", async () => {
+		stubFetch(200, sampleStats);
+		const result = await fetchStats("tok");
+		expect(result).toEqual(sampleStats);
+		const [url, init] = getFetchMock().mock.calls[0];
+		expect(url).toBe(STATS_URL);
+		expect(init.headers).toEqual({ Authorization: "Bearer tok" });
+	});
+
+	it("throws AuthError on 401", async () => {
+		stubFetch(401);
+		await expect(fetchStats("tok")).rejects.toBeInstanceOf(AuthError);
+	});
+
+	it("throws generic Error on 500", async () => {
+		stubFetch(500);
+		await expect(fetchStats("tok")).rejects.toThrow("Could not fetch stats");
+	});
+});
+
+describe("trackEvent", () => {
+	it("POSTs the event name to the track URL (fire-and-forget)", () => {
+		const fn = stubFetch(202, { ok: true });
+		trackEvent("confetti");
+		const [url, init] = fn.mock.calls[0];
+		expect(url).toBe(TRACK_URL);
+		expect(init.method).toBe("POST");
+		expect(init.headers).toEqual({ "Content-Type": "application/json" });
+		expect(JSON.parse(init.body)).toEqual({ event: "confetti" });
+	});
+
+	it("never throws, even when fetch itself throws synchronously", () => {
+		vi.stubGlobal(
+			"fetch",
+			vi.fn(() => {
+				throw new Error("network unavailable");
+			}),
+		);
+		expect(() => trackEvent("contact_submit")).not.toThrow();
 	});
 });

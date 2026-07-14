@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
+import { trackEvent } from "@/utils/adminData";
 import { useBasinAhoy } from "./analytics/useBasinAhoy";
 import { Button } from "./components/ui/atoms/Button";
 import { Heading } from "./components/ui/atoms/Heading";
@@ -212,6 +213,8 @@ function PublicSite() {
 			origin: { y: 0.6 },
 			colors: colors,
 		});
+		// Count the burst for the admin dashboard (fire-and-forget, anonymous).
+		trackEvent("confetti");
 	}, []);
 
 	useEffect(() => {

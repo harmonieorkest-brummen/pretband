@@ -6,6 +6,7 @@ import { Decoration } from "@/components/ui/atoms/Decoration";
 import { Heading } from "@/components/ui/atoms/Heading";
 import { Input } from "@/components/ui/atoms/Input";
 import { Textarea } from "@/components/ui/atoms/Textarea";
+import { trackEvent } from "@/utils/adminData";
 import { publicEnv } from "../../config/publicEnv";
 import { useEasterEggs } from "../../context/EasterEggContext";
 import { useRecaptchaV3 } from "../../security/useRecaptchaV3";
@@ -118,6 +119,9 @@ export function Contact() {
 			setStatus("success");
 			setStatusMessage(t("contact.form.success"));
 			form.reset();
+
+			// Count the submission for the admin dashboard (anonymous, best-effort).
+			trackEvent("contact_submit");
 
 			// Track success without PII (only if analytics has been enabled and loaded).
 			if (window.ahoy && "track" in window.ahoy) {

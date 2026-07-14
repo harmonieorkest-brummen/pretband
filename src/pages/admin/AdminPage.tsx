@@ -39,6 +39,11 @@ const RedirectsEditor = lazy(() =>
 		default: m.RedirectsEditor,
 	})),
 );
+const Dashboard = lazy(() =>
+	import("@/pages/admin/views/Dashboard").then((m) => ({
+		default: m.Dashboard,
+	})),
+);
 
 export default function AdminPanel() {
 	const { t } = useTranslation();
@@ -164,7 +169,8 @@ export default function AdminPanel() {
 		view === "members" ||
 		view === "translations" ||
 		view === "gallery" ||
-		view === "redirects"
+		view === "redirects" ||
+		view === "dashboard"
 	) {
 		return (
 			<Suspense
@@ -209,6 +215,12 @@ export default function AdminPanel() {
 				)}
 				{view === "redirects" && (
 					<RedirectsEditor
+						onBack={() => setView("landing")}
+						onLogout={handleLogout}
+					/>
+				)}
+				{view === "dashboard" && (
+					<Dashboard
 						onBack={() => setView("landing")}
 						onLogout={handleLogout}
 					/>

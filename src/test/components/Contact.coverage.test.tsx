@@ -23,6 +23,12 @@ vi.mock("@/security/useRecaptchaV3", () => ({
 	useRecaptchaV3: () => ({ execute: mockExecute }),
 }));
 
+// Stub only the fire-and-forget counter so it doesn't add a second fetch call.
+vi.mock("@/utils/adminData", async (importOriginal) => ({
+	...(await importOriginal<typeof import("@/utils/adminData")>()),
+	trackEvent: vi.fn(),
+}));
+
 window.IntersectionObserver = class {
 	observe() {}
 	unobserve() {}

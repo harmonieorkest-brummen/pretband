@@ -9,6 +9,7 @@ import {
 	fetchGallery,
 	fetchMembers,
 	fetchRedirects,
+	fetchStats,
 	persistData,
 	saveAgenda,
 	saveMembers,
@@ -49,6 +50,8 @@ vi.mock("@/utils/adminData", () => {
 		deleteGalleryImage: vi.fn(),
 		persistData: vi.fn(),
 		loadData: vi.fn(() => undefined),
+		fetchStats: vi.fn(),
+		trackEvent: vi.fn(),
 	};
 });
 
@@ -99,6 +102,13 @@ describe("AdminPage (orchestrator)", () => {
 		vi.mocked(saveMembers).mockResolvedValue({});
 		vi.mocked(saveAgenda).mockResolvedValue({});
 		vi.mocked(saveTranslations).mockResolvedValue({});
+		vi.mocked(fetchStats).mockResolvedValue({
+			qr: { totalScans: 0, topCode: null, codes: [] },
+			confetti: { bursts: 0 },
+			contact: { submissions: 0 },
+			security: { failedLogins24h: 0, lastLogin: null },
+			traffic: { connected: false, reason: "not_configured" },
+		});
 	});
 
 	afterEach(() => {
@@ -151,8 +161,8 @@ describe("AdminPage (orchestrator)", () => {
 	it("shows the landing dashboard when authenticated with loaded data", async () => {
 		await renderAuthed();
 		expect(screen.getByText("admin.landing.title")).toBeInTheDocument();
-		// All five section tiles are present.
-		expect(screen.getAllByText("admin.landing.edit_button")).toHaveLength(5);
+		// All six section tiles are present.
+		expect(screen.getAllByText("admin.landing.edit_button")).toHaveLength(6);
 	});
 
 	it("switches into the agenda editor and back to the landing", async () => {
@@ -189,6 +199,12 @@ describe("AdminPage (orchestrator)", () => {
 		await renderAuthed();
 		await gotoView("redirects", "admin.redirects.title");
 		expect(fetchRedirects).toHaveBeenCalled();
+	});
+
+	it("switches into the stats dashboard (lazy + own stats load)", async () => {
+		await renderAuthed();
+		await gotoView("dashboard", "admin.dashboard.title");
+		expect(fetchStats).toHaveBeenCalled();
 	});
 
 	it("persists data locally when an editor reports a change", async () => {

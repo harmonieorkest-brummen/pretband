@@ -24,6 +24,7 @@ const baseData: SiteData = {
 };
 
 const SECTION_KEYS = [
+	"dashboard",
 	"agenda",
 	"members",
 	"translations",
@@ -32,6 +33,7 @@ const SECTION_KEYS = [
 ] as const;
 
 const TITLE_KEYS = [
+	"admin.landing.dashboard_title",
 	"admin.landing.agenda_title",
 	"admin.landing.members_title",
 	"admin.landing.translations_title",
@@ -69,13 +71,13 @@ describe("LandingScreen", () => {
 			expect(screen.getByText(title)).toBeInTheDocument();
 		}
 		// One "edit" label per tile.
-		expect(screen.getAllByText("admin.landing.edit_button")).toHaveLength(5);
+		expect(screen.getAllByText("admin.landing.edit_button")).toHaveLength(6);
 	});
 
 	it("renders one clickable button per section plus the logout button", () => {
 		renderScreen();
-		// 5 tiles + 1 logout button.
-		expect(screen.getAllByRole("button")).toHaveLength(6);
+		// 6 tiles + 1 logout button.
+		expect(screen.getAllByRole("button")).toHaveLength(7);
 	});
 
 	it("invokes onSelect with the correct key when each tile is clicked", () => {
@@ -84,6 +86,7 @@ describe("LandingScreen", () => {
 			onSelect.mockClear();
 			// Each tile title is unique, so we can locate the enclosing button.
 			const title = {
+				dashboard: "admin.landing.dashboard_title",
 				agenda: "admin.landing.agenda_title",
 				members: "admin.landing.members_title",
 				translations: "admin.landing.translations_title",
@@ -138,7 +141,7 @@ describe("LandingScreen", () => {
 		};
 		renderScreen({ data: emptyData });
 		// Still renders all tiles with empty aggregates.
-		expect(screen.getAllByText("admin.landing.edit_button")).toHaveLength(5);
+		expect(screen.getAllByText("admin.landing.edit_button")).toHaveLength(6);
 		expect(screen.getByText("admin.landing.title")).toBeInTheDocument();
 	});
 });
