@@ -1,7 +1,7 @@
 import confetti from "canvas-confetti";
 import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { trackEvent } from "@/utils/adminData";
