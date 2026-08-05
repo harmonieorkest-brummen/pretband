@@ -35,7 +35,7 @@
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.3.3",
-		"@vitejs/plugin-react": "^6.0.4",
+		"@vitejs/plugin-react": "^6.0.5",
 		"ahoy.js": "^0.4.5",
 		"browser-image-compression": "^2.0.2",
 		"canvas-confetti": "^1.9.4",
