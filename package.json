@@ -31,7 +31,7 @@
 		"typescript": "^7.0.2",
 		"vite": "^8.1.5",
 		"vite-plugin-sitemap": "^0.8.2",
-		"vitest": "^4.1.10"
+		"vitest": "^4.1.11"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.3.3",
