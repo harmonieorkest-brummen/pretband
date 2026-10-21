@@ -91,10 +91,10 @@ export function Navbar() {
 	return (
 		<>
 			{/* Navigation */}
-			<nav className="fixed top-6 left-1/2 z-50 flex w-[95%] -translate-x-1/2 items-center justify-between rounded-2xl border border-white/20 bg-pret-dark/80 px-6 py-3 shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-all md:w-auto">
+			<nav className="bg-pret-dark/80 fixed top-6 left-1/2 z-50 flex w-[95%] -translate-x-1/2 items-center justify-between rounded-2xl border border-white/20 px-6 py-3 shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-all md:w-auto">
 				<a
 					href="./"
-					className="group mr-12 flex items-center space-x-3 rounded-full focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
+					className="group focus-visible:ring-pret-yellow mr-12 flex items-center space-x-3 rounded-full focus-visible:ring-2 focus-visible:outline-hidden"
 					aria-label={t("navbar.band")}
 				>
 					<img
@@ -110,7 +110,7 @@ export function Navbar() {
 						<a
 							href={sectionHref("wie")}
 							onClick={handleSectionClick("wie")}
-							className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-red focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
+							className="font-display hover:text-pret-red focus-visible:ring-pret-yellow rounded-lg px-2 text-sm tracking-widest text-white uppercase transition-all hover:scale-110 focus-visible:ring-2 focus-visible:outline-hidden"
 						>
 							{t("navbar.band")}
 						</a>
@@ -119,7 +119,7 @@ export function Navbar() {
 						<a
 							href={sectionHref("leden")}
 							onClick={handleSectionClick("leden")}
-							className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
+							className="font-display hover:text-pret-yellow focus-visible:ring-pret-yellow rounded-lg px-2 text-sm tracking-widest text-white uppercase transition-all hover:scale-110 focus-visible:ring-2 focus-visible:outline-hidden"
 						>
 							{t("navbar.members")}
 						</a>
@@ -128,7 +128,7 @@ export function Navbar() {
 						<a
 							href={sectionHref("agenda")}
 							onClick={handleSectionClick("agenda")}
-							className="rounded-lg px-2 font-display text-sm text-white uppercase tracking-widest transition-all hover:scale-110 hover:text-pret-red focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
+							className="font-display hover:text-pret-red focus-visible:ring-pret-yellow rounded-lg px-2 text-sm tracking-widest text-white uppercase transition-all hover:scale-110 focus-visible:ring-2 focus-visible:outline-hidden"
 						>
 							{t("navbar.when")}
 						</a>
@@ -156,7 +156,7 @@ export function Navbar() {
 				<button
 					ref={menuTriggerRef}
 					type="button"
-					className="rounded-lg p-2 text-white transition-colors hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow md:hidden"
+					className="hover:text-pret-yellow focus-visible:ring-pret-yellow rounded-lg p-2 text-white transition-colors focus-visible:ring-2 focus-visible:outline-hidden md:hidden"
 					onClick={toggleMobileMenu}
 					aria-label={
 						isMenuOpen ? t("navbar.close_menu") : t("navbar.open_menu")
@@ -186,13 +186,13 @@ export function Navbar() {
 				ref={mobileMenuRef}
 				id="mobile-menu"
 				popover="auto"
-				className={`fixed inset-0 z-60 m-0 h-auto max-h-none w-auto max-w-none flex-col items-center justify-center space-y-8 border-0 bg-pret-red/95 p-0 backdrop-blur-xl transition-transform duration-500 open:flex ${isMenuOpen ? "flex translate-x-0" : "translate-x-full"}`}
+				className={`bg-pret-red/95 fixed inset-0 z-60 m-0 h-auto max-h-none w-auto max-w-none flex-col items-center justify-center space-y-8 border-0 p-0 backdrop-blur-xl transition-transform duration-500 open:flex ${isMenuOpen ? "flex translate-x-0" : "translate-x-full"}`}
 				inert={!isMenuOpen}
 			>
 				<button
 					ref={closeButtonRef}
 					type="button"
-					className="absolute top-8 right-8 rounded-full p-2 text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-pret-yellow"
+					className="focus-visible:ring-pret-yellow absolute top-8 right-8 rounded-full p-2 text-white focus-visible:ring-2 focus-visible:outline-hidden"
 					onClick={toggleMobileMenu}
 					aria-label={t("navbar.close_menu")}
 				>
@@ -215,7 +215,7 @@ export function Navbar() {
 				{FEATURE_FLAGS.ABOUT && (
 					<a
 						href={sectionHref("wie")}
-						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
+						className="font-display hover:text-pret-yellow focus-visible:text-pret-yellow text-5xl text-white transition-colors"
 						onClick={handleMobileSectionClick("wie")}
 					>
 						{t("navbar.band")}
@@ -224,7 +224,7 @@ export function Navbar() {
 				{FEATURE_FLAGS.MEMBERS && (
 					<a
 						href={sectionHref("leden")}
-						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
+						className="font-display hover:text-pret-yellow focus-visible:text-pret-yellow text-5xl text-white transition-colors"
 						onClick={handleMobileSectionClick("leden")}
 					>
 						{t("navbar.members")}
@@ -233,7 +233,7 @@ export function Navbar() {
 				{FEATURE_FLAGS.AGENDA && (
 					<a
 						href={sectionHref("agenda")}
-						className="font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
+						className="font-display hover:text-pret-yellow focus-visible:text-pret-yellow text-5xl text-white transition-colors"
 						onClick={handleMobileSectionClick("agenda")}
 					>
 						{t("navbar.when")}
@@ -242,7 +242,7 @@ export function Navbar() {
 				{FEATURE_FLAGS.CONTACT && (
 					<a
 						href={sectionHref("contact")}
-						className="book-now font-display text-5xl text-white transition-colors hover:text-pret-yellow focus-visible:text-pret-yellow"
+						className="book-now font-display hover:text-pret-yellow focus-visible:text-pret-yellow text-5xl text-white transition-colors"
 						onClick={handleMobileSectionClick("contact")}
 					>
 						{t("navbar.book_now")}
@@ -255,7 +255,7 @@ export function Navbar() {
 						toggleLanguage();
 						closeMobileMenu();
 					}}
-					className="border-4 border-white text-white hover:bg-white hover:text-pret-red"
+					className="hover:text-pret-red border-4 border-white text-white hover:bg-white"
 				>
 					{i18n.language === "nl" ? "ENGLISH" : "NEDERLANDS"}
 				</Button>

@@ -33,14 +33,14 @@ export function Highlights() {
 					>
 						{t("highlights.title")}
 					</Heading>
-					<p className="mx-auto max-w-2xl font-body text-md text-white/70 md:text-2xl">
+					<p className="font-body text-md mx-auto max-w-2xl text-white/70 md:text-2xl">
 						{t("highlights.description")}
 					</p>
 				</div>
 
 				<div className="group relative">
 					{/* Video Wrapper with decorative border */}
-					<div className="relative z-10 aspect-video w-full overflow-hidden rounded-[2rem] border-4 border-white/10 bg-pret-dark shadow-2xl transition-transform duration-500 group-hover:scale-[1.01] md:rounded-[4rem] md:border-8">
+					<div className="bg-pret-dark relative z-10 aspect-video w-full overflow-hidden rounded-[2rem] border-4 border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-[1.01] md:rounded-[4rem] md:border-8">
 						<iframe
 							src="https://www.youtube.com/embed/98VH-CuOSvI"
 							title={t("highlights.watch_video")}
@@ -51,7 +51,7 @@ export function Highlights() {
 					</div>
 
 					{/* Decorative background glow */}
-					<div className="absolute -inset-4 z-0 bg-pret-yellow/20 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+					<div className="bg-pret-yellow/20 absolute -inset-4 z-0 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 				</div>
 			</div>
 		</section>

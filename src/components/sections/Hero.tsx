@@ -65,7 +65,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 				<div className="relative mb-8 flex flex-col items-center">
 					<button
 						type="button"
-						className="group relative z-20 cursor-pointer rounded-full transition-transform hover:scale-105 focus-visible:outline-hidden focus-visible:ring-4 focus-visible:ring-pret-yellow active:scale-95"
+						className="group focus-visible:ring-pret-yellow relative z-20 cursor-pointer rounded-full transition-transform hover:scale-105 focus-visible:ring-4 focus-visible:outline-hidden active:scale-95"
 						onClick={handleLogoClick}
 						tabIndex={0}
 						onKeyDown={(e) => {
@@ -75,7 +75,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 							}
 						}}
 					>
-						<div className="absolute -inset-8 scale-0 rounded-full bg-pret-yellow/20 blur-3xl transition-transform duration-500 group-hover:scale-100"></div>
+						<div className="bg-pret-yellow/20 absolute -inset-8 scale-0 rounded-full blur-3xl transition-transform duration-500 group-hover:scale-100"></div>
 						<img
 							fetchPriority="high"
 							src={logo}
@@ -87,7 +87,7 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 						<Badge
 							animation="bounce"
 							variant="yellow"
-							className="absolute -top-6 -right-6 rotate-12 border-4 border-pret-dark shadow-xl md:-top-8 md:-right-8"
+							className="border-pret-dark absolute -top-6 -right-6 rotate-12 border-4 shadow-xl md:-top-8 md:-right-8"
 							size="md"
 						>
 							{t("hero.click_me")}
@@ -107,24 +107,24 @@ export function Hero({ onLaunchConfetti }: HeroProps) {
 
 				{/* Narrative - Wrapped in a Red Block */}
 				<div className="relative mx-auto mb-16 max-w-4xl rotate-1 transform leading-2 md:leading-none">
-					<div className="absolute -inset-4 -rotate-2 rounded-5xl bg-[#D42A29] shadow-2xl"></div>
-					<div className="absolute -inset-4 rotate-1 rounded-5xl border-4 border-pret-yellow opacity-50"></div>
+					<div className="rounded-5xl absolute -inset-4 -rotate-2 bg-[#D42A29] shadow-2xl"></div>
+					<div className="rounded-5xl border-pret-yellow absolute -inset-4 rotate-1 border-4 opacity-50"></div>
 
-					<h1 className="relative z-10 p-6 font-black font-display text-white text-xl uppercase leading-tight tracking-tight md:p-12 md:text-3xl lg:text-4xl">
+					<h1 className="font-display relative z-10 p-6 text-xl leading-tight font-black tracking-tight text-white uppercase md:p-12 md:text-3xl lg:text-4xl">
 						<Trans
 							i18nKey="hero.narrative"
 							components={{
 								italic: (
-									<span className="px-2 text-white italic underline decoration-2 decoration-pret-yellow underline-offset-4" />
+									<span className="decoration-pret-yellow px-2 text-white italic underline decoration-2 underline-offset-4" />
 								),
 								wavy: (
-									<span className="px-2 text-white underline decoration-2 decoration-pret-yellow decoration-wavy underline-offset-4 md:underline-offset-8" />
+									<span className="decoration-pret-yellow px-2 text-white underline decoration-wavy decoration-2 underline-offset-4 md:underline-offset-8" />
 								),
 								plain: (
-									<span className="px-2 text-white underline decoration-2 decoration-pret-yellow underline-offset-4" />
+									<span className="decoration-pret-yellow px-2 text-white underline decoration-2 underline-offset-4" />
 								),
 								noise: (
-									<span className="mt-4 block animate-lamp-flicker text-4xl text-pret-yellow italic md:text-7xl lg:text-8xl" />
+									<span className="animate-lamp-flicker text-pret-yellow mt-4 block text-4xl italic md:text-7xl lg:text-8xl" />
 								),
 							}}
 						/>

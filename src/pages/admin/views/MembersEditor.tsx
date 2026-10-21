@@ -106,7 +106,7 @@ export function MembersEditor({
 									<Heading level={3} variant="yellow" className="text-3xl">
 										{sec.key.replace(/_/g, " ")}
 									</Heading>
-									<div className="mt-2 text-white/60 text-xs uppercase tracking-widest">
+									<div className="mt-2 text-xs tracking-widest text-white/60 uppercase">
 										{t("admin.members.section_stat", {
 											count: sec.names.length,
 										})}
@@ -133,7 +133,7 @@ export function MembersEditor({
 											<button
 												type="button"
 												onClick={() => removeName(si, ni)}
-												className="text-lg text-pret-red/30 leading-none transition-colors hover:text-pret-red"
+												className="text-pret-red/30 hover:text-pret-red text-lg leading-none transition-colors"
 												aria-label={t("admin.members.remove_aria", { name })}
 											>
 												<X />

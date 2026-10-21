@@ -45,11 +45,11 @@ export function LoginScreen({
 
 	return (
 		<div className="flex min-h-[75vh] items-center justify-center">
-			<div className="w-full max-w-sm animate-fade-in p-8 text-center">
+			<div className="animate-fade-in w-full max-w-sm p-8 text-center">
 				<Heading level={1} variant="yellow" className="mb-2 text-7xl">
 					{t("admin.login.title")}
 				</Heading>
-				<p className="mb-12 text-white/60 text-xs uppercase tracking-[3px]">
+				<p className="mb-12 text-xs tracking-[3px] text-white/60 uppercase">
 					{t("admin.login.subtitle")}
 				</p>
 
@@ -71,7 +71,7 @@ export function LoginScreen({
 						className={`text-center text-2xl tracking-[6px] ${err ? "border-pret-red text-pret-red" : ""}`}
 					/>
 					<div
-						className={`mt-2 h-6 text-pret-red text-sm transition-opacity ${err ? "opacity-100" : "opacity-0"}`}
+						className={`text-pret-red mt-2 h-6 text-sm transition-opacity ${err ? "opacity-100" : "opacity-0"}`}
 					>
 						{t("admin.login.password_error")}
 					</div>

@@ -39,7 +39,7 @@ export function QrCode({ value, size = 160, className = "" }: QrCodeProps) {
 	if (failed) {
 		return (
 			<div
-				className="flex items-center justify-center rounded-xl bg-white/10 text-center text-white/40 text-xs"
+				className="flex items-center justify-center rounded-xl bg-white/10 text-center text-xs text-white/40"
 				style={{ width: size, height: size }}
 			>
 				—

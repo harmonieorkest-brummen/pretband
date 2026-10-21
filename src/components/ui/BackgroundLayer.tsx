@@ -1,6 +1,6 @@
 export function BackgroundLayer() {
 	return (
-		<div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-pret-dark">
+		<div className="bg-pret-dark pointer-events-none fixed inset-0 -z-10 overflow-hidden">
 			{/* Large Blurry Blobs for the "Splash" of colors */}
 			<div
 				className="fixed -top-20 -left-40 h-240 w-240 rounded-full bg-[#E53433]/10 blur-[200px]"

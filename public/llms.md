@@ -10,7 +10,6 @@ Pretband is a lively brassband from Brummen, the Netherlands focused on festival
 ## Links
 
 - [Homepage](https://pretband.nl)
-- [GitHub](https://github.com/imreboersma/pretband)
 - [Harmonieorkest Brummen](https://harmonieorkestbrummen.nl)
 
 ## Example

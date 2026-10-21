@@ -85,13 +85,13 @@ function TrafficCard({ traffic }: { traffic: AdminStats["traffic"] }) {
 			<div className="flex gap-8">
 				<div>
 					<div className={BIG}>{nf.format(traffic.activeUsers)}</div>
-					<div className="mt-1 text-white/40 text-xs uppercase tracking-widest">
+					<div className="mt-1 text-xs tracking-widest text-white/40 uppercase">
 						{t("admin.dashboard.visitors", "Bezoekers")}
 					</div>
 				</div>
 				<div>
 					<div className={BIG}>{nf.format(traffic.pageViews)}</div>
-					<div className="mt-1 text-white/40 text-xs uppercase tracking-widest">
+					<div className="mt-1 text-xs tracking-widest text-white/40 uppercase">
 						{t("admin.dashboard.pageviews", "Paginaweergaven")}
 					</div>
 				</div>
@@ -117,7 +117,7 @@ function QrCard({ qr }: { qr: AdminStats["qr"] }) {
 				</div>
 				{qr.topCode && (
 					<div className="text-right">
-						<div className="text-white/40 text-xs uppercase tracking-widest">
+						<div className="text-xs tracking-widest text-white/40 uppercase">
 							{t("admin.dashboard.qr_top", "Populairste code")}
 						</div>
 						<div className="font-display text-2xl text-white">
@@ -138,7 +138,7 @@ function QrCard({ qr }: { qr: AdminStats["qr"] }) {
 							key={c.slug}
 							className="flex items-center justify-between gap-4 py-3"
 						>
-							<span className="truncate font-body text-white">
+							<span className="font-body truncate text-white">
 								{c.label || c.slug}{" "}
 								<span className="text-sm text-white/40">/{c.slug}</span>
 							</span>
@@ -214,10 +214,10 @@ export function Dashboard({ onBack, onLogout }: DashboardProps) {
 
 			{loading && !stats ? (
 				<div className="flex justify-center py-32">
-					<div className="h-10 w-10 animate-spin rounded-full border-pret-yellow border-t-2 border-b-2" />
+					<div className="border-pret-yellow h-10 w-10 animate-spin rounded-full border-t-2 border-b-2" />
 				</div>
 			) : stats ? (
-				<div className="grid animate-fade-in grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+				<div className="animate-fade-in grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 					<StatCard
 						icon="🎉"
 						value={nf.format(stats.confetti.bursts)}

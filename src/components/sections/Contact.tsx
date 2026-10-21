@@ -166,13 +166,13 @@ export function Contact() {
 					{t("contact.title_1")} <br />
 					<button
 						type="button"
-						className="inline-block text-pret-red transition-transform hover:scale-110 focus-visible:outline-hidden active:animate-bounce"
+						className="text-pret-red inline-block transition-transform hover:scale-110 focus-visible:outline-hidden active:animate-bounce"
 						onClick={() => findEgg("bouncing-pret")}
 					>
 						{t("contact.title_2")}
 					</button>
 				</Heading>
-				<p className="mx-auto mb-16 max-w-2xl font-body text-md text-white/80 leading-tight md:text-3xl">
+				<p className="font-body text-md mx-auto mb-16 max-w-2xl leading-tight text-white/80 md:text-3xl">
 					{t("contact.description")}
 				</p>
 
@@ -253,7 +253,7 @@ export function Contact() {
 							</Button>
 							<a
 								href="mailto:info@pretband.nl"
-								className="rounded-xl px-4 py-4 text-center font-display text-white/80 uppercase tracking-widest transition-colors hover:text-pret-yellow focus-visible:outline-hidden focus-visible:ring-4 focus-visible:ring-pret-yellow focus-visible:ring-offset-4 focus-visible:ring-offset-pret-dark"
+								className="font-display hover:text-pret-yellow focus-visible:ring-pret-yellow focus-visible:ring-offset-pret-dark rounded-xl px-4 py-4 text-center tracking-widest text-white/80 uppercase transition-colors focus-visible:ring-4 focus-visible:ring-offset-4 focus-visible:outline-hidden"
 							>
 								{t("contact.form.or_email")}
 							</a>
@@ -262,7 +262,7 @@ export function Contact() {
 						{status !== "idle" && (
 							<output
 								aria-live="polite"
-								className={`mt-8 text-center font-body text-xl ${
+								className={`font-body mt-8 text-center text-xl ${
 									status === "success" ? "text-pret-yellow" : "text-pret-red"
 								}`}
 							>
@@ -270,7 +270,7 @@ export function Contact() {
 							</output>
 						)}
 
-						<p className="mt-8 text-center font-body text-sm text-white/50 leading-relaxed">
+						<p className="font-body mt-8 text-center text-sm leading-relaxed text-white/50">
 							<Trans
 								i18nKey="contact.form.recaptcha_notice"
 								components={{
@@ -279,7 +279,7 @@ export function Contact() {
 											href="https://policies.google.com/privacy"
 											target="_blank"
 											rel="noreferrer"
-											className="underline underline-offset-4 transition-colors hover:text-pret-yellow"
+											className="hover:text-pret-yellow underline underline-offset-4 transition-colors"
 										>
 											{" "}
 										</a>
@@ -289,7 +289,7 @@ export function Contact() {
 											href="https://policies.google.com/terms"
 											target="_blank"
 											rel="noreferrer"
-											className="underline underline-offset-4 transition-colors hover:text-pret-yellow"
+											className="hover:text-pret-yellow underline underline-offset-4 transition-colors"
 										>
 											{" "}
 										</a>

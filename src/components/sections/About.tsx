@@ -36,7 +36,7 @@ export function About() {
 			</div>
 			<div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2">
 				<div className="group relative">
-					<div className="aspect-square w-full -rotate-6 overflow-hidden rounded-[4rem] border-8 border-pret-yellow bg-pret-dark shadow-2xl transition-transform duration-500 group-hover:rotate-0">
+					<div className="border-pret-yellow bg-pret-dark aspect-square w-full -rotate-6 overflow-hidden rounded-[4rem] border-8 shadow-2xl transition-transform duration-500 group-hover:rotate-0">
 						<img
 							src={pretbandImg}
 							alt="The Band"
@@ -56,7 +56,7 @@ export function About() {
 							{t("about.title_2")}
 						</span>
 					</Heading>
-					<p className="mb-8 font-body text-md leading-relaxed md:text-3xl">
+					<p className="font-body text-md mb-8 leading-relaxed md:text-3xl">
 						{t("about.description")}
 					</p>
 					<div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">

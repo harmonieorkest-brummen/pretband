@@ -94,9 +94,9 @@ export function AgendaEditor({
 				addItemLabel={t("admin.agenda.new_button")}
 			/>
 
-			<div className="mb-8 flex animate-fade-in items-center gap-4 rounded-2xl border border-pret-yellow/20 bg-pret-yellow/10 p-4">
+			<div className="animate-fade-in border-pret-yellow/20 bg-pret-yellow/10 mb-8 flex items-center gap-4 rounded-2xl border p-4">
 				<span className="text-2xl">ℹ️</span>
-				<p className="font-medium text-pret-yellow/80 text-sm leading-relaxed">
+				<p className="text-pret-yellow/80 text-sm leading-relaxed font-medium">
 					{t("admin.agenda.deletion_notice")}
 				</p>
 			</div>
@@ -115,7 +115,7 @@ export function AgendaEditor({
 								onKeyDown={(e) =>
 									e.key === "Enter" && setExpanded(open ? null : idx)
 								}
-								className={`relative flex w-full cursor-pointer items-center gap-4 overflow-hidden border bg-black/40 p-5 transition-colors hover:bg-black/60 ${open ? "rounded-t-2xl border-pret-yellow" : "rounded-2xl border-white/10"}`}
+								className={`relative flex w-full cursor-pointer items-center gap-4 overflow-hidden border bg-black/40 p-5 transition-colors hover:bg-black/60 ${open ? "border-pret-yellow rounded-t-2xl" : "rounded-2xl border-white/10"}`}
 							>
 								<span className="min-w-[60px] text-sm text-white/60">
 									{ev.date || "—"}
@@ -125,14 +125,14 @@ export function AgendaEditor({
 								</span>
 								<div className="ml-auto flex items-center gap-4">
 									{isMissingDate && (
-										<span className="inline-flex items-center gap-1 rounded-full border border-pret-red/30 bg-pret-red/15 px-2 py-1 font-bold text-[10px] text-pret-red uppercase tracking-widest">
+										<span className="border-pret-red/30 bg-pret-red/15 text-pret-red inline-flex items-center gap-1 rounded-full border px-2 py-1 text-[10px] font-bold tracking-widest uppercase">
 											<AlertTriangle className="h-3 w-3" aria-hidden="true" />
 											{t("admin.agenda.not_live_badge")}
 										</span>
 									)}
 									{daysLeft !== null && new Date(ev.date) < new Date() && (
 										<span
-											className={`rounded-full px-2 py-1 font-bold text-[10px] uppercase tracking-widest ${daysLeft <= 7 ? "border border-pret-red/30 bg-pret-red/20 text-pret-red" : "border border-pret-yellow/20 bg-pret-yellow/10 text-pret-yellow"}`}
+											className={`rounded-full px-2 py-1 text-[10px] font-bold tracking-widest uppercase ${daysLeft <= 7 ? "border-pret-red/30 bg-pret-red/20 text-pret-red border" : "border-pret-yellow/20 bg-pret-yellow/10 text-pret-yellow border"}`}
 										>
 											{t("admin.agenda.days_until_deletion", {
 												count: daysLeft,
@@ -149,14 +149,14 @@ export function AgendaEditor({
 							</button>
 
 							{open && (
-								<div className="animate-fade-in rounded-b-2xl border border-pret-yellow border-t-0 bg-black/80 p-6 md:p-8">
+								<div className="animate-fade-in border-pret-yellow rounded-b-2xl border border-t-0 bg-black/80 p-6 md:p-8">
 									{isMissingDate && (
-										<div className="mb-6 flex gap-3 rounded-2xl border border-pret-red/30 bg-pret-red/10 p-4 text-pret-red">
+										<div className="border-pret-red/30 bg-pret-red/10 text-pret-red mb-6 flex gap-3 rounded-2xl border p-4">
 											<AlertTriangle
 												className="mt-0.5 h-5 w-5 shrink-0"
 												aria-hidden="true"
 											/>
-											<p className="font-medium text-sm leading-relaxed">
+											<p className="text-sm leading-relaxed font-medium">
 												{t("admin.agenda.missing_date_warning")}
 											</p>
 										</div>
@@ -194,7 +194,7 @@ export function AgendaEditor({
 										</div>
 									))}
 
-									<div className="mt-8 flex justify-end border-white/10 border-t pt-6">
+									<div className="mt-8 flex justify-end border-t border-white/10 pt-6">
 										<Button
 											variant="secondary"
 											size="sm"
@@ -210,7 +210,7 @@ export function AgendaEditor({
 				})}
 
 				{events.length === 0 && (
-					<div className="py-20 text-center font-display text-white/40 uppercase tracking-widest">
+					<div className="font-display py-20 text-center tracking-widest text-white/40 uppercase">
 						{t("admin.agenda.empty")}
 					</div>
 				)}

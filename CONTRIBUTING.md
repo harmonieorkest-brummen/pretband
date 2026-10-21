@@ -7,17 +7,20 @@ Thanks for your interest in contributing! This project is the website for H.O.B.
 ## Getting Started
 
 1. **Fork** this repository and clone your fork locally:
+
    ```bash
    git clone https://github.com/your-username/pretband.git
    cd pretband
    ```
 
 2. **Install dependencies** (if applicable):
+
    ```bash
    npm install
    ```
 
 3. **Start the development server:**
+
    ```bash
    npm run dev
    ```
@@ -29,6 +32,7 @@ Thanks for your interest in contributing! This project is the website for H.O.B.
 ## Making Changes
 
 - Create a new branch for your changes:
+
   ```bash
   git checkout -b feature/your-feature-name
   ```
@@ -40,6 +44,7 @@ Thanks for your interest in contributing! This project is the website for H.O.B.
 ## Submitting a Pull Request
 
 1. Push your branch to your fork:
+
    ```bash
    git push origin feature/your-feature-name
    ```

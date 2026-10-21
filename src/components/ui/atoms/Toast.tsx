@@ -37,7 +37,7 @@ export function Toast({
 			className={`fixed top-8 right-8 z-[100] transform transition-all duration-300 ${visible ? "translate-y-0 scale-100 opacity-100" : "-translate-y-4 scale-95 opacity-0"}`}
 		>
 			<div
-				className={`${bgClass} flex items-center gap-4 rounded-2xl border border-white/10 px-6 py-4 font-bold font-display text-sm uppercase tracking-wider shadow-2xl`}
+				className={`${bgClass} font-display flex items-center gap-4 rounded-2xl border border-white/10 px-6 py-4 text-sm font-bold tracking-wider uppercase shadow-2xl`}
 			>
 				<span className="text-xl">
 					{type === "success" ? "✓" : type === "error" ? "✕" : "ℹ"}

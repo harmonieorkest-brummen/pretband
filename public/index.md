@@ -1,7 +1,6 @@
 # Pretband Help Ons Bloaz'n
 
 De Pretband van Brummen is een feestelijke brassband die optreedt op festivals, straatfeesten en evenementen.
-
 - Boekingen: info@pretband.nl
 - Website: https://pretband.nl
 

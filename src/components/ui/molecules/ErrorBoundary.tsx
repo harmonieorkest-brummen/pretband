@@ -28,16 +28,16 @@ export class ErrorBoundary extends Component<Props, State> {
 			return (
 				this.props.fallback || (
 					<div className="flex min-h-[400px] flex-col items-center justify-center p-8 text-center">
-						<h2 className="mb-4 font-display text-4xl text-pret-red uppercase">
+						<h2 className="font-display text-pret-red mb-4 text-4xl uppercase">
 							{i18n.t("errors.boundary_title")}
 						</h2>
-						<p className="mb-8 font-body text-white/70 text-xl">
+						<p className="font-body mb-8 text-xl text-white/70">
 							{i18n.t("errors.boundary_body")}
 						</p>
 						<button
 							type="button"
 							onClick={() => window.location.reload()}
-							className="rounded-xl border border-white/20 bg-white/5 px-8 py-4 font-display text-sm uppercase tracking-widest transition-colors hover:bg-white/10"
+							className="font-display rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-sm tracking-widest uppercase transition-colors hover:bg-white/10"
 						>
 							{i18n.t("errors.boundary_button")}
 						</button>

@@ -30,7 +30,7 @@ export function Members() {
 				<Heading
 					level={2}
 					variant="yellow"
-					className="mb-20 hyphens-auto break-words text-center text-6xl md:text-8xl"
+					className="mb-20 text-center text-6xl break-words hyphens-auto md:text-8xl"
 				>
 					{t("members.title")}
 				</Heading>
@@ -39,18 +39,18 @@ export function Members() {
 					{sections.map((section) => (
 						<div
 							key={section.key}
-							className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xs transition-colors hover:border-pret-yellow"
+							className="group hover:border-pret-yellow rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xs transition-colors"
 						>
 							<Heading
 								level={3}
 								variant="red"
-								className="mb-4 text-2xl transition-colors group-hover:text-pret-yellow"
+								className="group-hover:text-pret-yellow mb-4 text-2xl transition-colors"
 							>
 								{t(`members.categories.${section.key}`)}
 							</Heading>
 							<ul className="space-y-2">
 								{section.names.map((name) => (
-									<li key={name} className="font-body text-white/70 text-xl">
+									<li key={name} className="font-body text-xl text-white/70">
 										– {name}
 									</li>
 								))}

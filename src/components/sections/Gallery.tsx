@@ -92,7 +92,7 @@ export function Gallery() {
 					>
 						{t("gallery.title")}
 					</Heading>
-					<p className="mx-auto max-w-2xl font-body text-md text-white/70 md:text-2xl">
+					<p className="font-body text-md mx-auto max-w-2xl text-white/70 md:text-2xl">
 						{t("gallery.description")}
 					</p>
 				</div>
@@ -103,13 +103,13 @@ export function Gallery() {
 							key={src}
 							type="button"
 							onClick={() => openLightbox(index)}
-							className={`group relative mb-6 block w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-3xl border-4 border-white/10 bg-pret-dark transition-all duration-500 hover:z-20 hover:scale-[1.02] hover:border-pret-yellow hover:shadow-2xl ${
+							className={`group bg-pret-dark hover:border-pret-yellow relative mb-6 block w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-3xl border-4 border-white/10 transition-all duration-500 hover:z-20 hover:scale-[1.02] hover:shadow-2xl ${
 								index % 3 === 0
 									? "rotate-1"
 									: index % 3 === 1
 										? "-rotate-1"
 										: "rotate-2"
-							} hover:rotate-0 focus-visible:outline-hidden focus-visible:ring-4 focus-visible:ring-pret-yellow`}
+							} focus-visible:ring-pret-yellow hover:rotate-0 focus-visible:ring-4 focus-visible:outline-hidden`}
 						>
 							<img
 								src={src}
@@ -117,8 +117,8 @@ export function Gallery() {
 								loading="lazy"
 								className="h-auto w-full object-cover"
 							/>
-							<div className="absolute inset-0 flex items-center justify-center bg-pret-dark/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-								<ZoomIn className="h-12 w-12 animate-pulse text-pret-yellow" />
+							<div className="bg-pret-dark/40 absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+								<ZoomIn className="text-pret-yellow h-12 w-12 animate-pulse" />
 							</div>
 						</button>
 					))}
@@ -128,7 +128,7 @@ export function Gallery() {
 			{/* Lightbox Modal using Portal */}
 			{selectedIndex !== null &&
 				createPortal(
-					<div className="fixed inset-0 z-[9999] flex animate-fade-in items-center justify-center bg-pret-dark/95 backdrop-blur-xl">
+					<div className="animate-fade-in bg-pret-dark/95 fixed inset-0 z-[9999] flex items-center justify-center backdrop-blur-xl">
 						{/* Overlay button to close */}
 						<button
 							type="button"
@@ -172,10 +172,10 @@ export function Gallery() {
 								<img
 									src={images[selectedIndex]}
 									alt={altFromUrl(images[selectedIndex])}
-									className="h-auto max-h-[70vh] w-auto animate-scale-in object-contain md:max-h-[75vh]"
+									className="animate-scale-in h-auto max-h-[70vh] w-auto object-contain md:max-h-[75vh]"
 								/>
 								<div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-center">
-									<p className="font-display text-white text-xl uppercase tracking-widest">
+									<p className="font-display text-xl tracking-widest text-white uppercase">
 										{selectedIndex + 1} / {images.length}
 									</p>
 								</div>

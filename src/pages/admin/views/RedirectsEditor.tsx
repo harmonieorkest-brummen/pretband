@@ -207,7 +207,7 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 	if (loading) {
 		return (
 			<div className="flex min-h-screen items-center justify-center">
-				<div className="h-8 w-8 animate-spin rounded-full border-pret-yellow border-t-2 border-b-2" />
+				<div className="border-pret-yellow h-8 w-8 animate-spin rounded-full border-t-2 border-b-2" />
 			</div>
 		);
 	}
@@ -228,9 +228,9 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 				addItemLabel={t("admin.redirects.new_button", "New code")}
 			/>
 
-			<div className="mb-8 flex animate-fade-in items-center gap-4 rounded-2xl border border-pret-yellow/20 bg-pret-yellow/10 p-4">
+			<div className="animate-fade-in border-pret-yellow/20 bg-pret-yellow/10 mb-8 flex items-center gap-4 rounded-2xl border p-4">
 				<span className="text-2xl">🔗</span>
-				<p className="font-medium text-pret-yellow/80 text-sm leading-relaxed">
+				<p className="text-pret-yellow/80 text-sm leading-relaxed font-medium">
 					{t("admin.redirects.notice", {
 						base: publicEnv.qrBaseUrl,
 						defaultValue:
@@ -250,9 +250,9 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 							<button
 								type="button"
 								onClick={() => setExpanded(open ? null : row.key)}
-								className={`relative flex w-full cursor-pointer items-center gap-4 overflow-hidden border bg-black/40 p-5 transition-colors hover:bg-black/60 ${open ? "rounded-t-2xl border-pret-yellow" : "rounded-2xl border-white/10"}`}
+								className={`relative flex w-full cursor-pointer items-center gap-4 overflow-hidden border bg-black/40 p-5 transition-colors hover:bg-black/60 ${open ? "border-pret-yellow rounded-t-2xl" : "rounded-2xl border-white/10"}`}
 							>
-								<span className="min-w-[80px] font-semibold text-pret-yellow">
+								<span className="text-pret-yellow min-w-[80px] font-semibold">
 									/{row.slug || "…"}
 								</span>
 								<span className="flex-1 truncate text-left text-sm text-white/60">
@@ -261,7 +261,7 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 										t("admin.redirects.no_target", "No destination yet")}
 								</span>
 								<div className="ml-auto flex items-center gap-4">
-									<span className="rounded-full border border-white/15 bg-white/5 px-2 py-1 font-bold text-[10px] text-white/60 uppercase tracking-widest">
+									<span className="rounded-full border border-white/15 bg-white/5 px-2 py-1 text-[10px] font-bold tracking-widest text-white/60 uppercase">
 										{t("admin.redirects.scans", {
 											count: row.scans ?? 0,
 											defaultValue: "{{count}} scans",
@@ -274,7 +274,7 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 							</button>
 
 							{open && (
-								<div className="animate-fade-in rounded-b-2xl border border-pret-yellow border-t-0 bg-black/80 p-6 md:p-8">
+								<div className="animate-fade-in border-pret-yellow rounded-b-2xl border border-t-0 bg-black/80 p-6 md:p-8">
 									<div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_auto]">
 										<div className="flex flex-col gap-5">
 											<Input
@@ -317,7 +317,7 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 											/>
 
 											<div className="flex flex-col gap-2">
-												<span className="font-display text-white/60 text-xs uppercase tracking-widest">
+												<span className="font-display text-xs tracking-widest text-white/60 uppercase">
 													{t("admin.redirects.quick_insert", "Quick insert")}
 												</span>
 												<div className="flex flex-wrap gap-2">
@@ -330,7 +330,7 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 																	url: internalUrl(target.section),
 																})
 															}
-															className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-white/70 text-xs transition-colors hover:border-pret-yellow hover:text-pret-yellow"
+															className="hover:border-pret-yellow hover:text-pret-yellow rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/70 transition-colors"
 														>
 															{t(
 																`admin.redirects.targets.${target.id}`,
@@ -346,7 +346,7 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 																	url: publicEnv.instagramUrl as string,
 																})
 															}
-															className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-white/70 text-xs transition-colors hover:border-pret-yellow hover:text-pret-yellow"
+															className="hover:border-pret-yellow hover:text-pret-yellow rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/70 transition-colors"
 														>
 															Instagram
 														</button>
@@ -359,7 +359,7 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 																	url: publicEnv.tiktokUrl as string,
 																})
 															}
-															className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-white/70 text-xs transition-colors hover:border-pret-yellow hover:text-pret-yellow"
+															className="hover:border-pret-yellow hover:text-pret-yellow rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/70 transition-colors"
 														>
 															TikTok
 														</button>
@@ -368,18 +368,18 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 											</div>
 
 											<div className="flex flex-col gap-2 rounded-2xl border border-white/10 bg-black/40 p-4">
-												<span className="flex items-center gap-2 font-display text-white/60 text-xs uppercase tracking-widest">
+												<span className="font-display flex items-center gap-2 text-xs tracking-widest text-white/60 uppercase">
 													<LinkIcon className="h-3.5 w-3.5" />
 													{t("admin.redirects.encoded_url", "The QR points to")}
 												</span>
 												<div className="flex items-center gap-3">
-													<code className="flex-1 truncate text-pret-yellow text-sm">
+													<code className="text-pret-yellow flex-1 truncate text-sm">
 														{encoded}
 													</code>
 													<button
 														type="button"
 														onClick={() => copy(encoded)}
-														className="shrink-0 text-white/60 transition-colors hover:text-pret-yellow"
+														className="hover:text-pret-yellow shrink-0 text-white/60 transition-colors"
 														title={t("admin.redirects.copy", "Copy link")}
 													>
 														<Copy className="h-4 w-4" />
@@ -412,7 +412,7 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 													</div>
 												</>
 											) : (
-												<div className="flex h-[176px] w-[176px] flex-col items-center justify-center rounded-xl border border-white/10 border-dashed text-center text-white/40 text-xs">
+												<div className="flex h-[176px] w-[176px] flex-col items-center justify-center rounded-xl border border-dashed border-white/10 text-center text-xs text-white/40">
 													<QrCodeIcon className="mb-2 h-8 w-8 opacity-50" />
 													{t(
 														"admin.redirects.need_slug",
@@ -423,7 +423,7 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 										</div>
 									</div>
 
-									<div className="mt-8 flex justify-end border-white/10 border-t pt-6">
+									<div className="mt-8 flex justify-end border-t border-white/10 pt-6">
 										<Button
 											variant="secondary"
 											size="sm"
@@ -439,7 +439,7 @@ export function RedirectsEditor({ onBack, onLogout }: RedirectsEditorProps) {
 				})}
 
 				{rows.length === 0 && (
-					<div className="py-20 text-center font-display text-white/40 uppercase tracking-widest">
+					<div className="font-display py-20 text-center tracking-widest text-white/40 uppercase">
 						{t("admin.redirects.empty", "No QR codes yet. Create one!")}
 					</div>
 				)}

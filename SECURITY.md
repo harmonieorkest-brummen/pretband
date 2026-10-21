@@ -4,10 +4,10 @@
 
 Only the latest version of this project is actively maintained and receives security updates.
 
-| Version | Supported |
-| ------- | --------- |
-| latest (`main`) | ✅ |
-| older branches | ❌ |
+| Version         | Supported |
+| --------------- | --------- |
+| latest (`main`) | ✅        |
+| older branches  | ❌        |
 
 ---
 
@@ -16,7 +16,6 @@ Only the latest version of this project is actively maintained and receives secu
 If you discover a security vulnerability, please **do not** open a public issue. Instead, report it privately so we can address it before it becomes public knowledge.
 
 **To report a vulnerability:**
-
 - Open a [GitHub Security Advisory](https://github.com/HOBrummen/pretband/security/advisories/new) (preferred)
 - Or email the maintainers directly (see the repository profile for contact details)
 
@@ -30,7 +29,6 @@ Please include as much of the following as possible:
 ## Response Timeline
 
 We are a small volunteer-run project, but we take security seriously. You can expect:
-
 - **Acknowledgement** of your report within **5 business days**
 - **A fix or mitigation plan** within **30 days**, depending on severity
 
@@ -41,7 +39,6 @@ We'll keep you updated throughout the process and credit you in the release note
 ## Scope
 
 Given the nature of this project (a community band website), the most relevant security concerns are:
-
 - **Dependencies with known CVEs** — please flag outdated or vulnerable packages
 - **XSS or injection vulnerabilities** — if the site handles any user input
 - **Exposed secrets or credentials** accidentally committed to the repo

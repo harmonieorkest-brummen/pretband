@@ -25,21 +25,37 @@ afterEach(() => {
 	vi.clearAllMocks();
 });
 
-describe("ToastContext", () => {
-	function ToastConsumer() {
-		const { showToast } = useToast();
-		return (
-			<div>
-				<button type="button" onClick={() => showToast("Saved!")}>
-					default
-				</button>
-				<button type="button" onClick={() => showToast("Boom", "error")}>
-					error
-				</button>
-			</div>
-		);
-	}
+function ToastConsumer() {
+	const { showToast } = useToast();
+	return (
+		<div>
+			<button type="button" onClick={() => showToast("Saved!")}>
+				default
+			</button>
+			<button type="button" onClick={() => showToast("Boom", "error")}>
+				error
+			</button>
+		</div>
+	);
+}
 
+function DataConsumer() {
+	const { data, loading, error, refetch } = useData();
+	return (
+		<div>
+			<span data-testid="loading">{loading ? "loading" : "idle"}</span>
+			<span data-testid="error">{error ? error.message : "none"}</span>
+			<span data-testid="sections">
+				{data ? String(data.members.sections.length) : "no-data"}
+			</span>
+			<button type="button" onClick={() => refetch()}>
+				refetch
+			</button>
+		</div>
+	);
+}
+
+describe("ToastContext", () => {
 	it("throws when useToast is used outside the provider", () => {
 		const spy = vi.spyOn(console, "error").mockImplementation(() => {});
 		expect(() => render(<ToastConsumer />)).toThrow(
@@ -122,22 +138,6 @@ describe("DataContext", () => {
 		mockFetchMembers.mockResolvedValue(membersFixture);
 		mockFetchAgenda.mockResolvedValue(agendaFixture);
 	});
-
-	function DataConsumer() {
-		const { data, loading, error, refetch } = useData();
-		return (
-			<div>
-				<span data-testid="loading">{loading ? "loading" : "idle"}</span>
-				<span data-testid="error">{error ? error.message : "none"}</span>
-				<span data-testid="sections">
-					{data ? String(data.members.sections.length) : "no-data"}
-				</span>
-				<button type="button" onClick={() => refetch()}>
-					refetch
-				</button>
-			</div>
-		);
-	}
 
 	it("throws when useData is used outside the provider", () => {
 		const spy = vi.spyOn(console, "error").mockImplementation(() => {});

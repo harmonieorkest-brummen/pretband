@@ -45,8 +45,8 @@ export function Agenda() {
 	return (
 		<section id="agenda" className="relative py-40">
 			{/* Background Text */}
-			<div className="pointer-events-none absolute inset-0 flex select-none items-center justify-center overflow-hidden opacity-5">
-				<span className="animate-tilt whitespace-nowrap font-black font-display text-[30rem] uppercase">
+			<div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden opacity-5 select-none">
+				<span className="animate-tilt font-display text-[30rem] font-black whitespace-nowrap uppercase">
 					{t("agenda.bg_text")}
 				</span>
 			</div>

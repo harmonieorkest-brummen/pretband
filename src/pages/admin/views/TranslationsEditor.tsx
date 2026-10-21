@@ -73,7 +73,7 @@ export function TranslationsEditor({
 	};
 
 	return (
-		<div className="mx-auto min-h-screen max-w-[1600px] px-6 py-20 font-body">
+		<div className="font-body mx-auto min-h-screen max-w-[1600px] px-6 py-20">
 			<AdminTopBar
 				title={t("admin.translations.title", "Vertalingen")}
 				stat={t("admin.translations.stat", {
@@ -109,7 +109,7 @@ export function TranslationsEditor({
 
 			<div className="sticky top-24 z-10 mb-8 transition-all duration-300">
 				<div className="group relative">
-					<Search className="absolute top-1/2 left-6 h-5 w-5 -translate-y-1/2 text-white/20 transition-colors group-focus-within:text-pret-yellow" />
+					<Search className="group-focus-within:text-pret-yellow absolute top-1/2 left-6 h-5 w-5 -translate-y-1/2 text-white/20 transition-colors" />
 					<Input
 						value={search}
 						onChange={(e) => setSearch(e.target.value)}
@@ -117,7 +117,7 @@ export function TranslationsEditor({
 							"admin.translations.search_placeholder",
 							"Zoek op sleutel of tekst...",
 						)}
-						className="h-14 rounded-2xl border-white/10 bg-black/60 pl-16 backdrop-blur-3xl focus:border-pret-yellow/50"
+						className="focus:border-pret-yellow/50 h-14 rounded-2xl border-white/10 bg-black/60 pl-16 backdrop-blur-3xl"
 					/>
 				</div>
 			</div>
@@ -140,20 +140,20 @@ export function TranslationsEditor({
 							<button
 								type="button"
 								onClick={() => toggleSection(section)}
-								className="grid cursor-pointer grid-cols-[1fr,1.5fr,1.5fr] items-center gap-4 border-white/5 border-b bg-white/[0.03] px-6 py-4 text-left transition-colors hover:bg-white/[0.08]"
+								className="grid cursor-pointer grid-cols-[1fr,1.5fr,1.5fr] items-center gap-4 border-b border-white/5 bg-white/[0.03] px-6 py-4 text-left transition-colors hover:bg-white/[0.08]"
 							>
 								<div className="flex items-center gap-2">
 									<Globe
 										className={`transition-colors ${isCollapsed ? "text-white/20" : "text-pret-yellow"}`}
 									/>
-									<span className="font-display text-white uppercase tracking-[2.5px]">
+									<span className="font-display tracking-[2.5px] text-white uppercase">
 										{section}
 									</span>
 									<span className="font-body text-white/20 lowercase">
 										({sectionKeys.length})
 									</span>
 									<ChevronDown
-										className={`ml-auto text-white/20 transition-transform duration-300 ${!isCollapsed ? "rotate-180 text-pret-yellow/40" : ""}`}
+										className={`ml-auto text-white/20 transition-transform duration-300 ${!isCollapsed ? "text-pret-yellow/40 rotate-180" : ""}`}
 									/>
 								</div>
 							</button>
@@ -167,14 +167,14 @@ export function TranslationsEditor({
 										>
 											<div className="pt-2">
 												<span
-													className="block truncate break-all font-display text-white/40 uppercase leading-tight tracking-tight"
+													className="font-display block truncate leading-tight tracking-tight break-all text-white/40 uppercase"
 													title={k}
 												>
 													{k.split(".").slice(1).join(".") || k}
 												</span>
 											</div>
 											<div className="relative">
-												<span className="block truncate break-all font-display text-white/40 text-xs uppercase leading-tight tracking-tight">
+												<span className="font-display block truncate text-xs leading-tight tracking-tight break-all text-white/40 uppercase">
 													nl
 												</span>
 												<textarea
@@ -183,11 +183,11 @@ export function TranslationsEditor({
 													onChange={(e) =>
 														handleUpdate("nl", k, e.target.value)
 													}
-													className="min-h-[38px] w-full resize-none rounded-lg border border-white/5 bg-black/40 px-3 py-2 font-body text-[13px] text-white leading-snug transition placeholder:text-white/10 focus:outline-none focus:ring-1 focus:ring-pret-yellow/20"
+													className="font-body focus:ring-pret-yellow/20 min-h-[38px] w-full resize-none rounded-lg border border-white/5 bg-black/40 px-3 py-2 text-[13px] leading-snug text-white transition placeholder:text-white/10 focus:ring-1 focus:outline-none"
 												/>
 											</div>
 											<div className="relative">
-												<span className="block truncate break-all font-display text-white/40 text-xs uppercase leading-tight tracking-tight">
+												<span className="font-display block truncate text-xs leading-tight tracking-tight break-all text-white/40 uppercase">
 													en
 												</span>
 												<textarea
@@ -196,7 +196,7 @@ export function TranslationsEditor({
 													onChange={(e) =>
 														handleUpdate("en", k, e.target.value)
 													}
-													className="min-h-[38px] w-full resize-none rounded-lg border border-white/5 bg-black/40 px-3 py-2 font-body text-[13px] text-white leading-snug transition placeholder:text-white/10 focus:outline-none focus:ring-1 focus:ring-pret-yellow/20"
+													className="font-body focus:ring-pret-yellow/20 min-h-[38px] w-full resize-none rounded-lg border border-white/5 bg-black/40 px-3 py-2 text-[13px] leading-snug text-white transition placeholder:text-white/10 focus:ring-1 focus:outline-none"
 												/>
 											</div>
 										</div>
@@ -208,7 +208,7 @@ export function TranslationsEditor({
 				})}
 
 				{keys.length === 0 && (
-					<div className="rounded-3xl border border-white/10 border-dashed bg-black/20 py-20 text-center font-display text-white/40 uppercase tracking-widest">
+					<div className="font-display rounded-3xl border border-dashed border-white/10 bg-black/20 py-20 text-center tracking-widest text-white/40 uppercase">
 						{t("admin.translations.no_results", "Geen vertalingen gevonden")}
 					</div>
 				)}

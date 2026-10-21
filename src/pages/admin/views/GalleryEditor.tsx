@@ -181,7 +181,7 @@ export function GalleryEditor({ onBack, onLogout }: GalleryEditorProps) {
 				hideSaveButton={true}
 			/>
 
-			<div className="mb-12 flex flex-col items-center justify-center rounded-[2rem] border border-white/20 border-dashed bg-black/20 p-12 text-center transition-colors hover:border-pret-yellow/50 hover:bg-black/40">
+			<div className="hover:border-pret-yellow/50 mb-12 flex flex-col items-center justify-center rounded-[2rem] border border-dashed border-white/20 bg-black/20 p-12 text-center transition-colors hover:bg-black/40">
 				<input
 					type="file"
 					accept="image/png, image/jpeg, image/webp, image/avif"
@@ -191,7 +191,7 @@ export function GalleryEditor({ onBack, onLogout }: GalleryEditorProps) {
 					onChange={handleFileSelect}
 					disabled={uploading}
 				/>
-				<div className="mb-6 rounded-full bg-pret-red/20 p-4 text-pret-red">
+				<div className="bg-pret-red/20 text-pret-red mb-6 rounded-full p-4">
 					<Upload size={32} />
 				</div>
 				<Heading level={3} className="mb-2">
@@ -216,7 +216,7 @@ export function GalleryEditor({ onBack, onLogout }: GalleryEditorProps) {
 
 			{loading ? (
 				<div className="flex justify-center p-12">
-					<div className="h-8 w-8 animate-spin rounded-full border-pret-yellow border-t-2 border-b-2" />
+					<div className="border-pret-yellow h-8 w-8 animate-spin rounded-full border-t-2 border-b-2" />
 				</div>
 			) : (
 				<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -234,7 +234,7 @@ export function GalleryEditor({ onBack, onLogout }: GalleryEditorProps) {
 								<button
 									type="button"
 									onClick={() => handleDelete(url)}
-									className="rounded-full bg-pret-red p-3 text-white transition-transform hover:scale-110"
+									className="bg-pret-red rounded-full p-3 text-white transition-transform hover:scale-110"
 									title={t("admin.gallery.delete", "Delete Image")}
 								>
 									<Trash size={20} />

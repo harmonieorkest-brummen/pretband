@@ -85,7 +85,7 @@ function AchievementOverlay() {
 	if (!show) return null;
 
 	return (
-		<div className="fixed inset-0 z-500 flex animate-fade-in items-center justify-center bg-pret-dark/95 p-6 backdrop-blur-xl">
+		<div className="animate-fade-in bg-pret-dark/95 fixed inset-0 z-500 flex items-center justify-center p-6 backdrop-blur-xl">
 			<div className="max-w-2xl text-center">
 				<Heading
 					level={1}
@@ -94,7 +94,7 @@ function AchievementOverlay() {
 				>
 					LEGEND!
 				</Heading>
-				<p className="mb-12 font-body text-2xl text-white leading-relaxed md:text-4xl">
+				<p className="font-body mb-12 text-2xl leading-relaxed text-white md:text-4xl">
 					You found all the hidden secrets. You are now an honorary member of
 					the chaos!
 				</p>
@@ -112,7 +112,7 @@ function AchievementOverlay() {
 						resetEggs();
 						setShow(false);
 					}}
-					className="mt-12 block w-full text-center font-body text-white/30 underline transition-colors hover:text-white"
+					className="font-body mt-12 block w-full text-center text-white/30 underline transition-colors hover:text-white"
 				>
 					Reset and find them again?
 				</button>
@@ -231,17 +231,17 @@ function PublicSite() {
 	return (
 		<>
 			<BackgroundLayer />
-			<div className="relative min-h-screen bg-pret-dark font-body text-white selection:bg-pret-yellow selection:text-pret-dark">
+			<div className="bg-pret-dark font-body selection:bg-pret-yellow selection:text-pret-dark relative min-h-screen text-white">
 				<a
 					href="#main-content"
-					className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[1000] focus:rounded-lg focus:bg-pret-yellow focus:px-4 focus:py-2 focus:font-display focus:text-pret-dark focus-visible:outline-hidden focus-visible:ring-4 focus-visible:ring-white"
+					className="focus:bg-pret-yellow focus:font-display focus:text-pret-dark sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[1000] focus:rounded-lg focus:px-4 focus:py-2 focus-visible:ring-4 focus-visible:ring-white focus-visible:outline-hidden"
 				>
 					{t("common.skip_to_main", { defaultValue: "Skip to main content" })}
 				</a>
 
 				{/* Party Backdrop */}
 				<div
-					className="pointer-events-none fixed inset-0 z-[100] bg-noise"
+					className="bg-noise pointer-events-none fixed inset-0 z-[100]"
 					aria-hidden="true"
 				></div>
 				<div

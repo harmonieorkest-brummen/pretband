@@ -22,12 +22,12 @@ export function LandingScreen({
 
 	return (
 		<div className="mx-auto min-h-screen max-w-6xl px-6 py-20">
-			<div className="mb-16 flex animate-fade-in flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+			<div className="animate-fade-in mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
 				<div>
 					<Heading level={2} variant="yellow" className="text-5xl md:text-6xl">
 						{t("admin.landing.title")}
 					</Heading>
-					<p className="mt-2 text-white/60 text-xs uppercase tracking-[2.5px]">
+					<p className="mt-2 text-xs tracking-[2.5px] text-white/60 uppercase">
 						{t("admin.landing.subtitle")}
 					</p>
 				</div>
@@ -112,20 +112,20 @@ export function LandingScreen({
 						onClick={() => onSelect(c.key)}
 						onKeyDown={(e) => e.key === "Enter" && onSelect(c.key)}
 						tabIndex={0}
-						className="group relative block animate-fade-in cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-10 transition-all duration-300 hover:-translate-y-2 hover:border-pret-yellow hover:bg-white/10"
+						className="group animate-fade-in hover:border-pret-yellow relative block cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-10 transition-all duration-300 hover:-translate-y-2 hover:bg-white/10"
 					>
 						<div className="mb-6 text-5xl">{c.icon}</div>
 						<Heading
 							level={3}
-							className="mb-3 text-4xl transition-colors group-hover:text-pret-yellow"
+							className="group-hover:text-pret-yellow mb-3 text-4xl transition-colors"
 						>
 							{c.title}
 						</Heading>
-						<div className="mb-4 font-bold text-pret-red text-sm uppercase tracking-[1.5px]">
+						<div className="text-pret-red mb-4 text-sm font-bold tracking-[1.5px] uppercase">
 							{c.stat}
 						</div>
-						<p className="text-lg text-white/60 leading-relaxed">{c.desc}</p>
-						<div className="mt-8 font-bold font-display text-pret-yellow text-sm uppercase tracking-widest transition-transform group-hover:translate-x-2">
+						<p className="text-lg leading-relaxed text-white/60">{c.desc}</p>
+						<div className="font-display text-pret-yellow mt-8 text-sm font-bold tracking-widest uppercase transition-transform group-hover:translate-x-2">
 							{t("admin.landing.edit_button")}
 						</div>
 					</button>

@@ -49,12 +49,12 @@ export function EventCard({
 						{date}
 					</Badge>
 					<h3
-						className={`font-black font-display text-4xl text-white transition-colors md:text-6xl ${textHoverColors[variant]}`}
+						className={`font-display text-4xl font-black text-white transition-colors md:text-6xl ${textHoverColors[variant]}`}
 					>
 						{title}
 					</h3>
 					<p
-						className={`font-display text-2xl text-pret-yellow uppercase transition-colors ${subTextHoverColors[variant]}`}
+						className={`font-display text-pret-yellow text-2xl uppercase transition-colors ${subTextHoverColors[variant]}`}
 					>
 						{location}
 					</p>
@@ -64,13 +64,13 @@ export function EventCard({
 						<a
 							href={calendarUrl}
 							download={`${title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.ics`}
-							className="block text-white text-xl uppercase opacity-60 transition-opacity hover:opacity-100 focus:opacity-100 group-hover:opacity-100"
+							className="block text-xl text-white uppercase opacity-60 transition-opacity group-hover:opacity-100 hover:opacity-100 focus:opacity-100"
 							title="Download iCal event"
 						>
 							{actionText}
 						</a>
 					) : actionText ? (
-						<span className="text-white text-xl uppercase opacity-60 group-hover:opacity-100">
+						<span className="text-xl text-white uppercase opacity-60 group-hover:opacity-100">
 							{actionText}
 						</span>
 					) : null}
