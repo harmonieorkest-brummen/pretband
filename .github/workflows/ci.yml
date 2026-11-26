@@ -12,7 +12,6 @@ jobs:
         VITE_GTM_TAG_ID=${{ secrets.VITE_GTM_TAG_ID }}
         VITE_INSTAGRAM_URL=${{ secrets.VITE_INSTAGRAM_URL }}
         VITE_TIKTOK_URL=${{ secrets.VITE_TIKTOK_URL }}
-        VITE_SITE_URL=${{ vars.VITE_SITE_URL || 'https://pretband.nl' }}
         VITE_BASIN_FORM_ID=${{ secrets.VITE_BASIN_FORM_ID }}
         VITE_RECAPTCHA_SITE_KEY=${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
   deploy:
